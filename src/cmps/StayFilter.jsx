@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export function CarFilter({ filterBy, setFilterBy }) {
+export function StayFilter({ filterBy, setFilterBy }) {
     const [ filterToEdit, setFilterToEdit ] = useState(structuredClone(filterBy))
 
     useEffect(() => {
@@ -33,7 +33,7 @@ export function CarFilter({ filterBy, setFilterBy }) {
         setFilterToEdit({ ...filterToEdit, sortField: '', sortDir: '' })
     }
 
-    return <section className="car-filter">
+    return <section className="stay-filter">
             <h3>Filter:</h3>
             <input
                 type="text"
@@ -46,9 +46,9 @@ export function CarFilter({ filterBy, setFilterBy }) {
             <input
                 type="number"
                 min="0"
-                name="minSpeed"
+                name="price"
                 value={filterToEdit.minSpeed}
-                placeholder="min. speed"
+                placeholder="min. price"
                 onChange={handleChange}
                 required
             />

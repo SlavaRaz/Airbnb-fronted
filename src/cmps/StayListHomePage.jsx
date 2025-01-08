@@ -6,7 +6,7 @@ export function StayListHomePage() {
           _id: makeId,
           name: 'Ribeira Charming Duplex',
           type: 'House',
-          imgUrls: ['https://example.com/img1.jpg', 'https://example.com/img2.jpg'],
+          imgUrls: ['https://res.cloudinary.com/datd8aqvh/image/upload/v1736371727/xrxhgsif3ekhxgn8irlm_kuoudu.jpg'],
           price: 80,
           summary: 'Fantastic duplex apartment in the heart of the city.',
           capacity: 8,
@@ -50,7 +50,7 @@ export function StayListHomePage() {
           _id: makeId,
           name: 'Oceanview Penthouse',
           type: 'Apartment',
-          imgUrls: ['https://example.com/ocean1.jpg', 'https://example.com/ocean2.jpg'],
+          imgUrls: ['https://res.cloudinary.com/datd8aqvh/image/upload/v1736371724/xle8ueqxjeazbs4bp09p_vcgb4x.jpg'],
           price: 200,
           summary: 'Luxury penthouse with stunning ocean views.',
           capacity: 4,
@@ -87,7 +87,7 @@ export function StayListHomePage() {
           _id: makeId,
           name: 'Rustic Cabin Retreat',
           type: 'Cabin',
-          imgUrls: ['https://example.com/cabin1.jpg', 'https://example.com/cabin2.jpg'],
+          imgUrls: ['https://res.cloudinary.com/datd8aqvh/image/upload/v1736371724/wzbrvr4mcsuub6gvwbry_ggnnk2.jpg'],
           price: 120,
           summary: 'Cozy cabin surrounded by nature.',
           capacity: 6,
@@ -124,7 +124,7 @@ export function StayListHomePage() {
           _id: makeId,
           name: 'Modern Urban Loft',
           type: 'Loft',
-          imgUrls: ['https://example.com/loft1.jpg', 'https://example.com/loft2.jpg'],
+          imgUrls: ['https://res.cloudinary.com/datd8aqvh/image/upload/v1736371724/wt0seud4ot4cmdrztdzz_stryvj.jpg'],
           price: 150,
           summary: 'Stylish loft in the heart of downtown.',
           capacity: 3,
@@ -161,7 +161,7 @@ export function StayListHomePage() {
           _id:makeId,
           name: 'Countryside Family Home',
           type: 'House',
-          imgUrls: ['https://example.com/house1.jpg', 'https://example.com/house2.jpg'],
+          imgUrls: ['https://res.cloudinary.com/datd8aqvh/image/upload/v1736371718/qi3vkpts37b4k0dedosc_t5wana.jpg'],
           price: 100,
           summary: 'Spacious family home surrounded by greenery.',
           capacity: 10,
@@ -198,7 +198,7 @@ export function StayListHomePage() {
           _id: makeId,
           name: 'Lakefront Cabin',
           type: 'Cabin',
-          imgUrls: ['https://example.com/lake1.jpg', 'https://example.com/lake2.jpg'],
+          imgUrls: ['https://res.cloudinary.com/datd8aqvh/image/upload/v1736371718/pivldxmrxssnhyzixhes_pagd0w.jpg'],
           price: 180,
           summary: 'Private cabin with stunning lake views.',
           capacity: 5,
@@ -235,7 +235,7 @@ export function StayListHomePage() {
           _id: makeId,
           name: 'Tropical Beachfront Bungalow',
           type: 'Bungalow',
-          imgUrls: ['https://example.com/beach1.jpg', 'https://example.com/beach2.jpg'],
+          imgUrls: ['https://res.cloudinary.com/datd8aqvh/image/upload/v1736371711/mvhb3iazpiar6duvy9we_ekm8vx.jpg'],
           price: 250,
           summary: 'Experience paradise in this beachfront bungalow.',
           capacity: 2,
@@ -272,7 +272,7 @@ export function StayListHomePage() {
           _id: makeId,
           name: 'Alpine Ski Chalet',
           type: 'Chalet',
-          imgUrls: ['https://example.com/chalet1.jpg', 'https://example.com/chalet2.jpg'],
+          imgUrls: ['https://res.cloudinary.com/datd8aqvh/image/upload/v1736371705/khyvb5q3yzcqaoscuppz_jrqvez.jpg'],
           price: 300,
           summary: 'Luxurious chalet perfect for ski enthusiasts.',
           capacity: 12,
@@ -308,7 +308,7 @@ export function StayListHomePage() {
             _id: makeId,
             name: 'Historic Castle Stay',
             type: 'Castle',
-            imgUrls: ['https://example.com/castle1.jpg', 'https://example.com/castle2.jpg'],
+            imgUrls: ['https://res.cloudinary.com/datd8aqvh/image/upload/v1736371689/y3scgbn8d6evumdpwdp4_jx1mfz.jpg'],
             price: 400,
             summary: 'Live like royalty in this historic castle.',
             capacity: 15,
@@ -345,7 +345,7 @@ export function StayListHomePage() {
             _id: makeId,
             name: 'Desert Oasis',
             type: 'Villa',
-            imgUrls: ['https://example.com/desert1.jpg', 'https://example.com/desert2.jpg'],
+            imgUrls: ['https://res.cloudinary.com/datd8aqvh/image/upload/v1736371689/abikktroqknzhch6b9ly_nvjqgb.jpg'],
             price: 220,
             summary: 'Luxurious villa in a peaceful desert setting.',
             capacity: 6,
@@ -377,7 +377,87 @@ export function StayListHomePage() {
               },
             ],
             likedByUsers: ['user_12'],
-          }]
+          },  {
+            _id: makeId,
+            name: 'Ribeira Charming Duplex',
+            type: 'House',
+            imgUrls: ['https://res.cloudinary.com/datd8aqvh/image/upload/v1736371727/xrxhgsif3ekhxgn8irlm_kuoudu.jpg'],
+            price: 80,
+            summary: 'Fantastic duplex apartment in the heart of the city.',
+            capacity: 8,
+            amenities: [
+              'TV',
+              'Wifi',
+              'Kitchen',
+              'Smoking allowed',
+              'Pets allowed',
+              'Cooking basics',
+            ],
+            labels: ['Top of the world', 'Trending', 'Play', 'Tropical'],
+            host: {
+              _id: 'u101',
+              fullname: 'Davit Pok',
+              imgUrl: 'https://example.com/profile1.jpg',
+            },
+            loc: {
+              country: 'Portugal',
+              countryCode: 'PT',
+              city: 'Lisbon',
+              address: '17 Kombo st',
+              lat: -8.61308,
+              lng: 41.1413,
+            },
+            reviews: [
+              {
+                id: 'review_001',
+                txt: 'Very helpful hosts. Cooked traditional meals!',
+                rate: 4,
+                by: {
+                  _id: 'u102',
+                  fullname: 'John Doe',
+                  imgUrl: '/img/user2.jpg',
+                },
+              },
+            ],
+            likedByUsers: ['user_01'],
+          },
+          {
+            _id: makeId,
+            name: 'Oceanview Penthouse',
+            type: 'Apartment',
+            imgUrls: ['https://res.cloudinary.com/datd8aqvh/image/upload/v1736371724/xle8ueqxjeazbs4bp09p_vcgb4x.jpg'],
+            price: 200,
+            summary: 'Luxury penthouse with stunning ocean views.',
+            capacity: 4,
+            amenities: ['TV', 'Wifi', 'Air conditioning', 'Hot tub'],
+            labels: ['Luxury', 'Relax', 'Beach'],
+            host: {
+              _id: 'u103',
+              fullname: 'Sophia Lee',
+              imgUrl: 'https://example.com/profile2.jpg',
+            },
+            loc: {
+              country: 'USA',
+              countryCode: 'US',
+              city: 'Miami',
+              address: '450 Ocean Drive',
+              lat: 25.7617,
+              lng: -80.1918,
+            },
+            reviews: [
+              {
+                id: 'review_002',
+                txt: 'Amazing location and incredible views!',
+                rate: 5,
+                by: {
+                  _id: 'u104',
+                  fullname: 'Emma Brown',
+                  imgUrl: '/img/user3.jpg',
+                },
+              },
+            ],
+            likedByUsers: ['user_02', 'user_03'],
+          },]
       
 
   return (
@@ -385,7 +465,7 @@ export function StayListHomePage() {
       <ul className='list'>
         {stays.map((stay) => (
           <article key={stay._id} className='stay-preview'>
-            <div className='preview-img'>images</div>
+            <img className='preview-img' src={stay.imgUrls}/>
             <div className='stay-card-details'>
               <div className='preview-header'>
                 <div className='preview-name'>{stay.name}</div>

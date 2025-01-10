@@ -35,8 +35,6 @@ export function SearchBar() {
         setIsOpen(true)
     }
 
-
-
     return (
         <div className={`search-bars ${isOpen ? 'search-bars-open' : ''}`}>
             <SearchPreview

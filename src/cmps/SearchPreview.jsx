@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { storageService } from '../services/async-storage.service'
+import { SearchBtn } from "./Search-btn.jsx"
 
 export function SearchPreview({ staySearchParams, handlePreviewClick }) {
     const { location, checkIn, checkOut, guests = {} } = staySearchParams
@@ -40,6 +41,7 @@ export function SearchPreview({ staySearchParams, handlePreviewClick }) {
             >
                 {guestsContent}
             </button>
+            <SearchBtn />
         </div>
     );
 }

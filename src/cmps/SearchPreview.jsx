@@ -19,31 +19,31 @@ export function SearchPreview({ staySearchParams, handlePreviewClick }) {
     return (
         <div className="search-preview">
             <button
-                className="search-preview__button"
+                className="search-anywhere"
                 onClick={() => handlePreviewClick('location')}
             >
                 {locationContent}
             </button>
 
-            <span className="search-preview__divider"></span>
+            <span className="splitter"></span>
 
             <button
-                className="search-preview__button"
+                className="search-any-week"
                 onClick={() => handlePreviewClick('dates')}
             >
                 {dateContent}
             </button>
 
-            <span className="search-preview__divider"></span>
+            <span className="splitter"></span>
             <button
-                className="search-preview__button"
+                className="search-add-guests"
                 onClick={() => handlePreviewClick('guests')}
             >
                 {guestsContent}
             </button>
             <SearchBtn />
         </div>
-    );
+    )
 }
 
 // Utility function to format the date

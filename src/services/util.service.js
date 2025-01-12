@@ -1,3 +1,17 @@
+export const utilService = {
+    makeId,
+    makeLorem,
+    getRandomIntInclusive,
+    debounce,
+    randomPastTime,
+    saveToStorage,
+    loadFromStorage,
+    getTimeStampXDaysAgo,
+    getTimeStampXDaysFromNow,
+    objectToSearchParams,
+  }
+
+
 export function makeId(length = 6) {
     var txt = ''
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
@@ -52,3 +66,32 @@ export function loadFromStorage(key) {
     return (data) ? JSON.parse(data) : undefined
 }
 
+function getTimeStampXDaysAgo(days) {
+    const date = new Date()
+    date.setDate(date.getDate() - days)
+    return date.getTime()
+  }
+  
+  function getTimeStampXDaysFromNow(days) {
+    const date = new Date()
+    date.setDate(date.getDate() + days)
+    return date.getTime()
+  }
+
+  function objectToSearchParams(obj) {
+    let searchParams = new URLSearchParams()
+    function flattenObject(obj, parentKey) {
+      Object.keys(obj).forEach(key => {
+        const value = obj[key]
+        const newKey = parentKey ? `${parentKey}[${key}]` : key
+        if (typeof value === 'object' && value !== null) {
+          flattenObject(value, newKey)
+        } else {
+          searchParams.set(newKey, value)
+        }
+      })
+    }
+    flattenObject(obj)
+    return searchParams.toString()
+  }
+  

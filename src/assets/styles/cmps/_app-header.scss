@@ -29,6 +29,12 @@
         transform: initial;
     }
 
+    &:has(.search-bars-open)::after {
+        transform: scaleY(0.5);
+        border-bottom: none;
+        transition: transform 250ms ease;
+      }
+
     .header-logo {
         display: flex;
         align-items: center;

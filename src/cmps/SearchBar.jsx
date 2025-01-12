@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { SearchPreview } from './SearchPreview.jsx';
-// import { StaySearchForm } from './StaySearchForm.jsx';
+import { StaySearchForm } from './StaySearchForm.jsx';
 
 export function SearchBar() {
     const [searchParams] = useSearchParams()
@@ -41,12 +41,12 @@ export function SearchBar() {
                 staySearchParams={staySearchParams}
                 handlePreviewClick={handlePreviewClick}
             />
-            {/* <StaySearchForm
+            <StaySearchForm
                 staySearchParams={staySearchParams}
                 handleToggle={handleToggle}
                 selectedTab={selectedTab}
                 setSelectedTab={setSelectedTab}
-            /> */}
+            />
            
             {isOpen && <div className="screen-blur" onClick={handleToggle}></div>}
         </div>

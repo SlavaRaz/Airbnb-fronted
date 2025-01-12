@@ -1,8 +1,16 @@
-.search-bars-open .search-preview {
-    opacity: 0;
-    visibility: hidden;
-    transition: transform 250ms ease, opacity 100ms ease, visibility 0ms;
+.search-bars-open {
+
+    .search-preview {
+        // transform: translateY(0);
+        // opacity: 1;
+        // visibility: visible;
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 250ms ease, opacity 100ms ease, visibility 0ms;
+        width: 100%;
+    }
 }
+
 
 .search-preview {
     padding-inline-start: 8px;
@@ -18,7 +26,7 @@
     vertical-align: middle;
     cursor: pointer;
     transition: transform 250ms ease, opacity 200ms ease 100ms, visibility 0ms 200ms;
-    white-space: nowrap;
+    // white-space: nowrap;
 
     &:has(.start-your-search) {
         min-width: 300px;
@@ -51,7 +59,8 @@
         line-break: strict;
         min-width: 80px;
         padding: 12px 16px;
-        font-size: 14px;
+        font-size: 16px;
+        font-style: bold;
         color: $clr-text-primary;
         flex-grow: 1;
     }
@@ -64,6 +73,7 @@
     .search-add-guests {
         color: $clr-text-secondary;
         margin-right: -8px;
+        font-family: cereal-regular;
     }
 
     .search-btn {
@@ -71,7 +81,7 @@
         background-color: $clr-brand;
         border-radius: 50%;
         padding: 10px;
-        margin: 7px 7px 7px 7px;
+        margin: 7px 12px;
         height: 32px;
         min-width: 32px;
         border: transparent;

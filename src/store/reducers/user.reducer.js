@@ -8,12 +8,15 @@ export const SET_WATCHED_USER = 'SET_WATCHED_USER'
 export const REMOVE_USER = 'REMOVE_USER'
 export const SET_USERS = 'SET_USERS'
 export const SET_SCORE = 'SET_SCORE'
+export const REMOVE_NOTIFICATION = 'REMOVE_NOTIFICATION'
+export const CLEAR_NOTIFICATIONS = 'CLEAR_NOTIFICATIONS'
 
 const initialState = {
     count: 10,
     user: userService.getLoggedinUser(),
     users: [],
-    watchedUser : null
+    watchedUser: null,
+    notifications: []
 }
 
 export function userReducer(state = initialState, action) {
@@ -48,6 +51,18 @@ export function userReducer(state = initialState, action) {
             newState = { ...state, user }
             userService.saveLoggedinUser(user)
             break
+        case REMOVE_NOTIFICATION:
+            return {
+                ...state,
+                notifications: state.notifications.filter(
+                    (notification) => notification.type !== action.notificationType
+                )
+            }
+        case CLEAR_NOTIFICATIONS:
+            return {
+                ...state,
+                notifications: []
+            }
         default:
     }
     // For debug:

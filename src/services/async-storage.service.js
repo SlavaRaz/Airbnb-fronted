@@ -4,6 +4,7 @@ export const storageService = {
     post,
     put,
     remove,
+    formatDate
 }
 
 function query(entityType, delay = 500) {
@@ -61,4 +62,10 @@ function _makeId(length = 5) {
         text += possible.charAt(Math.floor(Math.random() * possible.length))
     }
     return text
+}
+
+function formatDate(date) {
+    if (!date) return '';
+    const options = { day: 'numeric', month: 'short' }; // Example: "15 Jan"
+    return new Date(date).toLocaleDateString(undefined, options);
 }

@@ -27,7 +27,8 @@
 @import "cmps/list";
 @import "cmps/preview";
 
-@import "cmps/AppHeader";
+@import 'cmps/app-header';
+@import 'cmps/search-preview';
 @import "cmps/AppFooter";
 @import "cmps/UserMsg";
 
@@ -38,3 +39,12 @@
 @import "cmps/StayPreview.scss";
 // @import "cmps/CarList";
 // @import "cmps/CarPreview";
+
+// Components - Seach/Filter
+@import 'cmps/search-preview';
+@import 'cmps/region-select';
+@import 'cmps/search-form';
+@import 'cmps/nav-menu';
+@import 'cmps/guest-select';
+@import 'cmps/counter';
+@import 'cmps/search-form-nav';

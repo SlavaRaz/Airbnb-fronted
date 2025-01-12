@@ -1,24 +1,44 @@
-button {
-	border: 0;
-	background-color: $clr1;
-	color: whitesmoke;
-	padding: 5px 10px;
-	margin: 5px;
-	cursor: pointer;
-}
-
-form > * {
-	display: block;
-	// width: 200px;
-	margin: 10px 0px;
+form>* {
+  display: block;
+  width: 200px;
+  margin: 10px 0px;
 }
 
 .btn-link {
-	border: 0;
-	background-color: transparent;
-	// text-decoration: underline;
-	transition: 0.5s;
+  border: 0;
+  background-color: transparent;
+  text-decoration: underline;
+  transition: 0.5s;
 }
+
 .btn-link:hover {
-	background-color: $clr1;
+  background-color: $clr-text-primary;
+  transform: scale(1.1);
 }
+
+.search-btn{
+  color: $clr-white;
+  background-color: $clr-brand;
+  border-radius: 50%;
+  padding: 10px;
+  margin: 7px 7px 7px 0;
+  height: 32px;
+  min-width: 32px;
+  border: transparent;
+
+  svg {
+    display: block;
+    fill: none;
+    height: 12px;
+    width: 12px;
+    stroke: currentcolor;
+    stroke-width: 5.33333;
+    overflow: visible;
+  }
+
+}
+
+
+
+
+

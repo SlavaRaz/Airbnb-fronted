@@ -6,23 +6,30 @@ import { loadStays, addStay, updateStay, removeStay, addStayMsg } from '../store
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { stayService } from '../services/stay'
 import { userService } from '../services/user'
+import { useSearchParams } from 'react-router-dom'
 
 import { StayList } from '../cmps/StayList'
 import { StayFilter } from '../cmps/StayFilter'
 
 export function StayIndex() {
 
-    const [ filterBy, setFilterBy ] = useState(stayService.getDefaultFilter())
+    const [searchParams, setSearchParams] = useSearchParams()
+    // const [ filterBy, setFilterBy ] = useState(stayService.getDefaultFilter())
     const stays = useSelector(storeState => storeState.stayModule.stays)
+    const isLoading = useSelector((storeState) => storeState.systemModule.isLoading)
+
+    const filterBy = {
+        location: searchParams.get('location')
+    }
 
     useEffect(() => {
         loadStays(filterBy)
-    }, [filterBy])
+    }, [searchParams])
 
     async function onRemoveStay(stayId) {
         try {
             await removeStay(stayId)
-            showSuccessMsg('Stay removed')            
+            showSuccessMsg('Stay removed')
         } catch (err) {
             showErrorMsg('Cannot remove stay')
         }
@@ -36,12 +43,12 @@ export function StayIndex() {
             showSuccessMsg(`Stay added (id: ${savedStay._id})`)
         } catch (err) {
             showErrorMsg('Cannot add stay')
-        }        
+        }
     }
 
     async function onUpdateStay(stay) {
         const speed = +prompt('New speed?', stay.speed)
-        if(speed === 0 || speed === stay.speed) return
+        if (speed === 0 || speed === stay.speed) return
 
         const stayToSave = { ...stay, speed }
         try {
@@ -49,7 +56,7 @@ export function StayIndex() {
             showSuccessMsg(`Stay updated, new speed: ${savedStay.speed}`)
         } catch (err) {
             showErrorMsg('Cannot update stay')
-        }        
+        }
     }
 
     return (
@@ -58,11 +65,11 @@ export function StayIndex() {
                 <h2>Stays</h2>
                 {userService.getLoggedinUser() && <button onClick={onAddStay}>Add a Stay</button>}
             </header>
-            <StayFilter filterBy={filterBy} setFilterBy={setFilterBy} />
-            <StayList 
+            {/* <StayFilter filterBy={filterBy} setFilterBy={setFilterBy} /> */}
+            <StayList
                 stays={stays}
-                onRemoveStay={onRemoveStay} 
-                onUpdateStay={onUpdateStay}/>
+                onRemoveStay={onRemoveStay}
+                onUpdateStay={onUpdateStay} />
         </main>
     )
 }

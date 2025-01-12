@@ -10,16 +10,18 @@ function getEmptyStay() {
         _id: '',
         price: getRandomIntInclusive(80, 240),
         name: '',
-        // msgs: [],
+        msgs: [],
+        location: '',
     }
 }
 
 function getDefaultFilter() {
     return {
-        txt: '',
-        // minSpeed: '',
-        sortField: '',
-        sortDir: '',
+        name: '',
+        location: '',
+        checkIn: '',            
+        checkOut: '',
+        guests: 0,
     }
 }
 

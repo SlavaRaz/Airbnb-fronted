@@ -9,7 +9,7 @@ export function SearchPreview({ staySearchParams, handlePreviewClick }) {
     const locationContent = location || 'Anywhere'
     const dateContent =
         checkIn && checkOut
-            ? `${storageService.formatDate(checkIn)} - ${storageServiceformatDate(checkOut)}`
+            ? `${storageService.formatDate(checkIn)} - ${storageService.formatDate(checkOut)}`
             : 'Any week'
     const guestsContent =
         guests.adults || guests.children

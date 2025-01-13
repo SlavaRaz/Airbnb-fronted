@@ -1,0 +1,106 @@
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 3.5rem;
+    background-color: $clr6;
+    padding: rem(10px) 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    &:has(.secondary-layout) {
+        position: relative;
+        overflow-y: inherit;
+    }
+
+
+    &::after {
+        content: '';
+        position: absolute;
+        // top: 0;
+        height: 80px;
+        right: 0;
+        left: 0;
+        background-color: rgb(255, 255, 255);
+        border-bottom: 1px solid $clr-border;
+        z-index: -1;
+        transition: transform 250ms ease;
+        transform: initial;
+    }
+
+    &:has(.search-bars-open)::after {
+        transform: scaleY(0.5);
+        border-bottom: none;
+        transition: transform 250ms ease;
+      }
+
+    .header-logo {
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        color: $clr-brand;
+        line-height: initial;
+
+        img {
+            height: 32px;
+            width: 32px;
+        }
+
+        .logo-text {
+            margin-left: 10px;
+            // font-weight: bold;
+            font-size: 24px;
+            // color: $clr-brand;
+            // font-family: flow-Circular;
+        }
+    }
+
+    // nav {
+    //     display: flex;
+    //     width: 100%;
+    //     align-items: center;
+    //     gap: 1em;
+
+    //     // font-size: .8em;
+
+    //     .active {
+    //         color: $clr1;
+    //     }
+
+    //     .login-link {
+    //         margin-inline-start: auto;
+    //     }
+
+    //     button {
+    //         margin-inline-end: 0;
+    //     }
+    // }
+
+    .user-info {
+        display: flex;
+        align-items: center;
+        // margin-inline-start: auto;
+
+        color: $clr1;
+
+        .score {
+            padding: 8px;
+            background-color: $clr2;
+            border-radius: 50%;
+            margin: 10px;
+
+            color: $clr6;
+        }
+
+        img {
+            width: 32px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+        }
+
+        .btn-link {
+            color: $clr2;
+        }
+    }
+}

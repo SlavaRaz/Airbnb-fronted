@@ -1,4 +1,3 @@
-import { StayListHomePage } from '../cmps/StayListHomePage'
 import {InfiniteScrollCmp} from '../cmps/InfiniteScroll'
 
 

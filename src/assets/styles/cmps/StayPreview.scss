@@ -1,7 +1,7 @@
 .stay-list {
   color: #000;
   font-size: 0.9375rem;
-  --min-column-size: 220px;
+  --min-column-size: 225px;
 
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(var(--min-column-size), 1fr));
@@ -20,53 +20,76 @@
     gap: 10px;
 
     .preview-img {
-      height: 70%;
+      height: 220px;
       width: 100%;
-      border-radius: 15px;
+      border-radius: 20px;
+      margin-bottom: 12px;
     }
 
     .stay-card-details {
       // margin-top: 12px;
       display: flex;
       flex-direction: column;
-      //   gap: 2px 8px;
+      line-height: 1.1875rem;
+      font-size: 0.9375rem;
+      color: #000;
+      gap: 2px 8px;
 
       .preview-header {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content:space-around;
         align-items: center;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        line-height: 19px;
-        font-size: 0.9375rem;
+        color: #222222;
+        gap: 5px;
+        // line-height: 19px;
+        // font-size: 0.9375rem;
 
         .preview-name {
-          font-weight: bold;
+          font-weight: 500;
           overflow: hidden;
           white-space: nowrap;
           text-overflow: ellipsis;
+          // color: #222222;
         }
+
+        .preview-rating {
+          display: flex;
+          padding: 0px 5px;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          gap: 3px;
+        }
+
+        // .preview-rating span{
+        //   line-height: 2px;
+        // }
       }
 
       .preview-summary {
-        color: #717171;
+        color: #6a6a6a;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-       margin: 0;
+        margin: 0;
       }
 
       .preview-dates {
-        color: #717171;
+        color: #6a6a6a;
         height: 1.4em;
         margin: 0;
       }
 
-      .price-number {
-        font-weight: bold;
-        height: 1.4em;
+      .preview-price {
+        margin-top: 6px;
+        .price-number {
+          font-weight: 500;
+          height: 1.4em;
+        }
       }
     }
   }

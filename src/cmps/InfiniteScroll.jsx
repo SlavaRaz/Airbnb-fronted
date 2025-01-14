@@ -1,9 +1,39 @@
-import stays from '../../src/store/stays.json'
-import StarIcon from '../assets/img/various/star.svg'
 import React, { useState} from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
+import { Carousel } from 'react-responsive-carousel'
+import 'react-responsive-carousel/lib/styles/carousel.min.css'
+import stays from '../../src/store/stays.json'
+import StarIcon from '../assets/img/various/star.svg'
+import arrowLeft from '../assets/img/various/left-arrow.svg'
+import arrowRight from '../assets/img/various/right-arrow.svg'
+
 
 export function InfiniteScrollCmp(){
+
+  const renderArrowPrev = (onClickHandler, hasPrev) => {
+    return hasPrev ? (
+      <button
+        type="button"
+        onClick={onClickHandler}
+        className="custom-arrow prev-arrow"
+      >
+        <img src={arrowLeft} alt="Previous" />
+      </button>
+    ) : null;
+  };
+
+  const renderArrowNext = (onClickHandler, hasNext) => {
+    return hasNext ? (
+      <button
+        type="button"
+        onClick={onClickHandler}
+        className="custom-arrow next-arrow"
+      >
+        <img src={arrowRight} alt="Next" />
+      </button>
+    ) : null;
+  };
+
   const [displayedStays, setDisplayedStays] = useState(stays.slice(0, 36))
 
   const fetchMoreStays = () => {
@@ -25,8 +55,28 @@ export function InfiniteScrollCmp(){
   <section>
     <ul className='stay-list'>
       {displayedStays.map((stay) => (
-        <article  className='stay-preview'>
-        <img className='preview-img' src={stay.imgUrls[0]} />
+        <article key={stay._id}   className='stay-preview'>
+        <Carousel
+        renderArrowPrev={renderArrowPrev}
+      renderArrowNext={renderArrowNext}
+        showArrows={true}
+        showThumbs={false}
+        infiniteLoop={false}
+        dynamicHeight={false}
+        emulateTouch={true}
+        showStatus={false}
+        className="stay-carousel"
+      >
+      {stay.imgUrls.map((imgUrl, idx) => (
+        <div key={idx} className='image-container'>
+          <img
+            src={imgUrl}
+            alt={`Image ${idx + 1}`}
+            className="preview-img"
+          />
+        </div>
+      ))}
+    </Carousel>
         <div className='stay-card-details'>
           <div className='preview-header'>
             <div className='preview-name'>{stay.name}</div>

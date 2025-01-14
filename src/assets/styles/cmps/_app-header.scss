@@ -1,24 +1,25 @@
+$search-bars-open:true;
+
 .app-header {
+    @if $search-bars-open{
+        background-color: aqua;
+    }
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 3.5rem;
+    width: 100%;
+    min-height: 80px;
     background-color: $clr6;
     padding: rem(10px) 1rem;
     position: sticky;
     top: 0;
     z-index: 100;
-
-    &:has(.secondary-layout) {
-        position: relative;
-        overflow-y: inherit;
-    }
-
+    transition: all 0.3s ease;
 
     &::after {
         content: '';
         position: absolute;
-        // top: 0;
+        top: 0;
         height: 80px;
         right: 0;
         left: 0;
@@ -33,7 +34,7 @@
         transform: scaleY(0.5);
         border-bottom: none;
         transition: transform 250ms ease;
-      }
+    }
 
     .header-logo {
         display: flex;
@@ -52,7 +53,7 @@
             // font-weight: bold;
             font-size: 24px;
             // color: $clr-brand;
-            // font-family: flow-Circular;
+            // font-family: circularLight;
         }
     }
 

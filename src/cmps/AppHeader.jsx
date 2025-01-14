@@ -12,15 +12,15 @@ export function AppHeader() {
 	const user = useSelector(storeState => storeState.userModule.user)
 	const navigate = useNavigate()
 
-	async function onLogout() {
-		try {
-			await logout()
-			navigate('/')
-			showSuccessMsg(`Bye now`)
-		} catch (err) {
-			showErrorMsg('Cannot logout')
-		}
-	}
+	// async function onLogout() {
+	// 	try {
+	// 		await logout()
+	// 		navigate('/')
+	// 		showSuccessMsg(`Bye now`)
+	// 	} catch (err) {
+	// 		showErrorMsg('Cannot logout')
+	// 	}
+	// }
 
 	return (
 			<div className="app-header ">
@@ -30,9 +30,9 @@ export function AppHeader() {
 					</NavLink>
 					<h2 className="logo-text">airbnb</h2>
 				</div>
-				<div className='app-header search-bar'>
+				{/* <div className='search-bar'> */}
 					<SearchBar />
-				</div>
+				{/* </div> */}
 					<NavMenu />			
 			</div >
 		)

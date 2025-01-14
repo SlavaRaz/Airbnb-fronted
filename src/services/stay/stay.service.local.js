@@ -2,9 +2,14 @@
 import { storageService } from '../async-storage.service'
 import { makeId } from '../util.service'
 import { userService } from '../user'
-import { getRandomIntInclusive } from '../util.service'
+import staysData from '../../../data/stays.json'
 
-const STORAGE_KEY = 'stay'
+const STORAGE_KEY = 'stays'
+
+// Initialize localStorage with JSON data if it's not already set
+if (!localStorage.getItem(STORAGE_KEY)) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(staysData))
+}
 
 export const stayService = {
     query,
@@ -18,19 +23,21 @@ window.cs = stayService
 
 async function query(filterBy = {}) {
     var stays = await storageService.query(STORAGE_KEY)
-    const { location,checkIn, checkOut, guests } = filterBy
-    
+    const { location, checkIn, checkOut, guests } = filterBy
+
     if (location) {
         console.log('stayService: query -> location', stays)
-        stays = stays.filter(stay => stay.location.toLowerCase().includes(location.toLowerCase()) )
+        stays = stays.filter((stay) => {
+            return stay.loc.country.toLowerCase().includes(filterBy.location.toLowerCase())
+        })
     }
     if (checkIn && checkOut) {
         stays = stays.filter(stay => stay.availableDates.includes(checkIn) && stay.availableDates.includes(checkOut))
     }
     if (guests) {
-        stays = stays.filter(stay => stay.maxGuests >= guests )
+        stays = stays.filter(stay => stay.maxGuests >= guests)
     }
-    
+
     console.log('stayService: query -> stays', stays)
     return stays
 }

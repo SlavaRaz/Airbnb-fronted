@@ -25,7 +25,7 @@ export function InfiniteScrollCmp(){
   <section>
     <ul className='stay-list'>
       {displayedStays.map((stay) => (
-        <article  className='stay-preview'>
+        <article  className='stay-preview' key={stay._id}>
         <img className='preview-img' src={stay.imgUrls[0]} />
         <div className='stay-card-details'>
           <div className='preview-header'>

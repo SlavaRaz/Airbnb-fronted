@@ -6,11 +6,14 @@
         // visibility: visible;
         opacity: 0;
         visibility: hidden;
-        transition: transform 250ms ease, opacity 100ms ease, visibility 0ms;
+        // transition: transform 250ms ease, opacity 100ms ease, visibility 0ms;
         width: 100%;
     }
-}
 
+    // .app-header {
+    //     display: flex;
+    // }
+}
 
 .search-preview {
     padding-inline-start: 8px;

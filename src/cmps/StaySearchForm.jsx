@@ -17,6 +17,7 @@ export function StaySearchForm({ staySearchParams, handleToggle, selectedTab, se
     const [fields, setFields, handleChange] = useForm({ location, checkIn, checkOut, guests })
     const inputRef = useRef(null)
 
+    console.log('fields', fields)
     useEffect(() => {
         if (selectedTab === 'location') inputRef.current.focus()
     }, [selectedTab])

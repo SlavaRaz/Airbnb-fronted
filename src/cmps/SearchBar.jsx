@@ -5,9 +5,29 @@ import { StaySearchForm } from './StaySearchForm.jsx';
 
 export function SearchBar() {
     const [searchParams] = useSearchParams()
-    
-    // const navigate = useNavigate()
-    
+    const [selectedTab, setSelectedTab] = useState('location')
+    const [isOpen, setIsOpen] = useState(true)
+
+    useEffect(() => {
+        let lastScrollY = window.scrollY
+        const handleScroll = () => {
+            if (window.scrollY === 0) setIsOpen(true)
+            const currentScrollY = window.scrollY
+            if (currentScrollY > lastScrollY && isOpen) {
+                // User is scrolling down, close the search bar
+                setIsOpen(false)
+            } else if (window.scrollY === 0 && !isOpen) {
+                // User is scrolling up, open the search bar
+                setIsOpen(true)
+            }
+            lastScrollY = currentScrollY
+        }
+        window.addEventListener('scroll', handleScroll)
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [isOpen])
+
     const [staySearchParams, setStaySearchParams] = useState({
         location: searchParams.get('location') || '',
         checkIn: searchParams.get('checkIn') || '',
@@ -19,11 +39,6 @@ export function SearchBar() {
             pets: +searchParams.get('pets') || 0,
         },
     })
-
-    console.log('staySearchParams', staySearchParams)
-
-    const [selectedTab, setSelectedTab] = useState('location')
-    const [isOpen, setIsOpen] = useState(false)
 
     function handleToggle() {
         setIsOpen((prev) => !prev)
@@ -37,17 +52,16 @@ export function SearchBar() {
 
     return (
         <div className={`search-bars ${isOpen ? 'search-bars-open' : ''}`}>
-            <SearchPreview
+            {!isOpen && <SearchPreview
                 staySearchParams={staySearchParams}
-                handlePreviewClick={handlePreviewClick}
-            />
+                handlePreviewClick={handlePreviewClick} />}
             <StaySearchForm
                 staySearchParams={staySearchParams}
                 handleToggle={handleToggle}
                 selectedTab={selectedTab}
                 setSelectedTab={setSelectedTab}
             />
-           
+
             {isOpen && <div className="screen-blur" onClick={handleToggle}></div>}
         </div>
     );

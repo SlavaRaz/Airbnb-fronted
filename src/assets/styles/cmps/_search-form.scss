@@ -1,19 +1,17 @@
 //Animation
 .search-bars-open {
     .search-form {
-        // display: grid;
         position: absolute;
-        top: 80px;
+        // top: 61px;
         padding-bottom: 10px;
         width: 100%;
-        background-color: #fff;
+        // background-color: #fff;
         z-index: 11;
         transition: 1s;
         transform: scale(1, 1) translateY(0px);
         opacity: 1;
         visibility: visible;
         transition: transform 250ms ease, opacity 200ms ease 100ms, visibility 0ms 200ms;
-        // width: 80%;
     }
     
     .screen-blur {
@@ -49,7 +47,7 @@
     display: flex;
     flex: 1 1 0%;
     height: 66px;
-    min-width: 0;
+    // min-width: 0;
     pointer-events: auto;
     border: 1px solid $clr-border;
     border-radius: 40px;
@@ -58,8 +56,8 @@
     position: relative;
     text-align: left;
     margin: 0 auto;
-    width: 100%;
-    max-width: none;
+    width: 80%;
+    // max-width: none;
     
     // Location Tab
     .input-query {

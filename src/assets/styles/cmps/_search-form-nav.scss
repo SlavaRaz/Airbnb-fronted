@@ -1,7 +1,7 @@
 .search-form-nav {
     align-items: center;
     display: flex;
-    height: 100px;
+    height: 80px;
     min-width: 100%;
     flex-grow: 1;
     justify-content: center;
@@ -12,6 +12,7 @@
     padding: 10px 16px;
     border: none;
     background-color: transparent;
+    font-size: 15px;
 
     &:not(.active) > span {
         position: relative;

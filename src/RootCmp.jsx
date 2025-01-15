@@ -1,8 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router'
 
-import { HomePage } from './pages/HomePage'
-import { AboutUs, AboutTeam, AboutVision } from './pages/AboutUs'
 import { StayIndex } from './pages/StayIndex.jsx'
 import { ReviewIndex } from './pages/ReviewIndex.jsx'
 import { ChatApp } from './pages/Chat.jsx'
@@ -26,13 +24,13 @@ export function RootCmp() {
 
             <main>
                 <Routes>
-                    <Route path="" element={<HomePage />} />
-                    <Route path="about" element={<AboutUs />}>
+                    <Route path="" element={<StayIndex />} />
+                    {/* <Route path="about" element={<AboutUs />}>
                         <Route path="team" element={<AboutTeam />} />
                         <Route path="vision" element={<AboutVision />} />
-                    </Route>
-                    <Route path="stay" element={<StayIndex />} />
-                    <Route path="stay/:stayId" element={<StayDetails />} />
+                    </Route> */}
+                    {/* <Route path="stay" element={<StayIndex />} /> */}
+                    <Route path=":stayId" element={<StayDetails />} />
                     <Route path="user/:id" element={<UserDetails />} />
                     <Route path="review" element={<ReviewIndex />} />
                     <Route path="chat" element={<ChatApp />} />

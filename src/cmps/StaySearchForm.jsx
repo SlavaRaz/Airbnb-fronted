@@ -53,7 +53,7 @@ export function StaySearchForm({ staySearchParams, handleToggle, selectedTab, se
             pets: fields.guests.pets,
         }
         const searchParams = utilService.objectToSearchParams(searchObject)
-        navigate(`/stay?${searchParams}`)
+        navigate(`?${searchParams}`)
         loadStays(searchObject)
         handleToggle()
 

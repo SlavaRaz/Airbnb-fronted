@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
+import { InfiniteScrollCmp } from '../cmps/InfiniteScroll'
 
 import { loadStays, addStay, updateStay, removeStay, addStayMsg } from '../store/actions/stay.actions.js'
 
@@ -62,13 +63,13 @@ export function StayIndex() {
     return (
         <main className="stay-index">
             <header>
-                <h2>Stays</h2>
-                {userService.getLoggedinUser() && <button onClick={onAddStay}>Add a Stay</button>}
+                <InfiniteScrollCmp stays={stays}/>
+                {/* {userService.getLoggedinUser() && <button onClick={onAddStay}>Add a Stay</button>} */}
             </header>
             {/* <StayFilter filterBy={filterBy} setFilterBy={setFilterBy} /> */}
-            {isLoading && <StayList stays={stays}
+            {/* {!isLoading && <StayList stays={stays}
                 onRemoveStay={onRemoveStay}
-                onUpdateStay={onUpdateStay} />}
+                onUpdateStay={onUpdateStay} />} */}
 
         </main>
     )

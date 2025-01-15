@@ -1,51 +1,41 @@
-import stays from '../../src/store/stays.json'
-import StarIcon from '../assets/img/various/star.svg'
-import React, { useState} from 'react'
+import { useState, useEffect } from 'react'
+// import React, { useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
+import { StayList } from './StayList'
 
-export function InfiniteScrollCmp(){
-  const [displayedStays, setDisplayedStays] = useState(stays.slice(0, 36))
+export function InfiniteScrollCmp({ stays }) {
+  
+  const [displayedStays, setDisplayedStays] = useState([])
+  const [loading, setLoading] = useState(false)
 
+  useEffect(() => {
+    setDisplayedStays(stays.slice(0, 36)) // Initial batch
+  }, [stays])
+
+  // Function to fetch more stays
   const fetchMoreStays = () => {
+    if (loading) return // Prevent fetching while loading
+    setLoading(true)
+
+    // Simulating a network request with a timeout
     setTimeout(() => {
       setDisplayedStays((prev) => [
         ...prev,
-        ...stays.slice(prev.length, prev.length + 24),
-      ])
-    }, 1000)
-  }
+        ...stays.slice(prev.length, prev.length + 24), // Add more stays
+      ]);
+      setLoading(false); // Set loading to false when data is fetched
+    }, 1000);
+  };
 
   return (
     <InfiniteScroll
-    dataLength={displayedStays.length}
-    next={fetchMoreStays}
-    hasMore={displayedStays.length < stays.length}
-    loader={<h4>Loading...</h4>}
-  >
-  <section>
-    <ul className='stay-list'>
-      {displayedStays.map((stay) => (
-        <article  className='stay-preview' key={stay._id}>
-        <img className='preview-img' src={stay.imgUrls[0]} />
-        <div className='stay-card-details'>
-          <div className='preview-header'>
-            <div className='preview-name'>{stay.name}</div>
-            <div className='preview-rating'>
-              <img src={StarIcon} alt='star' width='10' height='10' />{' '}
-              <span>5.0</span>
-            </div>
-          </div>
-          <p className='preview-summary'>{stay.summary}</p>
-          <p className='preview-dates'>July 17-19</p>
-          <div className='preview-price'>
-            <span className='price-number'>{stay.price}$</span>
-            <span> night</span>
-          </div>
-        </div>
-      </article>      ))}
-      </ul>
-      </section>
-      </InfiniteScroll>
-   
+      dataLength={displayedStays.length}
+      next={fetchMoreStays}
+      hasMore={displayedStays.length < stays.length}
+      loader={<h4>Loading...</h4>}
+    >
+      <StayList stays={displayedStays} />
+    </InfiniteScroll>
+
   )
 }

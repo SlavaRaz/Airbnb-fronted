@@ -8,7 +8,6 @@ export function HomePage() {
 
     return (
         <section>
-            {console.log(fileters)}
             <FilterMenu setFilters = {setFilters} />
             {/* <h1>Home sweet Home</h1> */}
             <InfiniteScrollCmp filters={fileters}/>

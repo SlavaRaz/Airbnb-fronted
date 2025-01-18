@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useEffect, useRef, useState } from "react"
-import { useForm } from "../customHooks/useForm.js"
+import { useForm } from "../customHooks/useForm.jsx"
 
 import { SearchBtn } from "./Search-btn.jsx"
 import { RegionSelect } from "./Region-select.jsx"
@@ -11,17 +11,11 @@ import { SearchFormNav } from "./Search-form-nav.jsx"
 import { utilService } from "../services/util.service.js"
 import { loadStays } from "../store/actions/stay.actions.js"
 
-export function StaySearchForm({ staySearchParams, handleToggle, selectedTab, setSelectedTab }) {
+export function StaySearchForm({ staySearchParams, handleToggle, selectedTab, setSelectedTab, handleSearchParamChange }) {
     const navigate = useNavigate()
     const { location, checkIn, checkOut, guests } = staySearchParams
     const [fields, setFields, handleChange] = useForm({ location, checkIn, checkOut, guests })
     const inputRef = useRef(null)
-
-    console.log('fields', fields)
-    useEffect(() => {
-        if (selectedTab === 'location') inputRef.current.focus()
-    }, [selectedTab])
-
 
     function onCategoryClick(category) {
         setSelectedTab(category)
@@ -29,9 +23,10 @@ export function StaySearchForm({ staySearchParams, handleToggle, selectedTab, se
 
     function onSetField(field, value) {
         setFields((prevFields) => ({ ...prevFields, [field]: value }))
-        if (field === 'location') setSelectedTab('checkIn')
-        if (field === 'checkIn') setSelectedTab('checkOut')
-        if (field === 'checkOut') setSelectedTab('guests')
+        // Update the selected tab to guide the user to the next step
+        const nextTab = field === "location" ? "checkIn" : field === "checkIn" ? "checkOut" : "guests"
+        setSelectedTab(nextTab)
+        handleSearchParamChange(field, value)
     }
 
     function setRandDates() {
@@ -43,20 +38,28 @@ export function StaySearchForm({ staySearchParams, handleToggle, selectedTab, se
     }
 
     function handleSubmit() {
+        
         const searchObject = {
             location: fields.location,
-            checkIn: (fields.checkIn) ? fields.checkIn.getTime() : utilService.getTimeStampXDaysFromNow(7),
-            checkOut: (fields.checkOut) ? fields.checkOut.getTime() : utilService.getTimeStampXDaysFromNow(14),
+            // checkIn: (fields.checkIn) ? fields.checkIn.getTime() : utilService.getTimeStampXDaysFromNow(7),
+            // checkOut: (fields.checkOut) ? fields.checkOut.getTime() : utilService.getTimeStampXDaysFromNow(14),
             adults: fields.guests.adults,
             children: fields.guests.children,
             infants: fields.guests.infants,
             pets: fields.guests.pets,
         }
+        console.log('searchObject:', searchObject)
         const searchParams = utilService.objectToSearchParams(searchObject)
-        navigate(`/stay?${searchParams}`)
+        navigate(`/?${searchParams}`)
         loadStays(searchObject)
         handleToggle()
 
+    }
+
+    function handleFieldChange(event) {
+        const { name, value } = event.target;
+        handleChange(event);  // This will update the form fields state
+        handleSearchParamChange(name, value);  // This will update the staySearchParams
     }
 
     function checkForActiveClass(category) {
@@ -94,7 +97,7 @@ export function StaySearchForm({ staySearchParams, handleToggle, selectedTab, se
                     <div className="input-query">
                         <div className={"search-category location" + checkForActiveClass('location')} onClick={() => onCategoryClick('location')}>
                             <div className="search-form-label">Where</div>
-                            <input ref={inputRef} type="text" name='location' className="search-form-desc" placeholder="Search destinations" value={fields.location} onChange={handleChange} />
+                            <input ref={inputRef} type="text" name='location' className="search-form-desc" placeholder="Search destinations" value={fields.location} onChange={handleFieldChange} />
                         </div>
                         {selectedTab === 'location' &&
                             <div className="region-select-container">

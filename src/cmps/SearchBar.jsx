@@ -5,7 +5,7 @@ import { StaySearchForm } from './StaySearchForm.jsx';
 
 export function SearchBar() {
     const [searchParams] = useSearchParams()
-    const [selectedTab, setSelectedTab] = useState('location')
+    const [selectedTab, setSelectedTab] = useState('')
     const [isOpen, setIsOpen] = useState(true)
 
     useEffect(() => {
@@ -44,8 +44,14 @@ export function SearchBar() {
         setIsOpen((prev) => !prev)
     }
 
+    function handleSearchParamChange(field, value) {
+        setStaySearchParams((prevParams) => ({
+            ...prevParams,
+            [field]: value,
+        }))
+    }
+
     function handlePreviewClick(tabToSet) {
-        console.log('tabToSet', tabToSet)
         setSelectedTab(tabToSet)
         setIsOpen(true)
     }
@@ -56,6 +62,7 @@ export function SearchBar() {
                 staySearchParams={staySearchParams}
                 handlePreviewClick={handlePreviewClick} />}
             <StaySearchForm
+                handleSearchParamChange={handleSearchParamChange}
                 staySearchParams={staySearchParams}
                 handleToggle={handleToggle}
                 selectedTab={selectedTab}

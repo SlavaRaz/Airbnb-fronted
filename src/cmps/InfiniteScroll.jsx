@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { Carousel } from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
@@ -10,20 +11,32 @@ import { stayService } from '../services/stay/stay.service.local'
 export function InfiniteScrollCmp(props) {
   const [stays, setStays] = useState([])
   const [displayedStays, setDisplayedStays] = useState([])
+  const [searchParams, setSearchParams] = useSearchParams()
 
+  const filterBy = {
+    location: searchParams.get('location') || '',
+    guests: {
+      adults: +searchParams.get('adults') || 0,
+      children: +searchParams.get('children') || 0,
+      infants: +searchParams.get('infants') || 0,
+      pets: +searchParams.get('pets') || 0,
+    },
+  }
+  
   useEffect(() => {
     const fetchStays = async () => {
       try {
-        const fetchedStays = await stayService.query()
+        console.log('filterBy:', filterBy)
+        const fetchedStays = await stayService.query(filterBy)
         setStays(fetchedStays)
-        setDisplayedStays(fetchedStays.slice(0, 36)) 
+        setDisplayedStays(fetchedStays.slice(0, 36))
       } catch (err) {
         console.error('Failed to fetch stays', err)
       }
     }
 
     fetchStays()
-  }, [])
+  }, [searchParams])
 
   const fetchMoreStays = () => {
     setTimeout(() => {

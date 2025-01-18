@@ -1,10 +1,11 @@
 import React from 'react';
-
 import { storageService } from '../services/async-storage.service'
 import { SearchBtn } from "./Search-btn.jsx"
 
 export function SearchPreview({ staySearchParams, handlePreviewClick }) {
-    const { location, checkIn, checkOut, guests = {} } = staySearchParams
+
+    const { location, checkIn, checkOut, guests } = staySearchParams
+    console.log('staySearchParams:', staySearchParams)
 
     const locationContent = location || 'Anywhere'
     const dateContent =
@@ -45,6 +46,4 @@ export function SearchPreview({ staySearchParams, handlePreviewClick }) {
         </div>
     )
 }
-
-// Utility function to format the date
 

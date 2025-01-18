@@ -23,17 +23,15 @@ export function AppHeader() {
 	// }
 
 	return (
-			<div className="app-header ">
-				<div className="header-logo">
-					<NavLink to="/" >
-						<img src={logo} alt="Logo" />
-					</NavLink>
-					<h2 className="logo-text">airbnb</h2>
-				</div>
-				{/* <div className='search-bar'> */}
-					<SearchBar />
-				{/* </div> */}
-					<NavMenu />			
-			</div >
-		)
+		<div className="app-header ">
+			<div className="header-logo">
+				<NavLink to="/" >
+					<img src={logo} alt="Logo" />
+				</NavLink>
+				<h2 className="logo-text">airbnb</h2>
+			</div>
+			<SearchBar />
+			<NavMenu />
+		</div >
+	)
 }

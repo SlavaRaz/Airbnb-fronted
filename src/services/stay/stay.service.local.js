@@ -22,23 +22,21 @@ export const stayService = {
 window.cs = stayService
 
 async function query(filterBy = {}) {
+    
     var stays = await storageService.query(STORAGE_KEY)
     const { location, checkIn, checkOut, guests } = filterBy
 
+    const capacity = Object.values(guests).reduce((acc, val) => acc + val, 0)
+  
     if (location) {
-        console.log('stayService: query -> location', stays)
-        stays = stays.filter((stay) => {
-            return stay.loc.country.toLowerCase().includes(filterBy.location.toLowerCase())
-        })
+        stays = stays.filter(stay => stay.loc.country.toLowerCase().includes(filterBy.location.toLowerCase()))
     }
     if (checkIn && checkOut) {
         stays = stays.filter(stay => stay.availableDates.includes(checkIn) && stay.availableDates.includes(checkOut))
     }
-    if (guests) {
-        stays = stays.filter(stay => stay.maxGuests >= guests)
+    if (capacity) {
+        stays = stays.filter(stay => stay.capacity >= capacity)
     }
-
-    console.log('stayService: query -> stays', stays)
     return stays
 }
 

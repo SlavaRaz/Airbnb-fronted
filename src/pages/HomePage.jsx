@@ -1,4 +1,4 @@
-import {InfiniteScrollCmp} from '../cmps/InfiniteScroll'
+import {StayList} from '../cmps/StayList'
 
 
 
@@ -6,7 +6,7 @@ export function HomePage() {
     return (
         <section>
             {/* <h1>Home sweet Home</h1> */}
-            <InfiniteScrollCmp/>
+            <StayList/>
         </section>
     )
 }

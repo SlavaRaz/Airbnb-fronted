@@ -4,9 +4,10 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { StayPreview } from '../cmps/StayPreview'
 import { stayService } from '../services/stay/stay.service.local'
 
-export function StayList() {
+export function StayList({filters}) {
   const [stays, setStays] = useState([])
   const [displayedStays, setDisplayedStays] = useState([])
+  
 
   useEffect(() => {
     const fetchStays = async () => {
@@ -41,7 +42,7 @@ export function StayList() {
       <section>
         <ul className='stay-list'>
           {displayedStays.map((stay) => (
-            <StayPreview key={stay._id} stay={stay}/>
+            <StayPreview key={stay._id} stay={stay} filters= {filters}/>
           ))}
         </ul>
       </section>

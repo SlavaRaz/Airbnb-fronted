@@ -4,14 +4,13 @@ import {StayList} from '../cmps/StayList'
 // import Filt
 
 export function HomePage() {
-    let [fileters , setFilters]= useState("")
+    let [filters , setFilters]= useState("")
 
     return (
         <section>
-            {console.log(fileters)}
+            {console.log(filters)}
             <FilterMenu setFilters = {setFilters} />
-            {/* <h1>Home sweet Home</h1> */}
-            <StayList filters={fileters}/>
+            <StayList filters={filters}/>
         </section>
     )
 }

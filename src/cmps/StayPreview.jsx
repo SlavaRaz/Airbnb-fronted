@@ -4,7 +4,7 @@ import arrowLeft from '../assets/img/various/left-arrow.svg'
 import arrowRight from '../assets/img/various/right-arrow.svg'
 import { Link } from 'react-router-dom'
 
-export function StayPreview({stay}) {
+export function StayPreview({ stay, filters }) {
   const renderArrowPrev = (onClickHandler, hasPrev) => {
     return hasPrev ? (
       <button
@@ -37,32 +37,39 @@ export function StayPreview({stay}) {
     ) : null
   }
 
+  let display = 'block'
+  if (filters.filters && stay.type !== filters.filters) {
+    display = 'none'
+  }
   return (
-    <article key={stay._id} className='stay-preview'>
-    <Link to={`/stay/${stay._id}`} key={stay._id} className='stay-link'>
-
-      <Carousel
-        renderArrowPrev={renderArrowPrev}
-        renderArrowNext={renderArrowNext}
-        showIndicators={true}
-        showArrows={true}
-        showThumbs={false}
-        infiniteLoop={false}
-        dynamicHeight={false}
-        emulateTouch={true}
-        showStatus={false}
-        className='stay-carousel'
-      >
-        {stay.imgUrls.map((imgUrl, idx) => (
-          <div key={idx} className='image-container'>
-            <img
-              src={imgUrl}
-              alt={`Image ${idx + 1}`}
-              className='preview-img'
-            />
-          </div>
-        ))}
-      </Carousel>
+    <article
+      style={{ display: display }}
+      key={stay._id}
+      className='stay-preview'
+    >
+      <Link to={`/stay/${stay._id}`} key={stay._id} className='stay-link'>
+        <Carousel
+          renderArrowPrev={renderArrowPrev}
+          renderArrowNext={renderArrowNext}
+          showIndicators={true}
+          showArrows={true}
+          showThumbs={false}
+          infiniteLoop={false}
+          dynamicHeight={false}
+          emulateTouch={true}
+          showStatus={false}
+          className='stay-carousel'
+        >
+          {stay.imgUrls.map((imgUrl, idx) => (
+            <div key={idx} className='image-container'>
+              <img
+                src={imgUrl}
+                alt={`Image ${idx + 1}`}
+                className='preview-img'
+              />
+            </div>
+          ))}
+        </Carousel>
         <div className='stay-card-details'>
           <div className='preview-header'>
             <div className='preview-name'>{stay.name}</div>

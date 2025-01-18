@@ -11,7 +11,7 @@ export function HomePage() {
             {console.log(fileters)}
             <FilterMenu setFilters = {setFilters} />
             {/* <h1>Home sweet Home</h1> */}
-            <InfiniteScrollCmp filters={fileters}/>
+            <StayList filters={fileters}/>
         </section>
     )
 }

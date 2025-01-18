@@ -1,16 +1,15 @@
 import { useState } from 'react'
 import FilterMenu from '../cmps/FilterMenu/FilterMenu'
-import {InfiniteScrollCmp} from '../cmps/InfiniteScroll'
+import {StayList} from '../cmps/StayList'
 // import Filt
 
 export function HomePage() {
-    let [fileters , setFilters]= useState("")
+    let [filters , setFilters]= useState("")
 
     return (
         <section>
             <FilterMenu setFilters = {setFilters} />
-            {/* <h1>Home sweet Home</h1> */}
-            <InfiniteScrollCmp filters={fileters}/>
+            <StayList filters={filters}/>
         </section>
     )
 }

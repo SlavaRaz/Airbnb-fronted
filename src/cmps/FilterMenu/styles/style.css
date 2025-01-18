@@ -1,0 +1,85 @@
+.FilterMenuComponent{
+    font-size: 14px;
+    
+    /* color: #d3d3d389; */
+     /* background-image: url("../back.png"); */
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* border: 1px solid red; */
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.FilterItemListComponent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 66px;
+    gap:3px;
+    width: 80%;
+    /* background-color: rgba(0, 255, 255, 0.404); */
+}
+
+.FilterItemComponnet{
+    width: 120px;
+    height: 100px;
+    /* border:1px solid; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.FilterItemComponnet:hover{
+    cursor: pointer;
+    font-weight: bolder;
+    border-bottom:  1px solid #ddd1d1;
+    
+}
+
+
+.FilterItemComponnet > img{
+    width: 20px;
+    height: 20px; 
+    margin-bottom: 5px;
+}
+
+
+ .FilterButtonComponent{
+    width: 97px;
+    height: 52px;
+    margin-left: 23px;
+    border-radius: 12px;
+    background-color: white;
+    border: 0.5px solid;
+}
+
+.FilterMenuComponent  .btn1{
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: white;
+    position: relative;
+    left: 80px;
+}
+.FilterMenuComponent  .btn2{
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: white;
+    position: relative;
+    right: 0px;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "\5fae\8f6f\96c5\9ed1", Arial, sans-serif;
+}
+
+.FilterMenu {
+    overflow-x: auto; /* מאפשר גלילה אופקית */
+    scroll-behavior: smooth; /* אפקט של גלילה חלקה */
+    display: flex; /* ארגון האלמנטים בצורה אופקית */
+    /* כל שאר הסגנונות שלך */
+}
+

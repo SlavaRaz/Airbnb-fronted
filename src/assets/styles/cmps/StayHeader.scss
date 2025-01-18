@@ -1,0 +1,116 @@
+.stay-details {
+  margin: 0px 60px;
+
+  .stay-header-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-bottom: 40px;
+    justify-content: center;
+    align-items: center;
+
+    .stay-header {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      padding: 24px 0px;
+      justify-content: space-between;
+      gap: 8px;
+      // min-height: 80px;
+      width: 100%;
+
+      .stay-title {
+        font-family: 'circularMedium';
+        font-size: 1.625rem;
+        line-height: 1.875rem;
+        font-weight: 600;
+      }
+
+      .action-buttons {
+        // height: 28px;
+        display: flex;
+        justify-content: end;
+        // padding: 16px;
+
+        .share-button {
+          margin-right: 20px;
+          text-align:center;
+          font-weight: 600;
+          padding: 0px 12px;
+          border: none;
+          background-color: white;
+          color: #222;
+          cursor: pointer;
+          border-radius: 8px;
+          transition: background-color 0.2s ease, transform 0.2s ease;
+          text-decoration: underline;
+        }
+
+        .share-button:hover {
+          background-color: #f7f7f7; // Light gray background on hover
+        }
+
+        .save-button {
+          text-align: center;
+          font-weight: 600;
+          padding: 8px 12px;
+          border: none;
+          background-color: white;
+          color: #222;
+          cursor: pointer;
+          border-radius: 8px;
+          transition: background-color 0.2s ease, transform 0.2s ease;
+          text-decoration: underline;
+        }
+
+        .save-button:hover {
+            background-color: #f7f7f7; // Light gray background on hover
+          }
+      }
+    }
+
+    .image-container {
+      display: flex;
+      flex-direction: row;
+      gap: 6px;
+      border-radius: 14px;
+      overflow: hidden;
+
+      .main-img {
+        width: 50%;
+      }
+
+      .more-images {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 6px;
+        width: 100%;
+        height: 100%;
+
+        .secondary-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover; // Ensures the images fill the grid cells completely
+          border: none; // Remove any default borders
+          display: block; // Prevent inline-block spacing issues
+        }
+      }
+    }
+
+    // Responsive Design
+    //   @media (max-width: 768px) {
+    //     .stay-gallery {
+    //       grid-template-areas:
+    //         "main-img"
+    //         "secondary-imgs";
+    //       grid-template-columns: 1fr;
+    //       grid-template-rows: auto;
+
+    //       .secondary-imgs {
+    //         grid-template-columns: repeat(2, 1fr);
+    //       }
+    //     }
+    //   }
+  }
+}

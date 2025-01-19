@@ -48,10 +48,23 @@ export function StaySearchForm({ staySearchParams, handleToggle, selectedTab, se
             infants: fields.guests.infants,
             pets: fields.guests.pets,
         }
+
+        const guests = {
+            adults: searchObject.adults || 0,
+            children: searchObject.children || 0,
+            infants: searchObject.infants || 0,
+            pets: searchObject.pets || 0,
+        }
+
+        const filterBy = {
+            location: searchObject.location,
+            guests,
+        }
+        
         console.log('searchObject:', searchObject)
         const searchParams = utilService.objectToSearchParams(searchObject)
         navigate(`/?${searchParams}`)
-        loadStays(searchObject)
+        loadStays(filterBy)
         handleToggle()
 
     }

@@ -1,4 +1,3 @@
-$search-bars-open: true;
 
 .app-header {
     display: flex;
@@ -6,11 +5,12 @@ $search-bars-open: true;
     align-items: center;
     min-height: 80px;
     background-color: $clr6;
-    padding: rem(10px) 1rem;
+    padding: rem(10px) 2.7rem;
     position: sticky;
     top: 0;
     z-index: 100;
     transition: all 0.3s ease;
+    grid-column: 1 / -1;
 
     &:has(.search-bars-open)::after {
         transform: scaleY(0.5);

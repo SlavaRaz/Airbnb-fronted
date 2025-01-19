@@ -1,26 +1,36 @@
 .app-footer{
+    position: fixed;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    max-height: 50px;
+    height: 47px;
+    background-color: #fff;
+    font-size: .875rem;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    // justify-content: center;
+    padding-top: 13px;
+    padding-bottom: 14px;
+    // margin-inline: auto;
+    box-shadow: 0 -.5px #c5c5c5b0;
+    z-index: 1;
 
-    min-height: 3.5rem;
+    .footer-container{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
 
-    padding: rem(10px) 1rem;
-    background-color: $clr4;
-
-    p {
-        margin: 0;
-    }
-    
-    span {
-        font-size: .8em;
-        
-        &.local-services {
-            color: $clr1;
+        .footer-left{
+            display: flex;
+            flex-direction: row;
+            gap: 8px;  
         }
-        
-        &.remote-services {
-            color: $clr5;
+
+        .footer-right{
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
         }
     }
 }

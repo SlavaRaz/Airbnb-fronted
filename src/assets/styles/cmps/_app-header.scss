@@ -1,12 +1,9 @@
-$search-bars-open: true;
-
 .app-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     min-height: 80px;
     background-color: $clr6;
-    padding: rem(10px) 1rem;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -23,15 +20,15 @@ $search-bars-open: true;
         position: absolute;
         top: 0;
         height: 80px;
-        right: 0;
-        left: 0;
+        width: 100%;
         background-color: rgb(255, 255, 255);
         border-bottom: 1px solid $clr-border;
         z-index: -1;
         transition: transform 250ms ease;
         transform: initial;
+
     }
-    
+
     .header-logo {
         display: flex;
         align-items: center;

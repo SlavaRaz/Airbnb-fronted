@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import FilterMenu from '../cmps/FilterMenu/FilterMenu'
 import {StayList} from '../cmps/StayList'
+import { AppFooter } from '../cmps/AppFooter'
+
 // import Filt
 
 export function HomePage() {
@@ -10,6 +12,8 @@ export function HomePage() {
         <section>
             <FilterMenu setFilters = {setFilters} />
             <StayList filters={filters}/>
+            <AppFooter />
+
         </section>
     )
 }

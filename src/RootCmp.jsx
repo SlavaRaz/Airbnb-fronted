@@ -43,7 +43,6 @@ export function RootCmp() {
                     </Route>
                 </Routes>
             </main>
-            <AppFooter />
         </div>
     )
 }

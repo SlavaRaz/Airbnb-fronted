@@ -8,7 +8,6 @@ export function HomePage() {
 
     return (
         <section>
-            {console.log(filters)}
             <FilterMenu setFilters = {setFilters} />
             <StayList filters={filters}/>
         </section>

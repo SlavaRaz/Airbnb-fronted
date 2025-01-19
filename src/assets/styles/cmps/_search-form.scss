@@ -1,7 +1,7 @@
 //Animation
 .search-bars-open {
     .search-form {
-        position: absolute;
+        position:absolute;
         padding-bottom: 10px;
         width: 100%;
         background-color: #fff;
@@ -43,7 +43,7 @@
 .search-form-menu {
     display: flex;
     flex: 1 1 0%;
-    height: 66px;
+    height: 76px;
     pointer-events: auto;
     border: 1px solid $clr-border;
     border-radius: 40px;

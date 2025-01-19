@@ -14,7 +14,6 @@ import { StayFilter } from '../cmps/StayFilter'
 export function StayIndex() {
 
     const [searchParams, setSearchParams] = useSearchParams()
-    // const [ filterBy, setFilterBy ] = useState(stayService.getDefaultFilter())
     const stays = useSelector(storeState => storeState.stayModule.stays)
     const isLoading = useSelector((storeState) => storeState.systemModule.isLoading)
 

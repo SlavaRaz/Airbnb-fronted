@@ -15,7 +15,6 @@ export function NavMenu() {
   const notifications = useSelector(
     (storeState) => storeState.userModule.notifications
   )
-  console.log(notifications)
 
   async function onLogout() {
     try {

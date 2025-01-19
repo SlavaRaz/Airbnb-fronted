@@ -7,9 +7,6 @@ export function SearchFormNav() {
             <button className='clean-btn search-form-nav-item'>
                 <span>Experiences</span>
                 </button>
-            {/* <button className='clean-btn search-form-nav-item'>
-                <span>Online Experiences</span>
-                </button> */}
         </div>
     )
 }

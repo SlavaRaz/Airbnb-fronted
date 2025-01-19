@@ -29,14 +29,30 @@
       .action-buttons {
         // height: 28px;
         display: flex;
+        flex-direction: row;
         justify-content: end;
+        gap: 5px;
         // padding: 16px;
 
+        .action-icon {
+          display: flex;
+          flex-direction: row;
+          justify-items: center;
+          gap: 8px;
+
+          .share-icon {
+            width: 20px;
+          }
+
+          .save-icon{
+            width: 15px;
+          }
+        }
+
         .share-button {
-          margin-right: 20px;
-          text-align:center;
+          margin-right: 15px;
+          text-align: center;
           font-weight: 600;
-          padding: 0px 12px;
           border: none;
           background-color: white;
           color: #222;
@@ -47,13 +63,12 @@
         }
 
         .share-button:hover {
-          background-color: #f7f7f7; // Light gray background on hover
+          background-color: #f7f7f7; 
         }
 
         .save-button {
           text-align: center;
           font-weight: 600;
-          padding: 8px 12px;
           border: none;
           background-color: white;
           color: #222;
@@ -64,8 +79,8 @@
         }
 
         .save-button:hover {
-            background-color: #f7f7f7; // Light gray background on hover
-          }
+          background-color: #f7f7f7; // Light gray background on hover
+        }
       }
     }
 
@@ -91,9 +106,9 @@
         .secondary-img {
           width: 100%;
           height: 100%;
-          object-fit: cover; // Ensures the images fill the grid cells completely
-          border: none; // Remove any default borders
-          display: block; // Prevent inline-block spacing issues
+          object-fit: cover; 
+          border: none; 
+          display: block;
         }
       }
     }

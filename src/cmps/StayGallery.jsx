@@ -13,7 +13,7 @@ import share from '../assets/img/various/share.svg'
 // import BookingForm from './BookingForm'
 // import LocationMap from './LocationMap'
 
-export function StayHeader() {
+export function StayGallery() {
   const { stayId } = useParams()
   const [stay, setStay] = useState(null)
 

@@ -27,7 +27,7 @@ export function AppHeader() {
 
 	return (
 		<div className="full main-container">
-		<div className={isStickyPage ? 'app-headersticky' : 'app-header'}>
+		<div className={isStickyPage ? 'app-header sticky' : 'app-header'}>
 		<div className="header-logo">
 			<NavLink to="/" >
 				<img src={logo} alt="Logo" />

@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom'
 import { useEffect, useRef, useState } from "react"
 import { useForm } from "../customHooks/useForm.jsx"
 
-import { SearchBtn } from "./Search-btn.jsx"
 import { RegionSelect } from "./Region-select.jsx"
 import { DateSelect } from "./Date-select.jsx"
 import { GuestSelect } from "./Guest-select.jsx"
@@ -38,7 +37,7 @@ export function StaySearchForm({ staySearchParams, handleToggle, selectedTab, se
     }
 
     function handleSubmit() {
-        
+
         const searchObject = {
             location: fields.location,
             // checkIn: (fields.checkIn) ? fields.checkIn.getTime() : utilService.getTimeStampXDaysFromNow(7),
@@ -60,7 +59,7 @@ export function StaySearchForm({ staySearchParams, handleToggle, selectedTab, se
             location: searchObject.location,
             guests,
         }
-        
+
         console.log('searchObject:', searchObject)
         const searchParams = utilService.objectToSearchParams(searchObject)
         navigate(`/?${searchParams}`)
@@ -97,7 +96,7 @@ export function StaySearchForm({ staySearchParams, handleToggle, selectedTab, se
 
     const checkInSubHeading = (fields.checkIn) ? `${utilService.formattedDate(fields.checkIn)}` : 'Add dates'
     const checkOutSubHeading = (fields.checkOut) ? `${utilService.formattedDate(fields.checkOut)}` : 'Add dates'
-
+    const validTabs = ['location', 'checkIn', 'checkOut', 'guests']
 
     return (
         <section className="search-form">
@@ -146,7 +145,20 @@ export function StaySearchForm({ staySearchParams, handleToggle, selectedTab, se
                             <div className="search-form-desc">{getGuestsSubHeading()}</div>
                         </div>
                         <div style={{ display: "contents" }} onClick={handleSubmit}>
-                            <SearchBtn />
+                            {validTabs.includes(selectedTab) ?
+                                    <button className="search-btn-open">
+                                        <section className="search-icon">
+                                            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false"><g fill="none"><path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path></g></svg>
+                                        </section>
+                                        <div>
+                                            Search
+                                        </div>
+                                    </button>
+                                : <button className="search-btn">
+                                    <section className="search-icon">
+                                        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false"><g fill="none"><path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path></g></svg>
+                                    </section>
+                                </button>}
                         </div>
                         {selectedTab === 'guests' &&
                             <div className="guest-select-container">

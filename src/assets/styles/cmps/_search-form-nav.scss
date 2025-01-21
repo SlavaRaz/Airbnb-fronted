@@ -10,7 +10,8 @@
     padding: 10px 16px;
     border: none;
     background-color: transparent;
-    font-size: 15px;
+    font-size: 16px;
+    font-family: cereal-Regular;
 
     // &:not(.active) > span {
     //     position: relative;
@@ -39,8 +40,9 @@
 
     &.active > span{
         position: relative;
+        font-weight: bold;
         &::after {
-            background-color: currentcolor;
+            // background-color: currentcolor;
             inset-inline: 0;
             content: '';
             height: 2px;

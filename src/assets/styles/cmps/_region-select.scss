@@ -1,20 +1,21 @@
 .region-select-menu {
-    padding: 16px 8px 8px 0px;
+    padding: 5px 8px 8px 0px;
     margin: 12px 0px -16px 12px;
 
     .heading {
         font-size: rem(14px);
         font-family: cereal-medium;
         line-height: rem(18px);
-        margin: 0 0 28px 5px;
+        margin: 0 0 18px 5px;
+        font-weight: 600;
     }
 
     .region-grid {
         column-gap: 5px;
         display: grid;
         grid-template-columns: repeat(3, min-content);
-        row-gap: 24px;
-        margin-bottom: 40px;
+        row-gap: 10px;
+        // margin-bottom: 10px;
     }
 
     .region {

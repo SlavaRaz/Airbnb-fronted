@@ -1,5 +1,5 @@
 .counter-container {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: space-between;
     width: 104px;
@@ -12,7 +12,7 @@
         flex-shrink: 0;
         cursor: pointer;
         display: inline-flex;
-        margin: 0px;
+        margin-top: 0px;
         padding: 0px;
         text-align: center;
         text-decoration: none;
@@ -27,7 +27,7 @@
         border-radius: 50%;
 
         span {
-            height: 22px ;
+            height: 122px ;
             width: 22px ;
             padding: 5px ;
         }
@@ -46,6 +46,9 @@
             cursor: not-allowed !important;
             color: $clr-border;
             border-color: $clr-border ;
+        }
+        .counter-value {
+            margin-top: 10px;
         }
     }
 

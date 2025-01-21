@@ -4,7 +4,7 @@ export function StayDetails() {
  
 
   return (
-    <section className='stay-details'>
+    <section className='stay-details '>
        <StayGallery/>
     </section>
   )

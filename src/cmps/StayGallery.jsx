@@ -26,10 +26,9 @@ export function StayGallery() {
   }, [stayId])
 
   if (!stay) return <div>Loading...</div>
-  const displayedImages = stay.imgUrls.slice(1)
 
   return (
-    <div className='stay-header-container'>
+    <div className='stay-header-container '>
       <div className='stay-header'>
         <h1 className='stay-title'> {stay.name}</h1>
         <div className='action-buttons'>
@@ -44,17 +43,16 @@ export function StayGallery() {
         </div>
       </div>
       <div className='image-container'>
-        <img src={stay.imgUrls[0]} alt={'Image 1'} className='main-img' />
-        <div className='more-images'>
-          {displayedImages.map((image, index) => (
+
+          {stay.imgUrls.map((image, index) => (
             <img
               key={index}
               src={image}
-              alt={`Image ${index + 2}`}
-              className={`secondary-img`}
+              alt={`Image ${index + 1}`}
+              className={`img-details`}
             />
           ))}
-        </div>
+
       </div>
     </div>
   )

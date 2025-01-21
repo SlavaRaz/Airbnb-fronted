@@ -16,6 +16,7 @@ export function AppHeader() {
 	const isStickyPage = location.pathname === '/'
 	
 	return (
+		<div className="full main-container">
 		<div className={isStickyPage ? 'app-header sticky' : 'app-header'}>
 			<div className="header-logo">
 				<NavLink to="/" >
@@ -30,5 +31,6 @@ export function AppHeader() {
 			<SearchBar />
 			<NavMenu />
 		</div >
+		</div>
 	)
 }

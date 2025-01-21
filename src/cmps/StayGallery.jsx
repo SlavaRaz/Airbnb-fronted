@@ -10,7 +10,7 @@ import share from '../assets/img/various/share.svg'
 // import StayInfo from './StayInfo'
 // import StayFeatures from './StayFeatures'
 // import Reviews from './Reviews'
-// import BookingForm from './BookingForm'
+import {BookingForm} from './BookingForm.jsx'
 // import LocationMap from './LocationMap'
 
 export function StayGallery() {
@@ -56,6 +56,9 @@ export function StayGallery() {
           ))}
         </div>
       </div>
+        <section className='book-form'>
+          <BookingForm />
+        </section>
     </div>
   )
 }

@@ -6,13 +6,14 @@ import { StaySearchForm } from './StaySearchForm.jsx';
 export function SearchBar() {
     const [searchParams] = useSearchParams()
     const [selectedTab, setSelectedTab] = useState([])
-    const [isOpen, setIsOpen] = useState(true)
+    const [isOpen, setIsOpen] = useState(false)
     const location = useLocation()
 
     useEffect(() => {
-        let lastScrollY = window.scrollY
+
         setSelectedTab([])
-        if (location.pathname === '/stay') return
+        if (location.pathname.startsWith('/stay')) return
+        let lastScrollY = window.scrollY
         const handleScroll = () => {
             if (window.scrollY === 0) setIsOpen(true)
             const currentScrollY = window.scrollY
@@ -29,7 +30,7 @@ export function SearchBar() {
         return () => {
             window.removeEventListener('scroll', handleScroll)
         }
-    }, [isOpen])
+    }, [location.pathname, isOpen])
 
     const [staySearchParams, setStaySearchParams] = useState({
         location: searchParams.get('location') || '',

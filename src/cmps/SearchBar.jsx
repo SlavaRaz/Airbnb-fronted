@@ -1,15 +1,18 @@
 import { useState, useEffect, useRef } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams, useLocation } from 'react-router-dom';
 import { SearchPreview } from './SearchPreview.jsx';
 import { StaySearchForm } from './StaySearchForm.jsx';
 
 export function SearchBar() {
     const [searchParams] = useSearchParams()
-    const [selectedTab, setSelectedTab] = useState('')
+    const [selectedTab, setSelectedTab] = useState([])
     const [isOpen, setIsOpen] = useState(true)
+    const location = useLocation()
 
     useEffect(() => {
         let lastScrollY = window.scrollY
+        setSelectedTab([])
+        if (location.pathname === '/stay') return
         const handleScroll = () => {
             if (window.scrollY === 0) setIsOpen(true)
             const currentScrollY = window.scrollY

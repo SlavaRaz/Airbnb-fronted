@@ -1,104 +1,108 @@
-
 .app-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 80px;
-    background-color: $clr6;
-    padding: rem(10px) 2.7rem;
-    position: sticky;
+  font-family: poppins-semi-bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 80px;
+  background-color: $clr6;
+  padding: rem(10px) 2.7rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: all 0.3s ease;
+  grid-column: 1 / -1;
+
+  &:has(.search-bars-open)::after {
+    transform: scaleY(0.5);
+    border-bottom: none;
+    transition: transform 250ms ease;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
     top: 0;
+    height: 80px;
+    right: 0;
+    left: 0;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid $clr-border;
+    z-index: -1;
+    transition: transform 250ms ease;
+    transform: initial;
+  }
+
+  .header-logo {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    color: $clr-brand;
+    line-height: initial;
     z-index: 100;
-    transition: all 0.3s ease;
-    grid-column: 1 / -1;
 
-    &:has(.search-bars-open)::after {
-        transform: scaleY(0.5);
-        border-bottom: none;
-        transition: transform 250ms ease;
+    img {
+      height: 32px;
+      width: 32px;
     }
 
-    &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        height: 80px;
-        right: 0;
-        left: 0;
-        background-color: rgb(255, 255, 255);
-        border-bottom: 1px solid $clr-border;
-        z-index: -1;
-        transition: transform 250ms ease;
-        transform: initial;
+    .logo-text {
+      font-family: 'poppins-bold';
+
+      font-family: lato-regular;
+
+      margin-left: 10px;
+      // font-weight: bold;
+      font-size: 24px;
+      // color: $clr-brand;
+      // font-family: circularLight;
     }
-    
-    .header-logo {
-        display: flex;
-        align-items: center;
-        justify-items: center;
-        color: $clr-brand;
-        line-height: initial;
-        z-index: 100;
+  }
 
-        img {
-            height: 32px;
-            width: 32px;
-        }
+  // nav {
+  //     display: flex;
+  //     width: 100%;
+  //     align-items: center;
+  //     gap: 1em;
 
-        .logo-text {
-            margin-left: 10px;
-            // font-weight: bold;
-            font-size: 24px;
-            // color: $clr-brand;
-            // font-family: circularLight;
-        }
+  //     // font-size: .8em;
+
+  //     .active {
+  //         color: $clr1;
+  //     }
+
+  //     .login-link {
+  //         margin-inline-start: auto;
+  //     }
+
+  //     button {
+  //         margin-inline-end: 0;
+  //     }
+  // }
+
+  .user-info {
+    display: flex;
+    align-items: center;
+    // margin-inline-start: auto;
+
+    color: $clr1;
+
+    .score {
+      padding: 8px;
+      background-color: $clr2;
+      border-radius: 50%;
+      margin: 10px;
+
+      color: $clr6;
     }
 
-    // nav {
-    //     display: flex;
-    //     width: 100%;
-    //     align-items: center;
-    //     gap: 1em;
-
-    //     // font-size: .8em;
-
-    //     .active {
-    //         color: $clr1;
-    //     }
-
-    //     .login-link {
-    //         margin-inline-start: auto;
-    //     }
-
-    //     button {
-    //         margin-inline-end: 0;
-    //     }
-    // }
-
-    .user-info {
-        display: flex;
-        align-items: center;
-        // margin-inline-start: auto;
-
-        color: $clr1;
-
-        .score {
-            padding: 8px;
-            background-color: $clr2;
-            border-radius: 50%;
-            margin: 10px;
-
-            color: $clr6;
-        }
-
-        img {
-            width: 32px;
-            aspect-ratio: 1;
-            border-radius: 50%;
-        }
-
-        .btn-link {
-            color: $clr2;
-        }
+    img {
+      width: 32px;
+      aspect-ratio: 1;
+      border-radius: 50%;
     }
+
+    .btn-link {
+      color: $clr2;
+    }
+  }
 }

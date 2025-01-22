@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import heart from '../assets/img/various/heart.svg'
 import share from '../assets/img/various/share.svg'
 
+
 // import { stayService } from '../services/stay/stay.service.local'
 // import StayTitle from './LocationMap'
 // import ImageGallery from './ImageGallery'
@@ -16,7 +17,6 @@ import { BookingForm } from './BookingForm.jsx'
 export function StayGallery() {
   const { stayId } = useParams()
   const [stay, setStay] = useState(null)
-  const [openTab, setOpenTab] = useState(null)
 
   useEffect(() => {
     async function fetchStay() {
@@ -55,9 +55,7 @@ export function StayGallery() {
         ))}
 
       </div>
-        <BookingForm stay={stay}
-          openTab={openTab}
-          setOpenTab={setOpenTab} />
+       
     </div>
   )
 }

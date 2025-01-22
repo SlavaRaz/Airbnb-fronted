@@ -1,60 +1,76 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate, useSearchParams, useLocation } from 'react-router-dom';
-import { utilService } from '../services/util.service';
-import { DateSelect } from '../cmps/Date-select.jsx';
+import { useNavigate, useSearchParams, useLocation } from 'react-router-dom'
+import { utilService } from '../services/util.service'
+import { DateSelect } from '../cmps/Date-select.jsx'
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io'
 import { GuestSelect } from './Guest-select.jsx';
+import { BtnSquareBlack } from './ui/buttons/btn-square-black.jsx'
+import { BtnSquareColor } from './ui/buttons/btn-square-color.jsx'
+import { OrderDetails } from './OrderDetails.jsx'
 
-export function BookingForm({stay,openTab,setOpenTab}) {
+
+export function BookingForm({stay,openTab,setOpenTab,reserveBtnRef }) {
 
     const [searchParams, setSearchParams] = useSearchParams()
+    const [refVisible, setRefVisible] = useState(false)
     const navigate = useNavigate()
 
-    const [formState, setFormState] = useState(
-        {
-        location: searchParams.get('location') || '',
-        checkIn: +searchParams.get('checkIn') ? new Date(+searchParams.get('checkIn')) : '',
-        checkOut: +searchParams.get('checkOut') ? new Date(+searchParams.get('checkIn')) : '',
+    const orderParams = {
+        checkIn: searchParams.get('checkIn')
+          ? new Date(+searchParams.get('checkIn'))
+          : '',
+        checkOut: searchParams.get('checkOut')
+          ? new Date(+searchParams.get('checkOut'))
+          : '',
         guests: {
-            adults: +searchParams.get('adults') || 1,
-            children: +searchParams.get('children') || 0,
-            infants: +searchParams.get('infants') || 0,
-            pets: +searchParams.get('pets') || 0,
+          adults: +searchParams.get('adults') || 1,
+          children: +searchParams.get('children') || 0,
+          infants: +searchParams.get('infants') || 0,
+          pets: +searchParams.get('pets') || 0,
         },
-    })
-
-    const handleFieldChange = (field, value) => {
-
-        const params = new URLSearchParams(searchParams)
+      }
+    
+      function onSetField(field, value) {
+        console.log(searchParams)
         if (field === 'guests') {
-          Object.entries(value).forEach(([key, val]) => params.set(key, val));
-        } else if (field === 'checkIn' || field === 'checkOut') {
-          params.set(field, value ? value.getTime() : '')
+          searchParams.set('adults', value.adults)
+          searchParams.set('children', value.children)
+          searchParams.set('infants', value.infants)
+          searchParams.set('pets', value.pets)
         }
-        setSearchParams(params)
+        if (field === 'checkIn' || field === 'checkOut') {
+          if (value) {
+            value = value.getTime()
+          }
+          searchParams.set(field, value)
+        }
+        setSearchParams(searchParams)
       }
 
-      const handleReserveClick = () => {
-
+      function onClickReserve() {
         const paramsToSet = utilService.objectToSearchParams({
-          checkIn: formState.checkIn.getTime(),
-          checkOut: formState.checkOut.getTime(),
-          ...formState.guests,
+          checkIn: orderParams.checkIn.getTime(),
+          checkOut: orderParams.checkOut.getTime(),
+          adults: orderParams.guests.adults,
+          children: orderParams.guests.children,
+          infants: orderParams.guests.infants,
+          pets: orderParams.guests.pets,
         })
         navigate(`/book/stay/${stay._id}?${paramsToSet}`)
       }
+    
 
-      const checkInSubHeading = formState.checkIn
-      ? `${utilService.formattedDate(+formState.checkIn)}`
+      const checkInSubHeading = orderParams.checkIn
+      ? `${utilService.formattedDate(+orderParams.checkIn)}`
       : 'Add Date'
-    const checkOutSubHeading = formState.checkOut
-      ? `${utilService.formattedDate(+formState.checkOut)}`
+    const checkOutSubHeading = orderParams.checkOut
+      ? `${utilService.formattedDate(+orderParams.checkOut)}`
       : 'Add Date'
 
 
       function getGuestsSubHeading() {
         var guestSubheading = ''
-        const { adults, children, infants, pets } = formState.guests
+        const { adults, children, infants, pets } = orderParams.guests
         if (adults) guestSubheading += `${adults} adults`
         if (children) guestSubheading += `, ${children} children`
         if (infants) guestSubheading += `, ${infants} infants`
@@ -80,15 +96,6 @@ export function BookingForm({stay,openTab,setOpenTab}) {
               <span className="order-price">${(Math.round(stay.price)).toLocaleString()}</span>
               <span className="order-night" style={{ fontFamily: 'cereal-Book' }}> night</span>
             </h4>
-            {/* <div className='order-rating-review flex'>
-              <RatingReview reviews={stay.reviews} />
-              <span>•</span>
-              <div
-                className='stay-rating'
-                onClick={() => openTab('reviews-modal')}>
-                {stay.reviews.length} reviews
-              </div>
-            </div> */}
           </header>
   
           {/* Reservation Edit */}
@@ -99,21 +106,21 @@ export function BookingForm({stay,openTab,setOpenTab}) {
 
               <section className='date-picker-modal'>
                 <div className='date-picker-header'>
-                {(formState.checkIn && formState.checkOut) ? (<h4>{utilService.totalDays(formState.checkIn, formState.checkOut)} nights</h4>) : <h4>Select Dates</h4>}
-                {(formState.checkIn && formState.checkOut) ? ( <h5>{utilService.ShortFormattedDate(formState.checkIn)}-{utilService.ShortFormattedDate(formState.checkOut)}</h5>) : <h5>Minimum nights: 2 days</h5>}
+                {(orderParams.checkIn && orderParams.checkOut) ? (<h4>{utilService.totalDays(orderParams.checkIn, orderParams.checkOut)} nights</h4>) : <h4>Select Dates</h4>}
+                {(orderParams.checkIn && orderParams.checkOut) ? ( <h5>{utilService.ShortFormattedDate(orderParams.checkIn)}-{utilService.ShortFormattedDate(orderParams.checkOut)}</h5>) : <h5>Minimum nights: 2 days</h5>}
                 </div>
   
                 <DateSelect
-                  checkIn={formState.checkIn}
-                  checkOut={formState.checkOut}
-                  handleFieldChange={handleFieldChange}
+                  checkIn={orderParams.checkIn}
+                  checkOut={orderParams.checkOut}
+                  onSetField={onSetField}
                   className='date-picker'
                 />
                 <div className="date-picker-modal-btns">
-                  <button className="reset-dates-btn clean-button" onClick={() => { handleFieldChange('checkIn', ''); handleFieldChange('checkOut', '') }}>Clear dates</button>
-                  {/* <div className='close-dates-btn'>
+                  <button className="reset-dates-btn clean-button" onClick={() => { onSetField('checkIn', ''); onClickReserve('checkOut', '') }}>Clear dates</button>
+                  <div className='close-dates-btn'>
                     <BtnSquareBlack onClick={() => setOpenTab('')}>Close</BtnSquareBlack>
-                  </div> */}
+                  </div>
                 </div>
   
   
@@ -145,40 +152,40 @@ export function BookingForm({stay,openTab,setOpenTab}) {
               {openTab === 'guests' && (
                 <div className='guest-select-container-small'>
                   <GuestSelect
-                    guests={formState.guests}
-                    handleFieldChange={handleFieldChange}
+                    guests={orderParams.guests}
+                    onSetField={onSetField}
                   />
                 </div>
               )}
             </div>
           </section>
   
-          {/* Reserve/CheckAvailability Button
+          {/* Reserve/CheckAvailability Button */}
           <div>
             <div className='reserve-btns-ref' ref={el => { reserveBtnRef.current = el; setRefVisible(!!el) }}></div>
-            {formState.checkIn && formState.checkOut && (
+            {orderParams.checkIn && orderParams.checkOut && (
               <BtnSquareColor onClick={onClickReserve} children={'Reserve'} />
             )}
-            {(!formState.checkIn || !formState.checkOut) && (
+            {(!orderParams.checkIn || !orderParams.checkOut) && (
               <BtnSquareColor
                 onClick={() => {
                   setOpenTab('checkIn')
                 }}
-                children={'Check Availability'}
+                children={'Reserve'}
               />
             )}
   
             <section className='order-details flex'>
-              {formState.checkIn && formState.checkOut && (
+              {orderParams.checkIn && orderParams.checkOut && (
                 <OrderDetails
-                  checkIn={formState.checkIn}
-                  checkOut={formState.checkOut}
+                  checkIn={orderParams.checkIn}
+                  checkOut={orderParams.checkOut}
                   stay={stay}
                 />
               )}
   
             </section>
-          </div> */}
+          </div>
         </div>
       </section>
     )

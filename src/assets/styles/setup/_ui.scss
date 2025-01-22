@@ -1,0 +1,58 @@
+// rounded button
+.btn-rounded {
+    height: 48.5px;
+    border-radius: 21px;
+    border: 1px solid $clr-border;
+  
+    transition: box-shadow 0.2s ease 0s;
+  
+    &:hover {
+      box-shadow: 0px 2px 3px 2px #dddddd;
+    }
+  }
+  
+  //arrows
+  .chevron {
+    display: grid;
+    position: absolute;
+  
+    height: 64px;
+    min-width: 10%;
+    max-width: 3rem;
+    margin-top: 12px;
+    margin-bottom: 10px;
+    font-size: 2rem;
+    color: $clr-text-secondary;
+  
+    cursor: pointer;
+  
+    &-left {
+      left: 0;
+      background-image: linear-gradient(
+        270deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(255, 255, 255, 0.5) 20%,
+        rgba(255, 255, 255, 1) 70%,
+        rgb(255, 255, 255) 100%
+      );
+    }
+  
+    &-right {
+      right: 0;
+      justify-content: right;
+      background-image: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(255, 255, 255, 0.5) 20%,
+        rgba(255, 255, 255, 1) 70%,
+        rgb(255, 255, 255) 100%
+      );
+    }
+  }
+  
+  .container {
+    border: 1px solid $clr-border;
+    border-radius: $border-radius;
+    padding: 1rem;
+  }
+  

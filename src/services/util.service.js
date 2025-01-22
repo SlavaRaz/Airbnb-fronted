@@ -13,6 +13,8 @@ export const utilService = {
   getTimeStampXDaysFromNow,
   objectToSearchParams,
   formattedDate,
+  ShortFormattedDate,
+  totalDays
 
 }
 
@@ -86,6 +88,17 @@ function getTimeStampXDaysFromNow(days) {
   const date = new Date()
   date.setDate(date.getDate() + days)
   return date.getTime()
+}
+
+function ShortFormattedDate(timeStamp) {
+  const date = new Date(timeStamp)
+  return date.toLocaleDateString('en-US', {month: 'short', day: 'numeric'})
+}
+
+function totalDays(startDate, endDate) {
+  const diffTime = Math.abs(endDate - startDate)
+  return Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+
 }
 
 function objectToSearchParams(obj) {

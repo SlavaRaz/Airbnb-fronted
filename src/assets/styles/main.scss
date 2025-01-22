@@ -3,6 +3,7 @@
 @import "setup/functions";
 @import "setup/mixins";
 @import "setup/_typography";
+@import 'setup/ui';
 
 // Basics
 @import "basics/helpers";
@@ -15,14 +16,15 @@
 // pages
 @import "RootCmp";
 
-@import "pages/AboutUs";
+@import "pages/booking-form";
+// @import "pages/AboutUs";
 // @import "pages/HomePage";
 @import "pages/CarIndex";
 @import "pages/ReviewIndex";
 @import "pages/UserDetails";
 @import "pages/TaskDetails";
 @import "pages/LoginSignup";
-@import "pages/StayDetails.scss";
+@import "pages/stay-details.scss";
 
 // Components
 @import "cmps/_stay-list";

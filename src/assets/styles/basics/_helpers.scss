@@ -38,3 +38,27 @@
 .portrait-ratio {
     @include aspect-ratio(9, 16);
 }
+
+.flex {
+    display: flex;
+  
+    > *.full {
+      flex: 1;
+    }
+  
+    &.column {
+      flex-direction: column;
+    }
+  
+    &.justify-center {
+      justify-content: center;
+    }
+  
+    &.align-center {
+      align-items: center;
+    }
+  
+    &.justify-between {
+      justify-content: space-between;
+    }
+  }

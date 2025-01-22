@@ -14,34 +14,23 @@ export function AppHeader() {
 	const location = useLocation()
 
 	const isStickyPage = location.pathname === '/'
-
-	// async function onLogout() {
-	// 	try {
-	// 		await logout()
-	// 		navigate('/')
-	// 		showSuccessMsg(`Bye now`)
-	// 	} catch (err) {
-	// 		showErrorMsg('Cannot logout')
-	// 	}
-	// }
-
+	
 	return (
 		<div className="full main-container">
 		<div className={isStickyPage ? 'app-header sticky' : 'app-header'}>
-		<div className="header-logo">
-			<NavLink to="/" >
-				<img src={logo} alt="Logo" />
-			</NavLink>
-				<nav>
+			<div className="header-logo">
+				<NavLink to="/" >
+					<img src={logo} alt="Logo" />
+				</NavLink>
+				{/* <nav>
 					<a href="/"></a>
 					<a href="/stay"></a>
-				</nav>
-			<h2 className="logo-text">airbnb</h2>
+				</nav> */}
+				<h2 className="logo-text">airbnb</h2>
+			</div>
+			<SearchBar />
+			<NavMenu />
+		</div >
 		</div>
-		<SearchBar />
-		<NavMenu />
-		</div>
-		</div>
-
 	)
 }

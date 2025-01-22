@@ -10,12 +10,13 @@ import share from '../assets/img/various/share.svg'
 // import StayInfo from './StayInfo'
 // import StayFeatures from './StayFeatures'
 // import Reviews from './Reviews'
-// import BookingForm from './BookingForm'
+import { BookingForm } from './BookingForm.jsx'
 // import LocationMap from './LocationMap'
 
 export function StayGallery() {
   const { stayId } = useParams()
   const [stay, setStay] = useState(null)
+  const [openTab, setOpenTab] = useState(null)
 
   useEffect(() => {
     async function fetchStay() {
@@ -44,16 +45,19 @@ export function StayGallery() {
       </div>
       <div className='image-container'>
 
-          {stay.imgUrls.map((image, index) => (
-            <img
-              key={index}
-              src={image}
-              alt={`Image ${index + 1}`}
-              className={`img-details`}
-            />
-          ))}
+        {stay.imgUrls.map((image, index) => (
+          <img
+            key={index}
+            src={image}
+            alt={`Image ${index + 1}`}
+            className={`img-details`}
+          />
+        ))}
 
       </div>
+        <BookingForm stay={stay}
+          openTab={openTab}
+          setOpenTab={setOpenTab} />
     </div>
   )
 }

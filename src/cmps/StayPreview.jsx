@@ -72,7 +72,7 @@ export function StayPreview({ stay, filters }) {
         </Carousel>
         <div className='stay-card-details'>
           <div className='preview-header'>
-            <div className='preview-name'>{stay.name}</div>
+            <div className='preview-name'>{`${stay.loc.city}, ${stay.loc.country}`}</div>
             <div className='preview-rating'>
               <img src={StarIcon} alt='star' width='10' height='10' />{' '}
               <span>5.0</span>

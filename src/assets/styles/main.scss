@@ -2,12 +2,13 @@
 @import "setup/variables";
 @import "setup/functions";
 @import "setup/mixins";
-@import "setup/_typography";
+@import "setup/typography";
 @import 'setup/ui';
 
 // Basics
 @import "basics/helpers";
 @import "basics/layout";
+@import "basics/layout-details";
 @import "basics/base";
 // @import "basics/links";
 @import "basics/forms";
@@ -24,10 +25,10 @@
 @import "pages/UserDetails";
 @import "pages/TaskDetails";
 @import "pages/LoginSignup";
-@import "pages/stay-details.scss";
+// @import "pages/stay-details.scss";
 
 // Components
-@import "cmps/_stay-list";
+@import "cmps/stay-list";
 @import "cmps/preview";
 
 @import 'cmps/app-header';

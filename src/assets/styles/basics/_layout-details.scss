@@ -1,0 +1,14 @@
+.main-container-details {
+    display: grid;
+    grid-template-columns: minmax(100px, 1fr) minmax(auto, 1800px) minmax(100px, 1fr);
+
+    > * {
+        grid-column: 2;
+
+        &.full {
+            grid-column: 1 / -1;
+        }
+    }
+
+
+}

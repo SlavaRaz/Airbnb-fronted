@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 import { BookingForm } from './BookingForm'
 import { useEffect, useRef, useState } from 'react'
 import useOnScreen from '../customHooks/useOnScreen'
+import { stayService } from '../services/stay/stay.service.local'
+
 
 
 export function StayDescription() {

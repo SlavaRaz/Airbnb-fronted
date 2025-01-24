@@ -5,7 +5,7 @@ import heart from '../assets/img/various/heart.svg'
 import share from '../assets/img/various/share.svg'
 
 
-// import { stayService } from '../services/stay/stay.service.local'
+import { stayService } from '../services/stay/stay.service.local'
 // import StayTitle from './LocationMap'
 // import ImageGallery from './ImageGallery'
 // import StayInfo from './StayInfo'
@@ -27,7 +27,6 @@ export function StayGallery() {
   }, [stayId])
 
   if (!stay) return <div>Loading...</div>
-
   return (
     <div className='stay-header-container '>
       <div className='stay-header'>

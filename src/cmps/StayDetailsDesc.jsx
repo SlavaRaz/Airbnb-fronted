@@ -3,9 +3,11 @@ import { BookingForm } from './BookingForm'
 import { Amenities } from './amenities'
 import { useEffect, useRef, useState } from 'react'
 import useOnScreen from '../customHooks/useOnScreen'
+import { stayService } from '../services/stay/stay.service.local'
 import cancelationIcon from '../assets/img/highlights/calendar.svg'
 import locationIcon from '../assets/img/highlights/location.svg'
 import checkInIcon from '../assets/img/highlights/check in.svg'
+
 
 export function StayDescription() {
   const { stayId } = useParams()

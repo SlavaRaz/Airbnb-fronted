@@ -7,6 +7,8 @@ import {useState} from 'react'
 export function DateSelect({onSetField, checkIn, checkOut, monthsToShow = 2}) {
   checkIn = checkIn || new Date()
   checkOut = checkOut || new Date()
+  console.log(checkIn)
+  
 const [range, setRange] = useState([
     {
       startDate: checkIn,

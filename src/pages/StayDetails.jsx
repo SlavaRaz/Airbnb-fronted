@@ -6,7 +6,7 @@ import '../assets/styles/basics/_layout-details.scss'
 export function StayDetails() {
 
   return (
-    <section className=' full main-container '>
+    <section className='StayDetailsComponent full main-container '>
       <StayGallery />
       <StayDescription />
 

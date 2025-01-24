@@ -2,12 +2,13 @@
 .details-and-reserve {
     display: grid;
     grid-template-columns: 1.45fr 1fr;
+    font-family: "Airbnb Cereal VF", Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
     border-bottom: 1px solid #dedede;
     margin-top: 18px;
 
     .details {
         // position: relative ;
-        width: 58.333333333333336%;
+        width: 100%;
         margin-left: 0%;
         margin-right: 0%;
 
@@ -33,12 +34,58 @@
         .host {
             padding: 24px 0px;
             flex-direction: row;
+
             gap: 24px;
         }
 
         .host img {
             height: 40px;
             width: 40px;
+            border-radius: 50%;
+
+        }
+
+
+        .divider{
+            height: 0.5px;
+            background-color: rgb(216, 213, 213);
+            margin: 10px 0px;
+        }
+            
+        .advantages-list{
+            flex-direction: column;
+            padding: 32px 0px;
+            gap: 24px;
+        
+            .advantage{
+                flex-direction: row;
+                gap: 24px;
+        
+                .advantage-icon{
+                    width: 40px;
+                    justify-content: center;
+                }
+        
+                .advantage-text{
+                    flex-direction: column;
+        
+                    .advantage-title{
+                        color: rgb(34, 34, 34);
+                        font-weight: 600;
+                        font-size: 1rem;
+            line-height: 1.25rem ;
+                        margin-bottom: 4px;
+                    }
+        
+                    .advantage-details{
+                        color: rgb(106, 106, 106) ;
+                        font-family: "Airbnb Cereal VF", Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+                        font-weight: 400;
+                        font-size: 0.875rem;
+                        line-height: 1.25rem ;
+                    }
+                }
+            }
         }
     }
 

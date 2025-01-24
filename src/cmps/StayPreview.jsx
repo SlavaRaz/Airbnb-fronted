@@ -38,15 +38,19 @@ export function StayPreview({ stay, filters }) {
   }
 
   let display = 'block'
-  if (filters.filters && stay.type !== filters.filters) {
+  console.log(filters.filters )
+  console.log(filters )
+  if (filters && stay.type !== filters) {
     display = 'none'
   }
+  // console.log('xxxxxxxx'+stay._id)
   return (
     <article
       style={{ display: display }}
       key={stay._id}
       className='stay-preview'
     >
+      
       <Link to={`/stay/${stay._id}`} key={stay._id} className='stay-link'>
         <Carousel
           renderArrowPrev={renderArrowPrev}

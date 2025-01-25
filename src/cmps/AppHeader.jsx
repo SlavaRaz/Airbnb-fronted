@@ -16,6 +16,10 @@ export function AppHeader() {
 
 	const isStickyPage = location.pathname === '/'
 
+	if (location.pathname.startsWith('/book/stay')) {
+		return null
+	}
+
 	return (
 		<div className="full main-container">
 			<div className={isStickyPage ? 'app-header sticky' : 'app-header'}>
@@ -23,7 +27,9 @@ export function AppHeader() {
 					<NavLink to="/" >
 						<img src={logo} alt="Logo" />
 					</NavLink>
+					<NavLink to="/" >
 						<h2 className="logo-text">airbnb</h2>
+					</NavLink>
 					{/* <nav>
 					<a href="/"></a>
 					<a href="/stay"></a>

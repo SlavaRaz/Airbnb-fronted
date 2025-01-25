@@ -29,15 +29,14 @@
             font-weight: 600;
             line-height: 1.25rem;
             font-size: 1.25rem;
-            font-family: cereal-Bold;
+            font-family: $font-caption;
         }
 
         .order-night {
             font-size: 1rem;
+            font-family: $font-caption;
             font-weight: 400;
-            font-family: cereal-Book;
-        }
-
+                    }
     }
 
 
@@ -60,12 +59,12 @@
 
             h4 {
                 font-size: rem(22px);
-                font-family: 'cereal-Book';
+                font-family: $font-caption;
             }
 
             h5 {
                 font-size: rem(14px);
-                font-family: cereal-regular;
+                font-family: $font-caption;
                 color: $clr-text-secondary;
             }
         }
@@ -88,13 +87,13 @@
 
             .reset-dates-btn {
                 text-decoration: underline;
-                font-family: cereal-medium;
+                font-family: $font-caption;
                 font-size: rem(14px);
                 color: $clr-text-primary;
             }
 
             .close-dates-btn button {
-                font-family: cereal-book;
+                font-family: $font-caption;
                 font-size: rem(14px);
                 padding: 8px 16px;
                 margin-right: 0px;
@@ -125,7 +124,7 @@
                 text-align: center;
                 color: $clr-text-primary;
                 font-size: 1rem;
-                font-family: cereal-medium;
+                font-family: $font-caption;
             }
 
         }
@@ -133,7 +132,8 @@
 
         .order-heading {
             font-size: 0.625rem;
-            font-family: cereal-medium;
+            font-family: $font-caption;
+            font-weight: 500;
             text-transform: uppercase;
         }
 
@@ -249,11 +249,13 @@
         .total {
             font-weight: 600;
             color: $clr-svg-imgs;
-            font-family: cereal-Bold;
+            font-family: $font-caption;
         }
     }
 
+   
 }
+
 
 .order-confirmation-modal {
     // position: absolute;

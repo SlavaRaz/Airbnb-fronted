@@ -3,14 +3,12 @@ import { useNavigate, useSearchParams, useLocation } from 'react-router-dom'
 import { utilService } from '../services/util.service'
 import { DateSelect } from '../cmps/Date-select.jsx'
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io'
-import { GuestSelect } from './Guest-select.jsx';
+import { GuestSelect } from './Guest-select.jsx'
 import { BtnSquareBlack } from './ui/buttons/btn-square-black.jsx'
 import { BtnSquareColor } from './ui/buttons/btn-square-color.jsx'
 import { OrderDetails } from './OrderDetails.jsx'
 
-
 export function BookingForm({ stay, openTab, setOpenTab, reserveBtnRef }) {
-
   const [searchParams, setSearchParams] = useSearchParams()
   const [refVisible, setRefVisible] = useState(false)
   const navigate = useNavigate()
@@ -51,7 +49,7 @@ export function BookingForm({ stay, openTab, setOpenTab, reserveBtnRef }) {
       checkIn: orderParams.checkIn.getTime(),
       checkOut: orderParams.checkOut.getTime(),
       ...orderParams.guests,
-    });
+    })
     navigate(`/book/stay/${stay._id}?${paramsToSet}`)
   }
 
@@ -61,7 +59,6 @@ export function BookingForm({ stay, openTab, setOpenTab, reserveBtnRef }) {
   const checkOutSubHeading = orderParams.checkOut
     ? `${utilService.formattedDate(+orderParams.checkOut)}`
     : 'Add Date'
-
 
   function getGuestsSubHeading() {
     const { adults, children, infants, pets } = orderParams.guests
@@ -82,16 +79,35 @@ export function BookingForm({ stay, openTab, setOpenTab, reserveBtnRef }) {
       <div className='booking-modal-form flex'>
         <header className='booking-form-header flex'>
           <h4>
-            <span className="order-price">${(Math.round(stay.price)).toLocaleString()}</span>
-            <span className="order-night" style={{ fontFamily: 'cereal-Book' }}> night</span>
+            <span className='order-price'>
+              ${Math.round(stay.price).toLocaleString()}
+            </span>
+            <span className='order-night'> night</span>
           </h4>
         </header>
         <section className='picker-container'>
           {(openTab === 'checkIn' || openTab === 'checkOut') && (
             <section className='date-picker-modal'>
               <div className='date-picker-header'>
-                {(orderParams.checkIn && orderParams.checkOut) ? (<h4>{utilService.totalDays(orderParams.checkIn, orderParams.checkOut)} nights</h4>) : <h4>Select Dates</h4>}
-                {(orderParams.checkIn && orderParams.checkOut) ? (<h5>{utilService.ShortFormattedDate(orderParams.checkIn)}-{utilService.ShortFormattedDate(orderParams.checkOut)}</h5>) : <h5>Minimum nights: 2 days</h5>}
+                {orderParams.checkIn && orderParams.checkOut ? (
+                  <h4>
+                    {utilService.totalDays(
+                      orderParams.checkIn,
+                      orderParams.checkOut
+                    )}{' '}
+                    nights
+                  </h4>
+                ) : (
+                  <h4>Select Dates</h4>
+                )}
+                {orderParams.checkIn && orderParams.checkOut ? (
+                  <h5>
+                    {utilService.ShortFormattedDate(orderParams.checkIn)}-
+                    {utilService.ShortFormattedDate(orderParams.checkOut)}
+                  </h5>
+                ) : (
+                  <h5>Minimum nights: 2 days</h5>
+                )}
               </div>
               <DateSelect
                 checkIn={orderParams.checkIn}
@@ -99,33 +115,58 @@ export function BookingForm({ stay, openTab, setOpenTab, reserveBtnRef }) {
                 onSetField={onSetField}
                 className='date-picker'
               />
-              <div className="date-picker-modal-btns">
-                <button className="reset-dates-btn clean-button" onClick={() => { onSetField('checkIn', ''); handleReserveClick('checkOut', '') }}>Clear dates</button>
+              <div className='date-picker-modal-btns'>
+                <button
+                  className='reset-dates-btn clean-button'
+                  onClick={() => {
+                    onSetField('checkIn', '')
+                    handleReserveClick('checkOut', '')
+                  }}
+                >
+                  Clear dates
+                </button>
                 <div className='close-dates-btn'>
-                  <BtnSquareBlack onClick={() => setOpenTab('')}>Close</BtnSquareBlack>
+                  <BtnSquareBlack onClick={() => setOpenTab('')}>
+                    Close
+                  </BtnSquareBlack>
                 </div>
               </div>
             </section>
           )}
-          <section className={(openTab === 'checkIn' || openTab === 'checkOut') ? 'dates-selection active' : 'dates-selection'}>
+          <section
+            className={
+              openTab === 'checkIn' || openTab === 'checkOut'
+                ? 'dates-selection active'
+                : 'dates-selection'
+            }
+          >
             <button
               onClick={() => setOpenTab('checkIn')}
-              className='clean-button check-in picker'>
+              className='clean-button check-in picker'
+            >
               <div className='order-heading'>Check-In</div>
               <div className='order-sub-heading'>{checkInSubHeading}</div>
             </button>
             <button
               onClick={() => setOpenTab('checkOut')}
-              className='clean-button check-out picker'>
+              className='clean-button check-out picker'
+            >
               <div className='order-heading'>Check-Out</div>
               <div className='order-sub-heading'>{checkOutSubHeading}</div>
             </button>
           </section>
           <div className='guest-picker'>
-            <button className='clean-button guest-btn' onClick={() => (openTab === 'guests' ? setOpenTab(null) : setOpenTab('guests'))}>
+            <button
+              className='clean-button guest-btn'
+              onClick={() =>
+                openTab === 'guests' ? setOpenTab(null) : setOpenTab('guests')
+              }
+            >
               <div className='order-heading'>Guests</div>
               <div className='order-sub-heading'>{getGuestsSubHeading()}</div>
-              <div className="drawer-arrow-icon">{(openTab === 'guests' ? <IoIosArrowUp /> : <IoIosArrowDown />)}</div>
+              <div className='drawer-arrow-icon'>
+                {openTab === 'guests' ? <IoIosArrowUp /> : <IoIosArrowDown />}
+              </div>
             </button>
             {openTab === 'guests' && (
               <div className='guest-select-container-small'>
@@ -138,7 +179,13 @@ export function BookingForm({ stay, openTab, setOpenTab, reserveBtnRef }) {
           </div>
         </section>
         <div>
-          <div className='reserve-btns-ref' ref={el => { reserveBtnRef.current = el; setRefVisible(!!el) }}></div>
+          <div
+            className='reserve-btns-ref'
+            ref={(el) => {
+              reserveBtnRef.current = el
+              setRefVisible(!!el)
+            }}
+          ></div>
           {orderParams.checkIn && orderParams.checkOut && (
             <BtnSquareColor onClick={handleReserveClick} children={'Reserve'} />
           )}

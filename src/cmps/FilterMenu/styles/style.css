@@ -1,7 +1,8 @@
 .FilterMenuComponent{
     font-size: 14px;
     
-    /* color: #d3d3d389; */
+    color: #6a6a6a;
+    font-weight: 400;
      /* background-image: url("../back.png"); */
     background-size: contain;
     background-repeat: no-repeat;
@@ -34,6 +35,7 @@
     cursor: pointer;
     font-weight: bolder;
     border-bottom:  1px solid #ddd1d1;
+    color: black;
     
 }
 
@@ -75,4 +77,6 @@
     display: flex; /* ארגון האלמנטים בצורה אופקית */
     /* כל שאר הסגנונות שלך */
 }
+
+
 

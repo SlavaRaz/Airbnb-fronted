@@ -38,8 +38,7 @@ export function StayPreview({ stay, filters }) {
   }
 
   let display = 'block'
-  console.log(filters.filters )
-  console.log(filters )
+  
   if (filters && stay.type !== filters) {
     display = 'none'
   }
@@ -83,7 +82,7 @@ export function StayPreview({ stay, filters }) {
             </div>
           </div>
           <p className='preview-summary'>{stay.summary}</p>
-          <p className='preview-dates'>July 17-19</p>
+          <p className='preview-dates'>{stay.availableDates}</p>
           <div className='preview-price'>
             <span className='price-number'>{stay.price}$</span>
             <span> night</span>

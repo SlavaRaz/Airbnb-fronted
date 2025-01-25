@@ -9,22 +9,11 @@ import locationIcon from '../assets/img/highlights/location.svg'
 import checkInIcon from '../assets/img/highlights/check in.svg'
 
 
-export function StayDescription() {
-  const { stayId } = useParams()
-  const [stay, setStay] = useState(null)
+export function StayDescription({stay}) {
   const [openTab, setOpenTab] = useState(false)
   const reserveBtnRef = useRef()
   const reserveBtnVisible = useOnScreen(reserveBtnRef, '-34px')
 
-  useEffect(() => {
-    async function fetchStay() {
-      const fetchedStay = await stayService.getById(stayId)
-      setStay(fetchedStay)
-    }
-    fetchStay()
-  }, [stayId])
-
-  if (!stay) return <div>Loading...</div>
 
   return (
     <article>

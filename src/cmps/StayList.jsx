@@ -44,6 +44,9 @@ export function StayList({filters}) {
     }, 1000)
   }
 
+  console.log(stays[0]);
+
+
   return (
     <InfiniteScroll
       dataLength={displayedStays.length}

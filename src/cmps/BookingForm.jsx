@@ -9,7 +9,7 @@ import { BtnSquareColor } from './ui/buttons/btn-square-color.jsx'
 import { OrderDetails } from './OrderDetails.jsx'
 
 
-export function BookingForm({ stay, openTab, setOpenTab, reserveBtnRef }) {
+export function BookingForm({ stay, openTab, setOpenTab }) {
 
   const [searchParams, setSearchParams] = useSearchParams()
   const [refVisible, setRefVisible] = useState(false)
@@ -18,10 +18,10 @@ export function BookingForm({ stay, openTab, setOpenTab, reserveBtnRef }) {
   const orderParams = {
     checkIn: searchParams.get('checkIn')
       ? new Date(+searchParams.get('checkIn'))
-      : '',
+      : utilService.generateRandomDate(new Date(), 1,7),
     checkOut: searchParams.get('checkOut')
       ? new Date(+searchParams.get('checkOut'))
-      : '',
+      : utilService.generateRandomDate(new Date(), 1, 7),
     guests: {
       adults: +searchParams.get('adults') || 1,
       children: +searchParams.get('children') || 0,
@@ -51,7 +51,7 @@ export function BookingForm({ stay, openTab, setOpenTab, reserveBtnRef }) {
       checkIn: orderParams.checkIn.getTime(),
       checkOut: orderParams.checkOut.getTime(),
       ...orderParams.guests,
-    });
+    })
     navigate(`/book/stay/${stay._id}?${paramsToSet}`)
   }
 
@@ -138,7 +138,7 @@ export function BookingForm({ stay, openTab, setOpenTab, reserveBtnRef }) {
           </div>
         </section>
         <div>
-          <div className='reserve-btns-ref' ref={el => { reserveBtnRef.current = el; setRefVisible(!!el) }}></div>
+          {/* <div className='reserve-btns-ref' ref={el => { reserveBtnRef.current = el; setRefVisible(!!el) }}></div> */}
           {orderParams.checkIn && orderParams.checkOut && (
             <BtnSquareColor onClick={handleReserveClick} children={'Reserve'} />
           )}

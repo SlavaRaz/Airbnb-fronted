@@ -12,14 +12,14 @@ export function OrderDetails({ checkIn, checkOut, stay }) {
         <>
             <p className="no-charge-msg" style={{ textAlign: 'center' }}>You won't be charged yet</p>
             <div className="prices grid">
-                <p>${(stay.price).toLocaleString()} x {totalStay} nights</p>
-                <p>${totalPriceBefore.toLocaleString()}</p>
-                <p>Service fee</p>
-                <p>${(Math.round(SERVICE_FEE * totalStay)).toLocaleString()}</p>
+                <div>${(stay.price).toLocaleString()} x {totalStay} nights</div>
+                <div>${totalPriceBefore.toLocaleString()}</div>
+                <div>Airbnb Service fee</div>
+                <div>${(Math.round(SERVICE_FEE * totalStay)).toLocaleString()}</div>
             </div>
             <div className="total flex justify-between">
-                <p>Total</p>
-                <p>${totalPriceAfter.toLocaleString()}</p>
+            <div>Total</div>
+            <div>${totalPriceAfter.toLocaleString()}</div>
             </div>
         </>
     )

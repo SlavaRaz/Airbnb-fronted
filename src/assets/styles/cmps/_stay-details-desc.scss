@@ -7,7 +7,6 @@
     margin-top: 18px;
 
     .details {
-        // position: relative ;
         width: 100%;
         margin-left: 0%;
         margin-right: 0%;
@@ -97,6 +96,7 @@
     .reserve-stay-form {
         position: relative;
         margin-bottom: 2rem;
+      
 
         @include for-max-narrow-layout {
             display: none;

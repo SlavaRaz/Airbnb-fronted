@@ -2,7 +2,7 @@
 
 .booking-modal {
     position: sticky;
-    top: 130px;
+    top: 150px;
 }
 
 .booking-modal-form {
@@ -40,11 +40,9 @@
 
     }
 
-
-
     .picker-container {
         position: relative;
-        margin-bottom: 15px;
+        // margin-bottom: 15px;
         border-radius: 8px;
         border: 1px solid $clr-border-dark;
 
@@ -54,9 +52,6 @@
             flex-direction: column;
             padding-inline-start: 20px;
             padding-top: 10px;
-
-
-
 
             h4 {
                 font-size: rem(22px);
@@ -69,7 +64,6 @@
                 color: $clr-text-secondary;
             }
         }
-
 
         .date-picker-modal {
             @extend .container;
@@ -103,7 +97,6 @@
                     background-color: $clr-black;
                 }
             }
-
 
         }
 
@@ -218,11 +211,10 @@
             }
         }
 
-
     }
 
     .order-details {
-        gap: 25px;
+        // gap: 25px;
         flex-direction: column;
 
         .no-charge-msg {
@@ -231,18 +223,16 @@
         }
 
         .prices {
-            grid-template-columns: 1fr 1fr;
-            padding-bottom: 15px;
+            display: grid;
+            grid-template-columns: 1fr 0.01fr;
+            padding-bottom: 10px;
             border-bottom: 1px solid $clr-border-dark;
-            gap: 10px;
+            // gap: 10px;
             font-size: 0.9rem;
 
             &>*:nth-child(odd) {
                 text-decoration: underline;
-            }
-
-            &>*:nth-child(even) {
-                justify-self: end;
+                padding-bottom: 15px;
             }
         }
 
@@ -250,15 +240,16 @@
             font-weight: 600;
             color: $clr-svg-imgs;
             font-family: cereal-Bold;
+            padding-top: 20px;
         }
     }
 
 }
 
-.order-confirmation-modal {
-    // position: absolute;
-    top: 50%;
-    left: 50%;
-    // transform: translate(-50%, -50%);
-    border: solid 2px black;
-  }
+// .order-confirmation-modal {
+//     // position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     // transform: translate(-50%, -50%);
+//     border: solid 2px black;
+//   }

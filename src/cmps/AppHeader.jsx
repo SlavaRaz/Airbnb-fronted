@@ -15,6 +15,7 @@ export function AppHeader() {
 	const location = useLocation()
 
 	const isStickyPage = location.pathname === '/'
+	const isStayPage = location.pathname.startsWith('/stay')
 
 	if (location.pathname.startsWith('/book/stay')) {
 		return null
@@ -22,22 +23,24 @@ export function AppHeader() {
 
 	return (
 		<div className="full main-container">
-			<div className={isStickyPage ? 'app-header sticky' : 'app-header'}>
-				<div className="header-logo">
-					<NavLink to="/" >
-						<img src={logo} alt="Logo" />
-					</NavLink>
-					<NavLink to="/" >
-						<h2 className="logo-text">airbnb</h2>
-					</NavLink>
-					{/* <nav>
+			<div className={isStayPage ? ' main-container-details' : 'full main-container'}>
+				<div className={isStickyPage ? 'app-header sticky' : 'app-header'}>
+					<div className="header-logo">
+						<NavLink to="/" >
+							<img src={logo} alt="Logo" />
+						</NavLink>
+						<NavLink to="/" >
+							<h2 className="logo-text">airbnb</h2>
+						</NavLink>
+						{/* <nav>
 					<a href="/"></a>
 					<a href="/stay"></a>
 				</nav> */}
-				</div>
-				<SearchBar />
-				<NavMenu />
-			</div >
+					</div>
+					<SearchBar />
+					<NavMenu />
+				</div >
+			</div>
 		</div>
 	)
 }

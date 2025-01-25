@@ -23,7 +23,7 @@
 
   &::after {
     content: '';
-    position: absolute;
+    position: fixed;
     top: 0;
     height: 80px;
     right: 0;
@@ -53,10 +53,9 @@
       font-weight: $font-weight-medium;
 
       margin-left: 10px;
-      // font-weight: bold;
       font-size: 24px;
-      // color: $clr-brand;
-      // font-family: circularLight;
+      color: $clr-brand;
+      text-decoration:none;
     }
   }
 

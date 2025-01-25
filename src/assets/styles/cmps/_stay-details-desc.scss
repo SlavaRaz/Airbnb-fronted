@@ -5,11 +5,10 @@
   border-bottom: 1px solid #dedede;
   margin-top: 18px;
 
-  .details {
-    // position: relative ;
-    width: 100%;
-    margin-left: 0%;
-    margin-right: 0%;
+    .details {
+        width: 100%;
+        margin-left: 0%;
+        margin-right: 0%;
 
     .type-and-capacity {
       max-width: 1120px;
@@ -92,9 +91,10 @@
     }
   }
 
-  .reserve-stay-form {
-    position: relative;
-    margin-bottom: 2rem;
+    .reserve-stay-form {
+        position: relative;
+        margin-bottom: 2rem;
+      
 
     @include for-max-narrow-layout {
       display: none;

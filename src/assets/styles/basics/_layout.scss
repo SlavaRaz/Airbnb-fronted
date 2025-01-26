@@ -23,7 +23,7 @@
 
 @media (min-width:1128px){
     .main-container {
-        grid-template-columns: minmax(40px, 1fr) minmax(auto, 1050px) minmax(40px, 1fr);
+        grid-template-columns: minmax(40px, 1fr) minmax(auto, auto) minmax(40px, 1fr);
 
     }
 }
@@ -31,7 +31,7 @@
 
 @media (min-width:1640px){
     .main-container {
-        grid-template-columns: minmax(80px, 1fr) minmax(auto, 1480px) minmax(80px, 1fr);
+        grid-template-columns: minmax(80px, 1fr) minmax(auto, auto) minmax(80px, 1fr);
 
     }
 }
@@ -40,7 +40,7 @@
 @media (min-width:1880px){
     .main-container {
         display: grid;
-        grid-template-columns: minmax(80px, 1fr) minmax(auto, 2360px) minmax(80px, 1fr);
+        grid-template-columns: minmax(80px, 1fr) minmax(auto, auto) minmax(80px, 1fr);
     
       
     }

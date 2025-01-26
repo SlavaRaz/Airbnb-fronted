@@ -17,7 +17,7 @@ export function StayDescription({stay}) {
 
   return (
     <article>
-      <div className='details-and-reserve '>
+      <div className='details-and-reserve main container full'>
         <div className='details'>
           <div className='type-and-capacity'>
             <div className='type-title'>{`${stay.roomType} in ${stay.loc.city}, ${stay.loc.country}`}</div>

@@ -25,7 +25,7 @@ export function StayDetails() {
   }
 
   return (
-    <section className="StayDetailsComponent full main-container">
+    <section className="StayDetailsComponent main container full">
       <StayGallery stay={stay} />
       <StayDescription stay={stay} />
     </section>

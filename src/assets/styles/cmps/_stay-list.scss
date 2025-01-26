@@ -1,8 +1,11 @@
 
-.stay-list {
+
+
+  .stay-list {
     list-style: none;
     font-size: 0.9375rem;
     --min-column-size: 225px;
+    width: 100%;
     font-family: $font-caption; 
     font-weight: 400;
     line-height: 1.6;
@@ -187,3 +190,5 @@
     }
   }
   
+
+

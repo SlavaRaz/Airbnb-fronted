@@ -19,7 +19,7 @@ export function NavMenu() {
   async function onLogout() {
     try {
       await logout()
-      navigate('/stay')
+      navigate('/')
       showSuccessMsg(`Bye now`)
     } catch (err) {
       showErrorMsg('Cannot logout')

@@ -13,7 +13,7 @@
     vertical-align: middle;
     cursor: pointer;
     transition: transform 250ms ease, opacity 200ms ease 100ms, visibility 0ms 200ms;
-    font-family: cereail-Regular;
+    font-family: $font-caption; 
 
     &:hover {
         box-shadow: 0 2px 4px #0000002e;
@@ -48,14 +48,16 @@
     }
 
     .search-anywhere, .search-any-week {
-        font-family: cereal-Regular;
+        font-family: $font-caption; 
+        font-weight: $font-weight-semi-bold;
+
         // color: $clr8;
     }
 
     .search-add-guests {
         color: $clr-text-secondary;
         margin-right: -8px;
-        font-family: inherit;
+        font-family: $font-caption; 
     }
 
     .search-btn {
@@ -82,6 +84,6 @@
     button.start-your-search {
         width: 100%;
         text-align: left;
-        font-family: cereal-medium;
+        font-family: $font-caption; 
     }
 }

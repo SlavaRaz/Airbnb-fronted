@@ -1,6 +1,7 @@
 .FilterMenuComponent {
     font-size: 14px;
     color: #666666; /* הצבע הראשוני */
+    /* font-weight: bold; */
     background-size: contain;
     background-repeat: no-repeat;
     height: 100px;
@@ -12,6 +13,7 @@
 .FilterItemComponnet > span {
     color: gray; /* הצבע הראשוני */
     /* transition: color 0.3s ease; מעבר חלק בצבע */
+    text-align: center;
 }
 
 .FilterItemComponnet > span:hover {
@@ -24,10 +26,11 @@
     justify-content: center;
     gap: 3px;
     width: 100%;
+
 }
 
 .FilterItemComponnet {
-    width: 120px;
+    width: 9.09%;
     height: 100px;
     display: flex;
     flex-direction: column;
@@ -35,9 +38,31 @@
     align-items: center;
 }
 
+.FilterItemComponnet > span {
+    color: gray; /* הצבע הראשוני */
+    text-align: center;
+    display: inline-block; /* מגביל את הרוחב לטקסט בלבד */
+    position: relative; /* נדרש עבור הקו התחתון */
+}
+
+.FilterItemComponnet > span:hover::after {
+    content: ''; /* יוצר אלמנט מדומה */
+    position: absolute; /* מיקום יחסי לטקסט */
+    left: 0;
+    bottom: -10px; /* מרחק קטן מתחת לטקסט */
+    width: 100%; /* מתאים את הרוחב לטקסט */
+    height: 1px; /* גובה הקו */
+    background-color: #ddd1d1; /* צבע הקו */
+}
+
+
+
+
+
+
 .FilterItemComponnet:hover {
     cursor: pointer;
-    border-bottom: 1px solid #ddd1d1; /* קו תחתון כאשר העכבר מעל */
+    /* border-bottom: 1px solid #ddd1d1; קו תחתון כאשר העכבר מעל */
     color: black;
 
 }
@@ -75,3 +100,53 @@
     scroll-behavior: smooth; /* אפקט של גלילה חלקה */
     display: flex; /* ארגון האלמנטים בצורה אופקית */
 }
+
+ 
+.FilterMenuComponent .btn1, .FilterMenuComponent .btn2 {
+    width: 32px; /* גודל עיגול */
+    height: 32px; /* גודל עיגול */
+    border-radius: 50%; /* מוודא שהכפתור יהיה עיגול מושלם */
+    background-color: #f9f9f9; /* צבע רקע בהיר */
+    border: 1px solid #ddd; /* גבול עדין */
+    display: flex; /* ממרכז את החץ בתוך הכפתור */
+    align-items: center; /* ממרכז אנכית */
+    justify-content: center; /* ממרכז אופקית */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* הצללה עדינה */
+    transition: all 0.3s ease; /* מעבר חלק לכל שינוי */
+    cursor: pointer; /* מצביע עכבר */
+}
+
+.FilterMenuComponent .btn1:hover, .FilterMenuComponent .btn2:hover {
+    /* background-color: #e0e0e0; צבע רקע שונה במעבר עכבר */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* הצללה חזקה יותר */
+    transform: scale(1.1); /* אפקט של הגדלה קטנה */
+}
+
+.FilterMenuComponent .btn1:active, .FilterMenuComponent .btn2:active {
+    background-color: #d6d6d6; /* צבע רקע שונה בלחיצה */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* הצללה קטנה יותר בלחיצה */
+    transform: scale(1); /* מבטל את ההגדלה בלחיצה */
+}
+
+/* עיצוב לחץ */
+.FilterMenuComponent .btn1 svg, .FilterMenuComponent .btn2 svg {
+    width: 18px; /* גודל גדול יותר של החץ */
+    height: 18px; /* גודל גדול יותר של החץ */
+    fill: #666; /* צבע החץ */
+    transition: fill 0.3s ease, transform 0.3s ease; /* מעבר חלק בצבע ובגודל */
+}
+
+.FilterMenuComponent .btn1:hover svg, .FilterMenuComponent .btn2:hover svg {
+    /* fill: #333; צבע כהה יותר במעבר עכבר */
+    transform: scale(1.2); /* אפקט הגדלה לחץ */
+}
+
+
+
+
+
+
+
+
+/* 
+

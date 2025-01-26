@@ -44,8 +44,12 @@ export function StayList({filters}) {
     }, 1000)
   }
 
+  console.log(stays[0]);
+
+
   return (
     <InfiniteScroll
+    className='main-stays'
       dataLength={displayedStays.length}
       next={fetchMoreStays}
       hasMore={displayedStays.length < stays.length}

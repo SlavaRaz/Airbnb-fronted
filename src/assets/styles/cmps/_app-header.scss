@@ -1,19 +1,19 @@
 .app-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 80px;
-    background-color: $clr6;
-    padding: rem(10px) 3rem;
-    position: relative;
-    z-index: 100;
-    transition: all 0.3s ease;
-    grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 80px;
+  background-color: $clr6;
+  padding: rem(10px) 0px;
+  position: relative;
+  z-index: 100;
+  transition: all 0.3s ease;
+  // grid-column: 1 / -1;
 
-    &.sticky {
-        position: sticky;
-        top: 0;
-    }
+  &.sticky {
+    position: sticky;
+    top: 0;
+  }
 
   &:has(.search-bars-open)::after {
     transform: scaleY(0.5);
@@ -21,27 +21,27 @@
     transition: transform 250ms ease;
   }
 
-    &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        height: 80px;
-        right: 0;
-        left: 0;
-        background-color: rgb(255, 255, 255);
-        border-bottom: 1px solid $clr-border;
-        z-index: -1;
-        transition: transform 250ms ease;
-        transform: initial;
-    }
+  &::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    height: 80px;
+    right: 0;
+    left: 0;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid $clr-border;
+    z-index: -1;
+    transition: transform 250ms ease;
+    transform: initial;
+  }
 
-    .header-logo {
-        display: flex;
-        align-items: center;
-        justify-items: center;
-        color: $clr-brand;
-        line-height: initial;
-        z-index: 100;
+  .header-logo {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    color: $clr-brand;
+    line-height: initial;
+    z-index: 100;
 
     img {
       height: 32px;
@@ -49,15 +49,13 @@
     }
 
     .logo-text {
-      font-family: 'poppins-bold';
-
-      font-family: lato-regular;
+      font-family: $font-primary;
+      font-weight: $font-weight-medium;
 
       margin-left: 10px;
-      // font-weight: bold;
       font-size: 24px;
-      // color: $clr-brand;
-      // font-family: circularLight;
+      color: $clr-brand;
+      text-decoration:none;
     }
   }
 
@@ -82,11 +80,11 @@
   //     }
   // }
 
-    .user-info {
-        display: flex;
-        align-items: center;
-        // margin-inline-start: auto;
-        color: $clr1;
+  .user-info {
+    display: flex;
+    align-items: center;
+    // margin-inline-start: auto;
+    color: $clr1;
 
     .score {
       padding: 8px;

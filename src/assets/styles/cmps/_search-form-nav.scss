@@ -6,13 +6,12 @@
 }
 
 .search-form-nav-item {
-    color: $clr-text-primary;
+    color:#6a6a6a ;
     padding: 10px 16px;
     border: none;
     background-color: transparent;
     font-size: 16px;
-    font-family: cereal-Regular;
-
+    font-family: $font-caption; 
     // &:not(.active) > span {
     //     position: relative;
 
@@ -40,7 +39,8 @@
 
     &.active > span{
         position: relative;
-        font-weight: bold;
+       color:  $clr-text-primary;
+       font-weight: 500;
         &::after {
             // background-color: currentcolor;
             inset-inline: 0;

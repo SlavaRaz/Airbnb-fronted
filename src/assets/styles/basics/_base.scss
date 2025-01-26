@@ -5,7 +5,8 @@
 }
 
 html {
-    font-family: lato-regular;
+    font-family: $font-caption;
+
     font-size: 1rem;
     line-height: 1.6;
     scroll-behavior: smooth;
@@ -23,8 +24,9 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: circularMedium;
-    // margin: 0 0 0.6em;
+    font-family: $font-primary;
+    font-weight: $font-weight-medium;
+    ;
 }
 
 img {
@@ -37,7 +39,7 @@ p {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 a:hover {

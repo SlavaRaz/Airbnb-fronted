@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import heart from '../assets/img/various/heart.svg'
 import share from '../assets/img/various/share.svg'
 
 
-import { stayService } from '../services/stay/stay.service.local'
 // import StayTitle from './LocationMap'
 // import ImageGallery from './ImageGallery'
 // import StayInfo from './StayInfo'
@@ -14,19 +12,9 @@ import { stayService } from '../services/stay/stay.service.local'
 import { BookingForm } from './BookingForm.jsx'
 // import LocationMap from './LocationMap'
 
-export function StayGallery() {
-  const { stayId } = useParams()
-  const [stay, setStay] = useState(null)
+export function StayGallery({stay}) {
+ 
 
-  useEffect(() => {
-    async function fetchStay() {
-      const fetchedStay = await stayService.getById(stayId)
-      setStay(fetchedStay)
-    }
-    fetchStay()
-  }, [stayId])
-
-  if (!stay) return <div>Loading...</div>
   return (
     <div className='stay-header-container '>
       <div className='stay-header'>

@@ -1,6 +1,7 @@
 .FilterMenuComponent {
     font-size: 14px;
     color: #666666; /* הצבע הראשוני */
+
     background-size: contain;
     background-repeat: no-repeat;
     height: 100px;
@@ -100,7 +101,7 @@
     display: flex; /* ארגון האלמנטים בצורה אופקית */
 }
 
-
+ 
 .FilterMenuComponent .btn1, .FilterMenuComponent .btn2 {
     width: 32px; /* גודל עיגול */
     height: 32px; /* גודל עיגול */
@@ -148,3 +149,4 @@
 
 
 /* 
+

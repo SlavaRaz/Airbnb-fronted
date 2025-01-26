@@ -38,8 +38,7 @@ export function StayPreview({ stay, filters }) {
   }
 
   let display = 'block'
-  console.log(filters.filters )
-  console.log(filters )
+  
   if (filters && stay.type !== filters) {
     display = 'none'
   }
@@ -78,12 +77,12 @@ export function StayPreview({ stay, filters }) {
           <div className='preview-header'>
             <div className='preview-name'>{`${stay.loc.city}, ${stay.loc.country}`}</div>
             <div className='preview-rating'>
-              <img src={StarIcon} alt='star' width='10' height='10' />{' '}
+              <img src={StarIcon} alt='star' width='12' height='12' />{' '}
               <span>5.0</span>
             </div>
           </div>
           <p className='preview-summary'>{stay.summary}</p>
-          <p className='preview-dates'>July 17-19</p>
+          <p className='preview-dates'>{stay.availableDates}</p>
           <div className='preview-price'>
             <span className='price-number'>{stay.price}$</span>
             <span> night</span>

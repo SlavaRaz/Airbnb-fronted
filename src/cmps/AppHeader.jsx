@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
+import { Fragment } from 'react';
+
 
 import { SearchBar } from './SearchBar.jsx'
 import { NavMenu } from './NavMenu.jsx'
@@ -13,25 +15,47 @@ export function AppHeader() {
 	const user = useSelector(storeState => storeState.userModule.user)
 	const navigate = useNavigate()
 	const location = useLocation()
-	
+
 	const isStickyPage = location.pathname === '/'
-	
+	const isStayPage = location.pathname.startsWith('/stay')
+
+	if (location.pathname.startsWith('/book/stay')) {
+		return null
+	}
+
 	return (
-		<div className="full main-container">
-		<div className={isStickyPage ? 'app-header sticky' : 'app-header'}>
-			<div className="header-logo">
-				<NavLink to="/" >
-					<img src={logo} alt="Logo" />
-				</NavLink>
-				{/* <nav>
-					<a href="/"></a>
-					<a href="/stay"></a>
-				</nav> */}
-				<h2 className="logo-text">airbnb</h2>
-			</div>
-			<SearchBar />
-			<NavMenu />
-		</div >
-		</div>
-	)
+        <>
+            {isStayPage ? (
+                // Render with two divs if on /stay page
+                <div className=" main-container-details main container full">
+                    <div className={` app-header ${isStickyPage ? 'sticky' : ''}`}>
+                        <div className="header-logo">
+                            <NavLink to="/" >
+                                <img src={logo} alt="Logo" />
+                            </NavLink>
+                            <NavLink to="/" >
+                                <h2 className="logo-text">airbnb</h2>
+                            </NavLink>
+                        </div>
+                        <SearchBar />
+                        <NavMenu />
+                    </div>
+                </div>
+            ) : (
+                // Render with one div for other pages
+                <div className={` ${isStayPage ? 'main-container-details' : 'main-container'} app-header ${isStickyPage ? 'sticky' : ''}`}>
+                    <div className="header-logo">
+                        <NavLink to="/" >
+                            <img src={logo} alt="Logo" />
+                        </NavLink>
+                        <NavLink to="/" >
+                            <h2 className="logo-text">airbnb</h2>
+                        </NavLink>
+                    </div>
+                    <SearchBar />
+                    <NavMenu />
+                </div>
+            )}
+        </>
+    )
 }

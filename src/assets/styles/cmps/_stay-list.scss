@@ -1,8 +1,13 @@
-.stay-list {
+
+
+
+  .stay-list {
     list-style: none;
     font-size: 0.9375rem;
     --min-column-size: 225px;
-    font-family: 'lato-regular';
+    width: 100%;
+    font-family: $font-caption; 
+    font-weight: 400;
     line-height: 1.6;
     font-size: 1.125rem;
   
@@ -18,7 +23,7 @@
     .stay-link {
       text-decoration: none;
       color: inherit;
-      font-family: 'circular';
+      font-family: $font-caption; 
     }
   
     .stay-preview {
@@ -102,8 +107,9 @@
       }
   
       .custom-arrow img {
-        width: 15px;
-        height: 15px;
+        width: 20px;
+        height: 20px;
+        margin: 50%;
       }
   
       .stay-card-details {
@@ -115,6 +121,8 @@
         gap: 2px 8px;
   
         .preview-header {
+          font-weight: 600;
+
           display: flex;
           flex-direction: row;
           justify-content: space-between;
@@ -128,7 +136,6 @@
           // font-size: 0.9375rem;
   
           .preview-name {
-            font-weight: 600;
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
@@ -166,7 +173,7 @@
         .preview-price {
           margin-top: 6px;
           .price-number {
-            font-family: 'circularMedium', sans-serif;
+            font-family: $font-caption; 
             font-weight: 600;
             height: 1.4em;
           }
@@ -183,3 +190,5 @@
     }
   }
   
+
+

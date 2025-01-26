@@ -14,7 +14,8 @@ export const utilService = {
   objectToSearchParams,
   formattedDate,
   ShortFormattedDate,
-  totalDays
+  totalDays,
+  generateRandomDate
 
 }
 
@@ -121,5 +122,12 @@ function objectToSearchParams(obj) {
 function formattedDate(timeStamp) {
   const date = new Date(timeStamp)
   return String(date.getDate()).padStart(2, '0') + "/" + String((date.getMonth() + 1)).padStart(2, '0') + "/" + date.getFullYear()
+}
+
+function generateRandomDate(startDate, minDays, maxDays) {
+  const randomDays = Math.floor(Math.random() * (maxDays - minDays + 1)) + minDays
+  const resultDate = new Date(startDate)
+  resultDate.setDate(resultDate.getDate() + randomDays)
+  return resultDate
 }
 

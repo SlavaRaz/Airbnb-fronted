@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
+import { Fragment } from 'react';
+
 
 import { SearchBar } from './SearchBar.jsx'
 import { NavMenu } from './NavMenu.jsx'
@@ -22,25 +24,38 @@ export function AppHeader() {
 	}
 
 	return (
-		<div className="full main-container">
-			<div className={isStayPage ? ' main-container-details' : 'full main-container'}>
-				<div className={isStickyPage ? 'app-header sticky' : 'app-header'}>
-					<div className="header-logo">
-						<NavLink to="/" >
-							<img src={logo} alt="Logo" />
-						</NavLink>
-						<NavLink to="/" >
-							<h2 className="logo-text">airbnb</h2>
-						</NavLink>
-						{/* <nav>
-					<a href="/"></a>
-					<a href="/stay"></a>
-				</nav> */}
-					</div>
-					<SearchBar />
-					<NavMenu />
-				</div >
-			</div>
-		</div>
-	)
+        <>
+            {isStayPage ? (
+                // Render with two divs if on /stay page
+                <div className=" main-container-details">
+                    <div className={` app-header ${isStickyPage ? 'sticky' : ''}`}>
+                        <div className="header-logo">
+                            <NavLink to="/" >
+                                <img src={logo} alt="Logo" />
+                            </NavLink>
+                            <NavLink to="/" >
+                                <h2 className="logo-text">airbnb</h2>
+                            </NavLink>
+                        </div>
+                        <SearchBar />
+                        <NavMenu />
+                    </div>
+                </div>
+            ) : (
+                // Render with one div for other pages
+                <div className={`full ${isStayPage ? 'main-container-details' : 'main-container'} app-header ${isStickyPage ? 'sticky' : ''}`}>
+                    <div className="header-logo">
+                        <NavLink to="/" >
+                            <img src={logo} alt="Logo" />
+                        </NavLink>
+                        <NavLink to="/" >
+                            <h2 className="logo-text">airbnb</h2>
+                        </NavLink>
+                    </div>
+                    <SearchBar />
+                    <NavMenu />
+                </div>
+            )}
+        </>
+    );
 }

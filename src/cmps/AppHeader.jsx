@@ -24,10 +24,10 @@ export function AppHeader() {
 	}
 
 	return (
-        <>
+        <section>
             {isStayPage ? (
                 // Render with two divs if on /stay page
-                <div className=" main-container-details main container full">
+                <div className="details-header-container">
                     <div className={` app-header ${isStickyPage ? 'sticky' : ''}`}>
                         <div className="header-logo">
                             <NavLink to="/" >
@@ -43,7 +43,7 @@ export function AppHeader() {
                 </div>
             ) : (
                 // Render with one div for other pages
-                <div className={` ${isStayPage ? 'main-container-details' : 'main-container'} app-header ${isStickyPage ? 'sticky' : ''}`}>
+                <div className={`full ${isStayPage ? 'main-container-details' : 'main-container'} app-header ${isStickyPage ? 'sticky' : ''}`}>
                     <div className="header-logo">
                         <NavLink to="/" >
                             <img src={logo} alt="Logo" />
@@ -56,6 +56,6 @@ export function AppHeader() {
                     <NavMenu />
                 </div>
             )}
-        </>
-    )
+        </section>
+    );
 }

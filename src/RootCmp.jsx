@@ -11,7 +11,6 @@ import { AdminIndex } from './pages/AdminIndex.jsx'
 import { StayDetails } from './pages/StayDetails.jsx'
 import { UserDetails } from './pages/UserDetails.jsx'
 
-import { AppHeader } from './cmps/AppHeader'
 import { AppFooter } from './cmps/AppFooter'
 import { UserMsg } from './cmps/UserMsg.jsx'
 import { LoginSignup } from './pages/LoginSignup.jsx'
@@ -21,7 +20,6 @@ import { Signup } from './pages/Signup.jsx'
 export function RootCmp() {
     return (
         <div className="main-container">
-            <AppHeader />
             <UserMsg />
 
             <main>

@@ -3,8 +3,6 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
-import { Fragment } from 'react';
-
 
 import { SearchBar } from './SearchBar.jsx'
 import { NavMenu } from './NavMenu.jsx'

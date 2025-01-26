@@ -4,11 +4,11 @@
   align-items: center;
   min-height: 80px;
   background-color: $clr6;
-  padding: rem(10px) 3rem;
+  padding: rem(10px) 0px;
   position: relative;
   z-index: 100;
   transition: all 0.3s ease;
-  grid-column: 1 / -1;
+  // grid-column: 1 / -1;
 
   &.sticky {
     position: sticky;

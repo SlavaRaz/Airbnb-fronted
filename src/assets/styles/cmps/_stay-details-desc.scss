@@ -1,6 +1,8 @@
 .details-and-reserve {
   display: grid;
   grid-template-columns: 1.45fr 1fr;
+  max-width: 1120px;
+  margin: auto;
   font-family: $font-caption;
   border-bottom: 1px solid #dedede;
   margin-top: 18px;

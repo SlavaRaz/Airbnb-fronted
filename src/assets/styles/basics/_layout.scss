@@ -1,6 +1,6 @@
 .main-container {
     display: grid;
-    grid-template-columns: minmax(50px, 1fr) minmax(auto, 1800px) minmax(50px, 1fr);
+    grid-template-columns: minmax(50px, 1fr) minmax(auto, 2520px) minmax(50px, 1fr);
 
     > * {
         grid-column: 2;
@@ -10,7 +10,43 @@
         }
     }
 
-    // @include for-narrow-layout {
+  
+}
+
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+}
+
+
+@media (min-width:1128px){
+    .main-container {
+        grid-template-columns: minmax(40px, 1fr) minmax(auto, auto) minmax(40px, 1fr);
+
+    }
+}
+
+
+@media (min-width:1640px){
+    .main-container {
+        grid-template-columns: minmax(80px, 1fr) minmax(auto, auto) minmax(80px, 1fr);
+
+    }
+}
+
+
+@media (min-width:1880px){
+    .main-container {
+        display: grid;
+        grid-template-columns: minmax(80px, 1fr) minmax(auto, auto) minmax(80px, 1fr);
+    
+      
+    }
+}
+
+  // @include for-narrow-layout {
     //     grid-template-columns: 
     //         minmax(20px, 1fr)
     //         minmax(auto, $mobile-breakpoint)
@@ -28,11 +64,3 @@
     //         minmax(auto, $normal-breakpoint)
     //         minmax(20px, 1fr);
     // }
-}
-
-
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 20px;
-}

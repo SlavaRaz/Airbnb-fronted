@@ -1,7 +1,7 @@
 .FilterMenuComponent {
     font-size: 14px;
     color: #666666; /* הצבע הראשוני */
-
+    /* font-weight: bold; */
     background-size: contain;
     background-repeat: no-repeat;
     height: 100px;

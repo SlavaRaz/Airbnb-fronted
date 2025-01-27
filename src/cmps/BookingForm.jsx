@@ -11,7 +11,7 @@ import { OrderDetails } from './OrderDetails.jsx'
 export function BookingForm({ stay, openTab, setOpenTab }) {
 
   const [searchParams, setSearchParams] = useSearchParams()
-  const [refVisible, setRefVisible] = useState(false)
+  // const [refVisible, setRefVisible] = useState(false)
   const navigate = useNavigate()
 
   const orderParams = {

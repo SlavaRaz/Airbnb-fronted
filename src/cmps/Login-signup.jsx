@@ -1,13 +1,15 @@
-import { useState, useEffect } from 'react';
-import { userService } from '../services/user/index.js';
-import { ImgUploader } from '../cmps/ImgUploader.jsx';
-import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service';
-import { login, signup } from '../store/actions/user.actions.js';
-import { BtnSquareColor } from './ui/buttons/btn-square-color';
-import { BtnSquare } from './ui/buttons/btn-square';
-import { BtnNavRounded } from './ui/buttons/btn-nav-rounded';
+import { useState, useEffect } from 'react'
+import { userService } from '../services/user/index.js'
+import { ImgUploader } from '../cmps/ImgUploader.jsx'
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
+import { login, signup } from '../store/actions/user.actions.js'
+import { BtnSquareColor } from './ui/buttons/btn-square-color'
+import { BtnSquare } from './ui/buttons/btn-square'
+import { BtnSquareBlack } from './ui/buttons/btn-square-black'
+import { BtnNavRounded } from './ui/buttons/btn-nav-rounded'
 
 export function LoginSignup({ closeModal }) {
+
   const [credentials, setCredentials] = useState({
     username: '',
     password: '',
@@ -79,6 +81,9 @@ export function LoginSignup({ closeModal }) {
   }
 
   return (
+    <div className='login-page'>
+      <header className='login-signup-header'>
+        <h1>Log in or sign up to book</h1>
     <div className="login-page">
       <header className="login-signup-header">
         <h1>Login or Sign up</h1>
@@ -86,6 +91,22 @@ export function LoginSignup({ closeModal }) {
       {!isSignup && (
         <form className="login-form" onSubmit={onLogin}>
           <input
+            type="text"
+            name="username"
+            value={credentials.username}
+            placeholder="Username"
+            onChange={handleChange}
+            required
+            autoFocus
+          />
+          <input
+            type="password"
+            name="password"
+            value={credentials.password}
+            placeholder="Password"
+            onChange={handleChange}
+            required
+          />
             type="text"
             name="username"
             value={credentials.username}

@@ -69,6 +69,9 @@ export function NavMenu() {
               >
                 Log in
               </Link>
+              <Link to='/trip'>Trips</Link>
+              <Link to='/wishlist'>Wishlist</Link>
+              <Link to='/user/inbox'>Messages</Link>
             </div>
           ) : (
             <div className='menu-links'>

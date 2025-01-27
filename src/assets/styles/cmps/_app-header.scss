@@ -1,3 +1,4 @@
+
 .app-header {
   display: flex;
   justify-content: space-between;
@@ -23,7 +24,7 @@
 
   &::after {
     content: '';
-    position: fixed;
+    position: absolute;
     top: 0;
     height: 80px;
     right: 0;

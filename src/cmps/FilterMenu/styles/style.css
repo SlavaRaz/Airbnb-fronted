@@ -1,7 +1,6 @@
 .FilterMenuComponent {
     font-size: 14px;
     color: #666666; /* הצבע הראשוני */
-    /* font-weight: bold; */
     background-size: contain;
     background-repeat: no-repeat;
     height: 100px;
@@ -10,11 +9,7 @@
     justify-content: center;
 }
 
-.FilterItemComponnet > span {
-    color: gray; /* הצבע הראשוני */
-    /* transition: color 0.3s ease; מעבר חלק בצבע */
-    text-align: center;
-}
+
 
 .FilterItemComponnet > span:hover {
     color: black; /* הצבע כאשר העכבר נמצא מעל */
@@ -56,10 +51,6 @@
 }
 
 
-
-
-
-
 .FilterItemComponnet:hover {
     cursor: pointer;
     /* border-bottom: 1px solid #ddd1d1; קו תחתון כאשר העכבר מעל */
@@ -77,6 +68,7 @@
 
 .FilterItemComponnet:hover img {
     opacity: 1; /* האייקון שחור מלא */
+    
 }
 
 .FilterButtonComponent {
@@ -128,7 +120,6 @@
     transform: scale(1); /* מבטל את ההגדלה בלחיצה */
 }
 
-/* עיצוב לחץ */
 .FilterMenuComponent .btn1 svg, .FilterMenuComponent .btn2 svg {
     width: 18px; /* גודל גדול יותר של החץ */
     height: 18px; /* גודל גדול יותר של החץ */
@@ -137,7 +128,6 @@
 }
 
 .FilterMenuComponent .btn1:hover svg, .FilterMenuComponent .btn2:hover svg {
-    /* fill: #333; צבע כהה יותר במעבר עכבר */
     transform: scale(1.2); /* אפקט הגדלה לחץ */
 }
 

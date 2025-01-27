@@ -35,22 +35,42 @@ export default function FilterItemList(props){
     // }
 
     let [min , setMin] = useState(0);
-    let [maximum , setMaximum] = useState(10);
-   
+    let [maximum, setMaximum] = useState(12); 
+    
 
-    function onclickbtn1(){
-      if(min !=0){
-        setMin(min-1)
-        setMaximum( maximum -1)
+    // function onclickbtn1(){
+    //   if(min !=0){
+    //     setMin(min-1)
+    //     setMaximum( maximum -1)
+    //   }
+    // }
+    
+    // function onclickbtn2(){
+    //   if(min < data.length-10){
+    //     setMin(min+1)
+    //     setMaximum( maximum +1)
+    //   }
+    // }
+
+    function onclickbtn1() {
+      if (min > 0) {
+        setMin(min - 1);
+        setMaximum(maximum - 1);
       }
     }
     
-    function onclickbtn2(){
-      if(min < data.length-10){
-        setMin(min+1)
-        setMaximum( maximum +1)
+    function onclickbtn2() {
+      if (min < data.length - 13) { 
+        setMin(min + 1);
+        setMaximum(maximum + 1);
       }
     }
+    
+
+
+
+
+
 
     return(
       <>

@@ -34,7 +34,6 @@ async function remove(bookId) {
 }
 
 async function save(book) {
-    console.log('book', book)
     if (book._id) {
         return storageService.put(STORAGE_KEY, book)
     } else {
@@ -51,7 +50,6 @@ function getEmptyBook(startDate = null,endDate = null,guests = { adults: 0, kids
             fullname: '',
             imgUrl: '',
         },
-        totalPrice: 0,
         startDate,
         endDate,
         guests,

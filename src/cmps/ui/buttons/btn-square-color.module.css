@@ -1,6 +1,6 @@
 .btnSquareColor {
     padding: 13px 23px;
-    width: 100%;
+    width: 50%;
     /* min-width: 200px; */
 
     background-position: calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%);

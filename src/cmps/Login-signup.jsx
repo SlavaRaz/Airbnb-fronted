@@ -6,10 +6,10 @@ import { login, signup } from '../store/actions/user.actions.js'
 import { BtnSquareColor } from './ui/buttons/btn-square-color'
 import { BtnSquare } from './ui/buttons/btn-square'
 import { BtnSquareBlack } from './ui/buttons/btn-square-black'
-import {BtnNavRounded} from './ui/buttons/btn-nav-rounded'
+import { BtnNavRounded } from './ui/buttons/btn-nav-rounded'
 
 export function LoginSignup({ closeModal }) {
-  console.log('LoginSignup')
+
   const [credentials, setCredentials] = useState({
     username: '',
     password: '',
@@ -57,7 +57,7 @@ export function LoginSignup({ closeModal }) {
     if (ev) ev.preventDefault()
     if (!credentials.username || !credentials.password || !credentials.fullname)
       return
-      if (!credentials.imgUrl) {credentials.imgUrl='https://robohash.org/mat.png?size=50x50&set=set1'}
+    if (!credentials.imgUrl) { credentials.imgUrl = 'https://robohash.org/mat.png?size=50x50&set=set1' }
     signup(credentials)
     clearState()
   }
@@ -73,58 +73,34 @@ export function LoginSignup({ closeModal }) {
   return (
     <div className='login-page'>
       <header className='login-signup-header'>
-        <h1>Login in or sign up</h1>
+        <h1>Log in or sign up to book</h1>
       </header>
       {!isSignup && (
         <form className='login-form' onSubmit={onLogin}>
-          {/* <select
-            name='username'
-            value={credentials.username}
-            onChange={handleChange}>
-            <option value=''>Select User</option>
-            {users.map((user) => (
-              <option key={user._id} value={user.username}>
-                {user.fullname}
-              </option>
-            ))}
-          </select> */}
           <input
-                        type="text"
-                        name="username"
-                        value={credentials.username}
-                        placeholder="Username"
-                        onChange={handleChange}
-                        required
-                        autoFocus
-                    />
-                    <input
-                        type="password"
-                        name="password"
-                        value={credentials.password}
-                        placeholder="Password"
-                        onChange={handleChange}
-                        required
-                    />
+            type="text"
+            name="username"
+            value={credentials.username}
+            placeholder="Username"
+            onChange={handleChange}
+            required
+            autoFocus
+          />
+          <input
+            type="password"
+            name="password"
+            value={credentials.password}
+            placeholder="Password"
+            onChange={handleChange}
+            required
+          />
           <BtnSquareColor>
             Login
           </BtnSquareColor>
         </form>
 
       )}
-      <div className='demo-login-btns'>
-        <BtnSquare onClick={() => {
-          credentials.username = 'host'
-          onLogin()
-        }}>
-          DEMO: login as Muki Host
-        </BtnSquare>
-        <BtnSquareBlack onClick={() => {
-          credentials.username = 'guest'
-          onLogin()
-        }}>
-          DEMO: login as Puki Guest
-        </BtnSquareBlack>
-      </div>
+
       <div className='signup-section'>
         {isSignup && (
           <form className='signup-form' onSubmit={onSignup}>

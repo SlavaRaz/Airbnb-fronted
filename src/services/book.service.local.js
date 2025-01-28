@@ -45,6 +45,7 @@ function getEmptyBook(startDate = null,endDate = null,guests = { adults: 0, kids
     return {
         _id: null,
         hostId: null,
+        hostName: null,
         buyer: {
             _id: '',
             fullname: '',
@@ -64,6 +65,7 @@ function _createdDemoBooks() {
         {
             _id: 'b001',
             hostId: 'h123',
+            hostName:'Ron Keller',
             buyer: {
                 _id: 'u456',
                 fullname: 'John Doe',
@@ -83,7 +85,7 @@ function _createdDemoBooks() {
                 name: 'Beachfront Villa',
                 price: 200,
                 address: '123 Ocean Drive, Malibu, CA',
-                imgUrl: 'https://via.placeholder.com/300',
+                imgUrl: 'http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437017/gjyzgdjngyrhfrj2loxz.jpg',
             },
             msgs: [
                 { sender: 'buyer', text: 'Can we check in early?', sentAt: '2025-02-01T10:00:00Z' },
@@ -94,6 +96,7 @@ function _createdDemoBooks() {
         {
             _id: 'b002',
             hostId: 'h456',
+            hostName:'Ron Keller',
             buyer: {
                 _id: 'u789',
                 fullname: 'Jane Smith',
@@ -113,7 +116,7 @@ function _createdDemoBooks() {
                 name: 'Modern City Apartment',
                 price: 150,
                 address: '456 Downtown Blvd, New York, NY',
-                imgUrl: 'https://via.placeholder.com/300',
+                imgUrl: 'http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436861/xrxhgsif3ekhxgn8irlm.jpg',
             },
             msgs: [
                 { sender: 'buyer', text: 'Can you confirm WiFi speed?', sentAt: '2025-02-20T14:30:00Z' },

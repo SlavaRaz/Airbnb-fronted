@@ -10,7 +10,7 @@ import { AdminIndex } from './pages/AdminIndex.jsx'
 
 import { StayDetails } from './pages/StayDetails.jsx'
 import { UserDetails } from './pages/UserDetails.jsx'
-import { MyTrips } from './cmps/MyTrips.jsx'
+import { MyTrips } from './pages/MyTrips.jsx'
 
 
 import { AppFooter } from './cmps/AppFooter'

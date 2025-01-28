@@ -22,7 +22,7 @@ export function StayDetails() {
   }, [stayId]);
 
   if (loading) {
-    return <Loader />;
+    return <Loader />
   }
 
   return (

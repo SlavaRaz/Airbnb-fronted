@@ -1,23 +1,22 @@
 .FilterMenuComponent {
     font-size: 14px;
     color: #666666; /* הצבע הראשוני */
-    /* font-weight: bold; */
     background-size: contain;
     background-repeat: no-repeat;
     height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative; 
 }
 
-.FilterItemComponnet > span {
-    color: gray; /* הצבע הראשוני */
-    /* transition: color 0.3s ease; מעבר חלק בצבע */
-    text-align: center;
-}
+
 
 .FilterItemComponnet > span:hover {
     color: black; /* הצבע כאשר העכבר נמצא מעל */
+}
+.FilterItemComponent:hover > span {
+    color: black;
 }
 
 .FilterItemListComponent {
@@ -45,7 +44,10 @@
     position: relative; /* נדרש עבור הקו התחתון */
 }
 
-.FilterItemComponnet > span:hover::after {
+.FilterItemComponnet > span:hover::after
+
+
+ {
     content: ''; /* יוצר אלמנט מדומה */
     position: absolute; /* מיקום יחסי לטקסט */
     left: 0;
@@ -54,10 +56,6 @@
     height: 1px; /* גובה הקו */
     background-color: #ddd1d1; /* צבע הקו */
 }
-
-
-
-
 
 
 .FilterItemComponnet:hover {
@@ -128,7 +126,6 @@
     transform: scale(1); /* מבטל את ההגדלה בלחיצה */
 }
 
-/* עיצוב לחץ */
 .FilterMenuComponent .btn1 svg, .FilterMenuComponent .btn2 svg {
     width: 18px; /* גודל גדול יותר של החץ */
     height: 18px; /* גודל גדול יותר של החץ */
@@ -137,7 +134,6 @@
 }
 
 .FilterMenuComponent .btn1:hover svg, .FilterMenuComponent .btn2:hover svg {
-    /* fill: #333; צבע כהה יותר במעבר עכבר */
     transform: scale(1.2); /* אפקט הגדלה לחץ */
 }
 

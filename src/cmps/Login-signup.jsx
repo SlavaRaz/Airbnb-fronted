@@ -105,7 +105,7 @@ export function LoginSignup({ closeModal }) {
             onChange={handleChange}
             required
           />
-          <input
+          {/* <input
             type="text"
             name="username"
             value={credentials.username}
@@ -121,7 +121,7 @@ export function LoginSignup({ closeModal }) {
             placeholder="Password"
             onChange={handleChange}
             required
-          />
+          /> */}
           <BtnSquareColor>
             Log in
           </BtnSquareColor>

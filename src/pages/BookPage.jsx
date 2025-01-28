@@ -12,7 +12,7 @@ import { loadStay } from '../store/actions/stay.actions'
 import { stayService } from '../services/stay'
 import { bookService } from '../services/book.service.local'
 import { AppHeaderBook } from '../cmps/AppHeaderBook.jsx'
-import { LoginSignup } from '../cmps/login-signup'
+import { LoginSignup } from '../cmps/Login-signup.jsx'
 
 
 export function BookPage() {

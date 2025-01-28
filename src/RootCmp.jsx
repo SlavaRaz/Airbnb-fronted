@@ -15,9 +15,9 @@ import { MyTrips } from './cmps/MyTrips.jsx'
 
 import { AppFooter } from './cmps/AppFooter'
 import { UserMsg } from './cmps/UserMsg.jsx'
-import { LoginSignup } from './pages/LoginSignup.jsx'
-import { Login } from './pages/Login.jsx'
-import { Signup } from './pages/Signup.jsx'
+// import { LoginSignup } from './pages/LoginSignup.jsx'
+// import { Login } from './pages/Login.jsx'
+// import { Signup } from './pages/Signup.jsx'
 import { BookPage } from './pages/BookPage.jsx'
 
 export function RootCmp() {
@@ -40,10 +40,10 @@ export function RootCmp() {
                     <Route path="review" element={<ReviewIndex />} />
                     <Route path="chat" element={<ChatApp />} />
                     <Route path="admin" element={<AdminIndex />} />
-                    <Route path="login" element={<LoginSignup />}>
+                    {/* <Route path="login" element={<LoginSignup />}>
                         <Route index element={<Login />} />
                         <Route path="signup" element={<Signup />} />
-                    </Route>
+                    </Route> */}
                 </Routes>
             </main>
         </div>

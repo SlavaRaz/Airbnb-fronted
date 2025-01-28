@@ -171,16 +171,16 @@ export function BookPage() {
                         <div className='book-user'>
                             {!isBooked && (
                                 <>
-                                    {/* {user ? ( */}
-                                    <BtnSquareColor onClick={saveBookingRequest}>
-                                        Confirm
-                                    </BtnSquareColor>
-                                    {/* ) : ( */}
-                                    <div>
-                                        <h3 className='login-msg'></h3>
-                                        <LoginSignup />
-                                    </div>
-                                    {/* )} */}
+                                    {user ? (
+                                        <BtnSquareColor onClick={saveBookingRequest}>
+                                            Confirm
+                                        </BtnSquareColor>
+                                    ) : (
+                                        <div>
+                                            <h3 className='login-msg'></h3>
+                                            <LoginSignup />
+                                        </div>
+                                    )}
                                 </>
                             )}
                             {isBooked && (

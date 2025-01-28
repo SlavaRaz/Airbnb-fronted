@@ -81,9 +81,7 @@ export function LoginSignup({ closeModal }) {
   }
 
   return (
-    <div className='login-page'>
-      <header className='login-signup-header'>
-        <h1>Log in or sign up to book</h1>
+    
     <div className="login-page">
       <header className="login-signup-header">
         <h1>Login or Sign up</h1>
@@ -107,6 +105,7 @@ export function LoginSignup({ closeModal }) {
             onChange={handleChange}
             required
           />
+          <input
             type="text"
             name="username"
             value={credentials.username}

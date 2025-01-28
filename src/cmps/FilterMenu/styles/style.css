@@ -7,12 +7,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative; 
 }
 
 
 
 .FilterItemComponnet > span:hover {
     color: black; /* הצבע כאשר העכבר נמצא מעל */
+}
+.FilterItemComponent:hover > span {
+    color: black;
 }
 
 .FilterItemListComponent {
@@ -40,7 +44,10 @@
     position: relative; /* נדרש עבור הקו התחתון */
 }
 
-.FilterItemComponnet > span:hover::after {
+.FilterItemComponnet > span:hover::after
+
+
+ {
     content: ''; /* יוצר אלמנט מדומה */
     position: absolute; /* מיקום יחסי לטקסט */
     left: 0;
@@ -68,7 +75,6 @@
 
 .FilterItemComponnet:hover img {
     opacity: 1; /* האייקון שחור מלא */
-    
 }
 
 .FilterButtonComponent {

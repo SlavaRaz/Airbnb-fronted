@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { DetailsHeader } from '../cmps/DetailsHeader';
 import { StayGallery } from '../cmps/StayGallery';
 import { StayDescription } from '../cmps/StayDetailsDesc';
 import '../assets/styles/basics/_layout-details.scss';
@@ -26,6 +27,7 @@ export function StayDetails() {
 
   return (
     <section className="StayDetailsComponent main container full">
+     <DetailsHeader />
       <StayGallery stay={stay} />
       <StayDescription stay={stay} />
     </section>

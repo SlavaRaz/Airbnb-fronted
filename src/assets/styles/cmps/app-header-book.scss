@@ -1,0 +1,8 @@
+.app-header-book {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: $clr6;
+    transition: all 0.3s ease;
+    grid-column: 1 / -1;
+}

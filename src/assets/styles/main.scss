@@ -18,13 +18,14 @@
 @import "RootCmp";
 
 @import "pages/booking-form";
+@import "pages/booking-page";
 // @import "pages/AboutUs";
 // @import "pages/HomePage";
 @import "pages/CarIndex";
 @import "pages/ReviewIndex";
 @import "pages/UserDetails";
 @import "pages/TaskDetails";
-@import "pages/LoginSignup";
+@import "pages/login-signup";
 @import "pages/StayDetails.scss";
 
 // @import "pages/stay-details.scss";
@@ -34,6 +35,8 @@
 @import "cmps/preview";
 
 @import 'cmps/app-header';
+@import 'cmps/details-header';
+@import 'cmps/app-header-book';
 @import "cmps/app-footer";
 @import 'cmps/search-preview';
 @import "cmps/UserMsg";
@@ -57,3 +60,5 @@
 @import 'cmps/search-bars';
 @import 'cmps/stay-details-desc.scss';
 @import 'cmps/amenities';
+@import 'cmps/modal';
+@import 'cmps/login-and-signup';

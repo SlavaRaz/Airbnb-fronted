@@ -43,7 +43,7 @@ export function NavMenu() {
   })
 
   return (
-    <>
+    <section>
       <Modal />
       <nav className='nav-menu' onClick={handleToggle} ref={elNav}>
         {notifications.length > 0 && (
@@ -65,7 +65,8 @@ export function NavMenu() {
               <Link
                 onClick={() =>
                   openModal(<LoginSignup closeModal={closeModal} />)
-                }>
+                }
+              >
                 Log in
               </Link>
               <Link to='/trip'>Trips</Link>
@@ -74,21 +75,19 @@ export function NavMenu() {
             </div>
           ) : (
             <div className='menu-links'>
-              <Link to='/trip'>Trips</Link>
+              <Link to='/mytrips'>My Trips</Link>
               <Link to='/wishlist'>Wishlist</Link>
               <Link to='/user/inbox'>Messages</Link>
-              {user.isOwner && <Link to='/hosting/order'>View Orders</Link>}
-              <button onClick={onAddStay}>
-                {user.isOwner ? 'Add Another Stay' : 'Become a host (Add stay)'}
-              </button>
+              <Link to='/hosting/order'>My Listings</Link>
               <button
                 style={{ borderTop: `1px solid hsl(0, 0%, 87%)` }}
-                onClick={onLogout}>
+                onClick={onLogout}
+              >
                 Log out
               </button>
             </div>
           ))}
       </nav>
-    </>
+    </section>
   )
 }

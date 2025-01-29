@@ -6,6 +6,26 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px 30px;
   text-align: center;
+
+  .demo-login-btns {
+    margin: 20px auto;
+    min-width: 150px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid rgba(210, 208, 208, 0.418);
+    border-radius: 8px;
+    background-color: #efebeb;
+    cursor: pointer;
+  
+  }
+
+  .demo-login-btns:hover
+  {
+    background-color: #d6d4d4;
+
+    background-color: #890000;
+  }
+  
 }
 
 .login-signup-header {
@@ -72,12 +92,7 @@ button,
   background-color: #555;
 }
 
-.demo-login-btn {
-  
-  margin: auto;
-  margin-top: 20px;
 
-}
 
 .sign-up-btn-container {
   margin-top: 15px;

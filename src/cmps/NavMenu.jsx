@@ -76,7 +76,7 @@ export function NavMenu() {
               <Link to='/mytrips'>My Trips</Link>
               <Link to='/wishlist'>Wishlist</Link>
               <Link to='/user/inbox'>Messages</Link>
-              <Link to='/hosting/order'>My Listings</Link>
+              <Link to='/hosting/mylistings'>My Listings</Link>
               <button
                 style={{ borderTop: `1px solid hsl(0, 0%, 87%)` }}
                 onClick={onLogout}

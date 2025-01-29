@@ -5,18 +5,18 @@ import { TripsTable } from '../cmps/TripsTable';
 import { Loader } from '../cmps/Loader';
 
 export function MyTrips() {
-  const [trips, setTrips] = useState([]); // Store trips data
-  const [isLoading, setIsLoading] = useState(true); // Loading state
+  const [trips, setTrips] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     loadTrips();
   }, []);
 
-  // Fetch trips data
+
   async function loadTrips() {
     try {
-      const tripsData = await bookService.query(); // Call query function
-      setTrips(tripsData); // Store the fetched trips in state
+      const tripsData = await bookService.query()
+      setTrips(tripsData)
     } catch (err) {
       console.error('Failed to load trips:', err);
     } finally {
@@ -24,7 +24,7 @@ export function MyTrips() {
     }
   }
 
-  // Cancel a trip by updating the status to "canceled"
+ 
   async function onCancel(tripId) {
     try {
       const tripToUpdate = trips.find((trip) => trip._id === tripId);
@@ -32,10 +32,10 @@ export function MyTrips() {
 
       const updatedTrip = { ...tripToUpdate, status: 'canceled' };
 
-      // Save to storage
+      
       await bookService.save(updatedTrip);
 
-      // Update the state
+   
       setTrips((prevTrips) =>
         prevTrips.map((trip) =>
           trip._id === tripId ? updatedTrip : trip
@@ -52,7 +52,7 @@ export function MyTrips() {
     <section>
       <div className="my-trips-container">
         <MyTripsHeader />
-        <h1 className="greeting-user">Welcome Back, Muki Host</h1>
+        <h1 className="greeting-user">Welcome Back, Muki Guest</h1>
         <h2 className="title-my-trips">Your Trips</h2>
         <TripsTable trips={trips} onCancel={onCancel} />
       </div>

@@ -103,7 +103,26 @@ export function LoginSignup({ closeModal }) {
             onChange={handleChange}
             required
           />
-          <BtnSquareColor>Login</BtnSquareColor>
+          {/* <input
+            type="text"
+            name="username"
+            value={credentials.username}
+            placeholder="Username"
+            onChange={handleChange}
+            required
+            autoFocus
+          />
+          <input
+            type="password"
+            name="password"
+            value={credentials.password}
+            placeholder="Password"
+            onChange={handleChange}
+            required
+          /> */}
+          <BtnSquareColor>
+            Log in
+          </BtnSquareColor>
         </form>
       )}
 

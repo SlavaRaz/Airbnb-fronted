@@ -17,3 +17,28 @@
         font-family: inherit;
     }
 }
+
+
+.review-list-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+.review-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+}
+
+.review-item {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

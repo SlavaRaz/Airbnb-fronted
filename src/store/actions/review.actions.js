@@ -4,6 +4,8 @@ import { store } from '../store'
 import { ADD_REVIEW, REMOVE_REVIEW, SET_REVIEWS } from '../reducers/review.reducer'
 import { SET_SCORE } from '../reducers/user.reducer'
 
+import dataRviesJson from "../../../data/stays.json"
+
 // export async function loadReviews() {
 // 	try {
 // 		const reviews = await reviewService.query()
@@ -15,10 +17,13 @@ import { SET_SCORE } from '../reducers/user.reducer'
 // }
 export async function loadReviews() {
     try {
-        console.log('🔍 Fetching reviews from local storage...');
-        const reviews = await reviewService.query();
-        console.log('✅ Reviews fetched:', reviews);
-        store.dispatch({ type: SET_REVIEWS, reviews });
+        // console.log('🔍 Fetching reviews from local storage...');
+        // const reviews = await reviewService.query();
+        // console.log('✅ Reviews fetched:', reviews);
+        // store.dispatch({ type: SET_REVIEWS, reviews });
+		console.log("dataRviesJson",dataRviesJson);
+		
+        //store.dispatch({ type: SET_REVIEWS, dataRviesJson });
     } catch (err) {
         console.log('❌ Error fetching reviews:', err);
     }

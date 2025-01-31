@@ -58,5 +58,5 @@ async function _createDemoReviews() {
     }
 }
 
-_createDemoReviews();
+// _createDemoReviews();
 

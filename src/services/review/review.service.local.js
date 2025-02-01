@@ -33,3 +33,30 @@ async function add({ txt, aboutUserId }) {
 	const addedReview = await storageService.post('review', reviewToAdd)
 	return addedReview
 }
+
+
+
+
+async function _createDemoReviews() {
+    const demoReviews = [
+        {
+            _id: 'r101',
+            txt: 'Amazing place! Highly recommended!',
+            byUser: { _id: 'u101', fullname: 'John Doe' },
+            aboutUser: { _id: 'u102', fullname: 'Airbnb Host' },
+        },
+        {
+            _id: 'r102',
+            txt: 'The stay was comfortable, but the WiFi was slow.',
+            byUser: { _id: 'u103', fullname: 'Jane Smith' },
+            aboutUser: { _id: 'u102', fullname: 'Airbnb Host' },
+        },
+    ]
+    
+    for (const review of demoReviews) {
+        await storageService.post('review', review) // משתמשים בפוסט לכל ביקורת
+    }
+}
+
+// _createDemoReviews();
+

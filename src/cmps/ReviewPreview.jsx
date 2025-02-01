@@ -1,11 +1,37 @@
+
+import { useRef } from 'react';
 import { Link } from 'react-router-dom'
 
 export function ReviewPreview({ review }) {
-    const { byUser, aboutUser } = review
+    let pRef = useRef();
+    const {imgUrl , fullname,_id,id} = review.by
 
-    return <article className="preview review-preview">
-        <p>About: <Link to={`/user/${aboutUser._id}`}>{aboutUser.fullname}</Link></p>
-        <p className="review-by">By: <Link to={`/user/${byUser._id}`}>{byUser.fullname}</Link></p>
-        <p className="review-txt">{review.txt}</p>
-    </article>
+    let isOverflow = review.txt.length>300;
+
+    let isClicked = false;
+    function showMoreHandler(event){
+        isClicked = !isClicked;
+        event.target.innerHTML = isClicked? "SHOW less" : "show More"
+        pRef.current.style.height = isClicked? "auto" : "125px"
+    }
+
+
+    return (
+        <article className="review-preview flex dirColumn gap10">
+            <div className="review-header flex gap10 alCenter">
+                <img src={imgUrl || 'https://cdn-icons-png.flaticon.com/512/6858/6858485.png'} width="60px" height={60} alt={fullname} className="user-img"/>
+                <div>
+                    <div className="review-by"><Link to={`/user/${_id}`}>{fullname}</Link></div>
+                    <div className="review-about">by: <Link to={`/user/${_id}`}>{fullname}</Link></div>
+                </div>
+            </div>
+            <p ref={pRef} className="review-txt overflowHidden hegith125" >"{review.txt}"</p>
+            {
+                isOverflow? 
+                    <button onClick={showMoreHandler}> showMore </button>
+                :
+                    <></>
+            }
+        </article>
+    )
 }

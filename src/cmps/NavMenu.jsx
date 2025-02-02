@@ -69,14 +69,13 @@ export function NavMenu() {
               >
                 Log in
               </Link>
-            
             </div>
           ) : (
             <div className='menu-links'>
               <Link to='/mytrips'>My Trips</Link>
-              <Link to='/wishlist'>Wishlist</Link>
-              <Link to='/user/inbox'>Messages</Link>
               <Link to='/hosting/mylistings'>My Listings</Link>
+              <Link to='/hosting/new-stay'>Add New Stay</Link>
+
               <button
                 style={{ borderTop: `1px solid hsl(0, 0%, 87%)` }}
                 onClick={onLogout}

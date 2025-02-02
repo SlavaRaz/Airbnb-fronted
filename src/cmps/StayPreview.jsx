@@ -78,7 +78,7 @@ export function StayPreview({ stay, filters }) {
             <div className='preview-name'>{`${stay.loc.city}, ${stay.loc.country}`}</div>
             <div className='preview-rating'>
               <img src={StarIcon} alt='star' width='12' height='12' />{' '}
-              <span>5.0</span>
+              <span className='stay-rate'>{stay.rate}</span>
             </div>
           </div>
           <p className='preview-summary'>{stay.summary}</p>

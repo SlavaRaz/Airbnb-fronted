@@ -1,33 +1,128 @@
-.my-listings-container{
-    padding: 0px 40px;
-    max-width: 1280;
 
-.greeting-user{
-    margin: 60px 0px;
-    font-size: 32px;
-}
 
-.title-my-trips{
-    padding-bottom: 20px;
-  
-}
+.my-listings-container {
+  padding: 0px 40px;
+  max-width: 1280;
 
-table tbody tr:nth-child(odd) {
-    background-color:#ffffff ;
-  }
-  
-  table tbody tr:nth-child(even) {
-    background-color:#f4f4f4 ; 
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+
+  .guest-name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 
-  .listing-name-title{
+  .name-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .name-title {
+      font-weight: 800;
+      font-size: 1rem;
+    }
+  }
+
+
+  .listing-stay-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+    display: block;
+
+    .listing-name-title {
+      font-weight: 800;
+      font-size: 1rem;
+    
+    }
+  }
+
+  .status-container {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+  }
+  
+  .status-dot {
+    width: 12px;  
+    height: 12px;
+  }
+  
+  .status-text {
     font-weight: 500;
   }
-.actions-buttons-host{
+  
+
+  .actions-buttons-host {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-}
-  
   }
+
+  .accept-button {
+    background-color: #efebeb;
+    color: #026f10;
+    border: 1px solid #026f10;
+    padding: 10px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .accept-button:hover {
+    background-color: #026f10 !important;
+    color: white !important;
+    border: 1px solid #026f10 !important;
+  }
+
+  .accept-button:disabled {
+    background-color: #efebeb !important;
+    color: #9a9a9a !important;
+    border: 1px solid #9a9a9a !important;
+    cursor: not-allowed;
+  }
+
+  .reject-button {
+    background-color: #efebeb;
+    color: #f10000;
+    border: 1px solid #f10000;
+    padding: 10px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .reject-button:hover {
+    background-color: #f10000 !important;
+    color: white !important;
+    border: 1px solid #f10000 !important;
+  }
+
+  .reject-button:disabled {
+    background-color: #efebeb !important;
+    color: #9a9a9a !important;
+    border: 1px solid #9a9a9a !important;
+    cursor: not-allowed;
+  }
+
+  .greeting-user {
+    margin: 60px 0px;
+    font-size: 32px;
+  }
+
+  .title-my-trips {
+    padding-bottom: 20px;
+  }
+
+  table tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+  }
+
+  table tbody tr:nth-child(even) {
+    background-color: #f4f4f4;
+  }
+}

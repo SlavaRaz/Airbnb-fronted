@@ -17,7 +17,8 @@
 .guest-select-label-header{
         font-size: rem(16px) ;
         line-height: 20px;
-        font-family: cereal-medium;
+        font-family: 'Roboto', sans-serif
+;
         padding-bottom: em(6px);
 }
 
@@ -44,7 +45,8 @@ a {
     color: $clr-text-secondary ;
     text-decoration: underline;
     border-radius: 4px;
-    font-family: cereal-medium;
+    font-family: 'Roboto', sans-serif
+;
     text-align: inherit;
     outline: none;
 }

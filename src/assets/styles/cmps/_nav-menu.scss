@@ -1,6 +1,7 @@
 .nav-menu {
     position: relative;
     z-index: 100;
+
   
     .menu-btn {
       padding: 5px 5px 5px 12px;
@@ -44,6 +45,8 @@
       padding: 8px 0;
       display: block;
       min-width: 240px;
+      font-family: 'Roboto', sans-serif;
+
   
       @include for-mobile-layout {
         transform: translate(0%, -120%);

@@ -12,6 +12,8 @@ import { StayDetails } from './pages/StayDetails.jsx'
 import { UserDetails } from './pages/UserDetails.jsx'
 import { MyTrips } from './pages/MyTrips.jsx'
 import { MyListings } from './pages/MyListings.jsx'
+// import { AddNewStay } from './pages/AddNewStay.jsx'
+
 
 
 
@@ -37,7 +39,7 @@ export function RootCmp() {
                     {/* <Route path="stay" element={<StayIndex />} /> */}
                     <Route path="stay/:stayId" element={<StayDetails />} />
                     <Route path="mytrips" element={<MyTrips />} /> 
-                    <Route path="mylistings" element={<MyListings />} /> 
+                    <Route path="hosting/mylistings" element={<MyListings />} /> 
                     <Route path="book/stay/:stayId" element={<BookPage />} />
                     <Route path="user/:id" element={<UserDetails />} />
                     <Route path="review" element={<ReviewIndex />} />
@@ -46,6 +48,10 @@ export function RootCmp() {
                     {/* <Route path="login" element={<LoginSignup />}>
                         <Route index element={<Login />} />
                         <Route path="signup" element={<Signup />} />
+
+                    <Route path="hosting/new-stay" element={<AddNewStay />} /> 
+
+
                     </Route> */}
                 </Routes>
             </main>

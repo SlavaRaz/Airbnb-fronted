@@ -4,8 +4,7 @@ export function AppFooter() {
   const count = useSelector((storeState) => storeState.userModule.count)
 
   return (
-    <footer className='app-footer'>
-      <div className='full main-container'>
+    <footer className='app-footer full main-container'>
         <div className='footer-container'>
           <div className='footer-left'>
             <span>&copy; 2025 Coffeerights, Inc </span>
@@ -25,7 +24,6 @@ export function AppFooter() {
             <div className='support'>Support & Resources</div>
           </div>
         </div>
-      </div>
     </footer>
   )
 }

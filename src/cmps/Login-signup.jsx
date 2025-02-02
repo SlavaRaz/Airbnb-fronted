@@ -15,8 +15,6 @@ export function LoginSignup({ closeModal }) {
   });
   const [isSignup, setIsSignup] = useState(false);
   const [users, setUsers] = useState([]);
-  const [isLoggingIn, setIsLoggingIn] = useState(false);
-
 
   useEffect(() => {
     loadUsers();
@@ -38,19 +36,15 @@ export function LoginSignup({ closeModal }) {
     setCredentials({ ...credentials, [field]: value });
   }
 
-  async function onLogin(ev) {
-    setIsLoggingIn(true);
+  async function onLogin(ev = null) {
     if (ev) ev.preventDefault();
-    if (!credentials.username) return;
-  
+
+    if (!credentials.username) {
+      showErrorMsg('Please enter a username');
+      return;
+    }
+
     try {
-      if (credentials.username === 'guest') {
-        const demoUser = { username: 'guest', fullname: 'Demo Guest' };
-        showSuccessMsg(`Logged in as Demo Guest`);
-        closeModal();
-        return demoUser;
-      }
-  
       const user = await login(credentials);
       showSuccessMsg(`Welcome: ${user.fullname}`);
       closeModal();
@@ -58,17 +52,14 @@ export function LoginSignup({ closeModal }) {
       showErrorMsg('Cannot login');
     }
     clearState();
-    setIsLoggingIn(false);
-
   }
-  
 
   function onSignup(ev = null) {
     if (ev) ev.preventDefault();
     if (!credentials.username || !credentials.password || !credentials.fullname) return;
 
     if (!credentials.imgUrl) {
-      credentials.imgUrl = 'https://robohash.org/mat.png?size=50x50&set=set1';
+      credentials.imgUrl = 'https://randomuser.me/api/portraits/women/1.jpg';
     }
     signup(credentials);
     clearState();
@@ -111,17 +102,15 @@ export function LoginSignup({ closeModal }) {
             onChange={handleChange}
             required
           />
-          <BtnSquareColor disabled={!credentials.username || isLoggingIn}>
-  Login
-</BtnSquareColor>
-
+          <BtnSquareColor>
+            Log in
+          </BtnSquareColor>
         </form>
       )}
-      <div className="demo-login-btns">
-        <BtnSquare onClick={loginAsGuest}>
-          Login as Guest
+        <BtnSquare className="demo-login-btn" onClick={loginAsGuest}>
+          Log in as Guest
         </BtnSquare>
-      </div>
+     
       <div className="signup-section">
         {isSignup && (
           <form className="signup-form" onSubmit={onSignup}>

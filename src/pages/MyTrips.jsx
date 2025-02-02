@@ -3,6 +3,9 @@ import { bookService } from '../services/book.service.local';
 import { MyTripsHeader } from '../cmps/MyTripsHeader';
 import { TripsTable } from '../cmps/TripsTable';
 import { Loader } from '../cmps/Loader';
+import { PageFooter } from '../cmps/ProgressFooter'
+
+
 
 export function MyTrips() {
   const [trips, setTrips] = useState([])
@@ -12,6 +15,7 @@ export function MyTrips() {
     loadTrips();
   }, []);
 
+console.log(trips);
 
   async function loadTrips() {
     try {
@@ -52,10 +56,11 @@ export function MyTrips() {
     <section>
       <div className="my-trips-container">
         <MyTripsHeader />
-        <h1 className="greeting-user">Welcome Back, Muki Guest</h1>
+        <h1 className="greeting-user">{`Welcome Back, ${trips[trips.length-1].user.fullname}`}</h1>
         <h2 className="title-my-trips">Your Trips</h2>
         <TripsTable trips={trips} onCancel={onCancel} />
       </div>
+      <PageFooter/>
     </section>
   );
 }

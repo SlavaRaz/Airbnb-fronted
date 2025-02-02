@@ -1,29 +1,32 @@
 import React from 'react'
 import { useTable } from 'react-table'
+import redDot from '../assets/img/various/red-dot.svg'
+import greenDot from '../assets/img/various/green-dot.svg'
+import yellowDot from '../assets/img/various/yellow-dot.svg'
 
 export function MyListingsTable({ trips, onAccept, onReject }) {
-  const data = React.useMemo(() => trips, [trips])
+  const data = React.useMemo(() => trips.slice().reverse(), [trips]);
 
   const columns = React.useMemo(
     () => [
       {
         Header: 'Guest',
-        accessor: 'buyer.fullname',
+        accessor: 'user.fullname',
         Cell: ({ row }) => (
-          <div style={{ display: 'flex', alignItems: 'center' }}>
+          <div className='guest-name' >
             <img
-              src={row.original.buyer.imgUrl}
-              alt={row.original.stay.name}
+              src={row.original.user.imgUrl}
+              alt={row.original.user.fullname}
               style={{
-                width: '55px',
-                height: '55px',
+                width: '40px',
+                height: '40px',
                 borderRadius: '50px',
                 marginRight: '10px',
                 objectFit: 'cover',
               }}
             />
-            <div>
-              <div className='name-title'> {row.original.buyer.fullname}</div>
+            <div className='name-container'>
+              <div className='name-title'> {row.original.user.fullname}</div>
               <div>Guest</div>
             </div>
           </div>
@@ -40,18 +43,18 @@ export function MyListingsTable({ trips, onAccept, onReject }) {
               src={row.original.stay.imgUrl}
               alt={row.original.stay.name}
               style={{
-                width: '70px',
-                height: '70px',
+                width: '50px',
+                height: '50px',
                 borderRadius: '8px',
                 marginRight: '10px',
                 objectFit: 'cover',
               }}
             />
-            <div>
+            <div className='listing-stay-name'>
               <div className='listing-name-title'>
                 {`${row.original.stay.city}, ${row.original.stay.country}`}
               </div>
-              <div>{row.original.stay.name}</div>
+              <div >{row.original.stay.name}</div>
             </div>
           </div>
         ),
@@ -62,70 +65,61 @@ export function MyListingsTable({ trips, onAccept, onReject }) {
         accessor: 'totalPrice',
         Cell: ({ value }) => `${value}$`,
       },
-      { Header: 'Status', accessor: 'status' },
+      { 
+        Header: 'Status', 
+        accessor: 'status',  
+        Cell: ({ row }) => {
+          const status = row.original.status.toLowerCase()
+      
+          const statusDot = {
+            approved: greenDot,
+            pending: yellowDot,
+            canceled: redDot,
+            rejected: redDot
+          };
+      
+          return (
+            <div className='status-container'>
+              <img
+                src={statusDot[status] || yellowDot} 
+                alt={`${status} status`}
+                className='status-dot'
+              />
+              <span className={`status-text ${status}`}>{status.charAt(0).toUpperCase() + status.slice(1)}</span>
+            </div>
+          )
+        }
+      },
       {
         Header: 'Actions',
         Cell: ({ row }) => (
           <div className='actions-buttons-host'>
             {/* Accept Button */}
             <button
-              style={{
-                backgroundColor: '#efebeb',
-                color:
-                  row.original.status === 'approved' || row.original.status === 'rejected'
-                    ? '#9a9a9a'
-                    : '#026f10',
-                border: `1px solid ${
-                  row.original.status === 'approved' || row.original.status === 'rejected'
-                    ? '#9a9a9a'
-                    : '#026f10'
-                }`,
-                padding: '5px 10px',
-                borderRadius: '4px',
-                cursor:
-                  row.original.status === 'approved' || row.original.status === 'rejected'
-                    ? 'not-allowed'
-                    : 'pointer',
-              }}
-              onClick={() => {
-                if (row.original.status !== 'approved' && row.original.status !== 'rejected') {
-                  onAccept(row.original._id);
-                }
-              }}
-              disabled={row.original.status === 'approved' || row.original.status === 'rejected'}
-            >
-              Accept
-            </button>
+            className={`accept-button ${row.original.status === 'approved' || row.original.status === 'rejected' ? 'disabled' : ''}`}
+            onClick={() => {
+              if (row.original.status !== 'approved' && row.original.status !== 'rejected') {
+                onAccept(row.original._id);
+              }
+            }}
+            disabled={row.original.status === 'approved' || row.original.status === 'rejected'|| row.original.status === 'canceled'}
+          >
+            Accept
+          </button>
+          
       
             {/* Reject Button */}
             <button
-              style={{
-                backgroundColor: '#efebeb',
-                color:
-                  row.original.status === 'approved' || row.original.status === 'rejected'
-                    ? '#9a9a9a'
-                    : '#f10000',
-                border: `1px solid ${
-                  row.original.status === 'approved' || row.original.status === 'rejected'
-                    ? '#9a9a9a'
-                    : '#f10000'
-                }`,
-                padding: '5px 10px',
-                borderRadius: '4px',
-                cursor:
-                  row.original.status === 'approved' || row.original.status === 'rejected'
-                    ? 'not-allowed'
-                    : 'pointer',
-              }}
-              onClick={() => {
-                if (row.original.status !== 'approved' && row.original.status !== 'rejected') {
-                  onReject(row.original._id);
-                }
-              }}
-              disabled={row.original.status === 'approved' || row.original.status === 'rejected'}
-            >
-              Reject
-            </button>
+            className={`reject-button ${row.original.status === 'approved' || row.original.status === 'rejected' ? 'disabled' : ''}`}
+            onClick={() => {
+              if (row.original.status !== 'approved' && row.original.status !== 'rejected') {
+                onReject(row.original._id);
+              }
+            }}
+            disabled={row.original.status === 'approved' || row.original.status === 'rejected' || row.original.status === 'canceled'}
+          >
+            Reject
+          </button>
           </div>
         ),
       }

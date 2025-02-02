@@ -50,7 +50,7 @@ function getEmptyBook(
     _id: null,
     hostId: null,
     hostName: null,
-    buyer: {
+    user: {
       _id: '',
       fullname: '',
       imgUrl: '',
@@ -85,14 +85,14 @@ function _createdDemoBooks() {
       _id: 'b001',
       hostId: 'h123',
       hostName: 'Ron Keller',
-      buyer: {
+      user: {
         _id: 'u456',
         fullname: 'John Doe',
         imgUrl: 'https://randomuser.me/api/portraits/men/1.jpg',
       },
       totalPrice: 1200,
-      startDate: 'Feb 10, 2025',
-      endDate: 'Feb 15, 2025',
+      startDate: '10/02/2025',
+      endDate: '15/02/2025',
       guests: {
         adults: 2,
         children: 2,
@@ -101,7 +101,7 @@ function _createdDemoBooks() {
       },
       stay: {
         _id: 's789',
-        name: 'Beachfront Villa',
+        name: 'BEACHFRONT VILLA',
         price: 200,
         country: 'California',
         city: 'Malibu',
@@ -127,14 +127,14 @@ function _createdDemoBooks() {
       _id: 'b002',
       hostId: 'h456',
       hostName: 'Ron Keller',
-      buyer: {
+      user: {
         _id: 'u789',
         fullname: 'Jane Smith',
         imgUrl: 'https://randomuser.me/api/portraits/women/2.jpg',
       },
       totalPrice: 600,
-      startDate: 'Mar 01, 2025',
-      endDate: 'Mar, 05, 2025',
+      startDate: '01/03/2025',
+      endDate: '05/03/2025',
       guests: {
         adults: 1,
         children: 0,
@@ -143,7 +143,7 @@ function _createdDemoBooks() {
       },
       stay: {
         _id: 's101',
-        name: 'Modern City Apartment',
+        name: 'MODERN CITY APARTMENT',
         price: 150,
         country: 'England',
         city: 'London',
@@ -169,14 +169,14 @@ function _createdDemoBooks() {
       _id: 'b003',
       hostId: 'h789',
       hostName: 'Ron Keller',
-      buyer: {
+      user: {
         _id: 'u526',
         fullname: 'Meredith Wayn',
         imgUrl: 'https://randomuser.me/api/portraits/women/3.jpg',
       },
       totalPrice: 800,
-      startDate: 'Apr 07, 2025',
-      endDate: 'Apr, 09, 2025',
+      startDate: '07/04/2025',
+      endDate: '09/04/2025',
       guests: {
         adults: 2,
         children: 1,
@@ -185,7 +185,7 @@ function _createdDemoBooks() {
       },
       stay: {
         _id: 's456',
-        name: 'Beautiful Beach House',
+        name: 'BEAUTIFUL BEACH HOUSE',
         price: 400,
         country: 'Italy',
         city: 'Rome',

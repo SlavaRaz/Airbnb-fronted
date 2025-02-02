@@ -3,6 +3,9 @@ import { bookService } from '../services/book.service.local';
 import { MyListingsTable } from '../cmps/MyListingsTable';
 import { Loader } from '../cmps/Loader';
 import { MyListingsHeader } from '../cmps/MyListingsHeader';
+import { PageFooter } from '../cmps/ProgressFooter'
+
+
 
 
 export function MyListings() {
@@ -74,10 +77,11 @@ export function MyListings() {
     <section>
       <div className="my-listings-container">
         <MyListingsHeader />
-        <h1 className="greeting-user">Welcome Back, Muki Guest</h1>
+        <h1 className="greeting-user">{`Welcome Back, ${trips[trips.length-1].hostName}`}</h1>
         <h2 className="title-my-trips">My Listings</h2>
         <MyListingsTable trips={trips} onAccept={onAccept} onReject={onReject}/>
       </div>
+      <PageFooter/>
     </section>
   );
 }

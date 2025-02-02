@@ -52,9 +52,14 @@ export function BookPage() {
         const status = 'pending'
 
         return {
-            startDate,
-            endDate,
+            startDate: utilService.formattedDate(+params.get('checkIn')),
+            endDate: utilService.formattedDate(+params.get('checkOut')),
             totalBookDays,
+            stay: { name: stay.name, imgUrl: stay.imgUrls[0], country: stay.loc.country, city: stay.loc.city},
+            user: {
+                fullname: user.fullname,
+                imgUrl: user.imgUrl,
+              },
             guests: {
                 adults: +params.get('adults') || 1,
                 children: +params.get('children') || 0,
@@ -63,19 +68,22 @@ export function BookPage() {
             },
             totalStayPrice: +(stay.price * totalBookDays),
             totalFees: +(SERVICE_FEE * totalBookDays),
-            totalPriceWithFees: +(stay.price * totalBookDays + SERVICE_FEE * totalBookDays),
+            totalPrice: +(stay.price * totalBookDays + SERVICE_FEE * totalBookDays),
             hostId: stay.hostId,
+            hostName: stay.host.fullname,
             status,
         }
     }
 
     async function saveBookingRequest() {
         console.log(stayToBook)
+        console.log(user);
+        
         try {
             await bookService.save(stayToBook)
             // showSuccessMsg('Book Saved!')
             setIsBooked(true)
-            // navigate('/')
+            navigate('/mytrips')
         } catch (err) {
             showErrorMsg('Cannot save book')
         }
@@ -260,7 +268,7 @@ export function BookPage() {
                                                 Total{' '}
                                                 <span style={{ textDecoration: 'underline' }}>(USD)</span>
                                             </span>
-                                            <span>${stayToBook.totalPriceWithFees.toLocaleString()}</span>
+                                            <span>${stayToBook.totalPrice.toLocaleString()}</span>
                                         </div>
                                     </div>
                                 </div>

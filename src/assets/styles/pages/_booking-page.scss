@@ -5,6 +5,8 @@
     align-items: center;
     border: none;
     line-height: 1.25rem;
+    max-width: 1120px;
+    margin: auto;
 
     @include for-max-narrow-layout {
         padding-top: 1.5rem;
@@ -47,6 +49,8 @@
     flex-direction: row;
     gap: 35px;
     margin-bottom: 96px;
+    max-width: 1120px;
+    margin: auto;
 
     .book-details {
         min-width: 40%;
@@ -90,7 +94,7 @@
             }
 
             .trip-details-data {
-                font-family: 'cereal-Regular';
+                font-family: $font-caption;
                 font-size: 1rem;
                 font-weight: unset;
                 gap: 10px;
@@ -266,7 +270,7 @@
 
             .total-details {
                 margin-top: 24px;
-                font-family: 'cereal-Bold';
+                font-family: $font-caption;
                 font-weight: 600;
 
             }

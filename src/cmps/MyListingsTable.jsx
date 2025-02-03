@@ -38,7 +38,8 @@ export function MyListingsTable({ trips, onAccept, onReject }) {
         Header: 'Stay',
         accessor: 'stay.name',
         Cell: ({ row }) => (
-          <div style={{ display: 'flex', alignItems: 'center' }}>
+          <div className= 'stay-name-container' style={{ display: 'flex', alignItems: 'center',
+           }}>
             <img
               src={row.original.stay.imgUrl}
               alt={row.original.stay.name}
@@ -54,10 +55,21 @@ export function MyListingsTable({ trips, onAccept, onReject }) {
               <div className='listing-name-title'>
                 {`${row.original.stay.city}, ${row.original.stay.country}`}
               </div>
-              <div >{row.original.stay.name}</div>
+              <div className='stay-text'>{row.original.stay.name}</div>
             </div>
           </div>
         ),
+      },
+      {
+        Header: 'Guests',
+        Cell: ({ row }) => {
+          const totalGuests = `${row.original.guests.adults + row.original.guests.children+row.original.guests.infants}`
+      
+      
+          return (
+            <div className='number-of-guests'>{`${totalGuests}`}</div>
+          )
+        }
       },
 
       {

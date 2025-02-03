@@ -1,5 +1,7 @@
 import React, {useState}  from "react"
 import FilterItem from "./FilterItem"
+import arrowLeft from '../../../assets/img/various/left-arrow.svg'
+import arrowRight from '../../../assets/img/various/right-arrow.svg'
 export default function FilterItemList(props){
 
     let [data, setData] = useState([
@@ -74,7 +76,7 @@ export default function FilterItemList(props){
 
     return(
       <>
-        <button className="btn1" onClick={onclickbtn1}> {'<'} </button>
+        <button className="btn1" onClick={onclickbtn1}> <img src={arrowLeft} alt='Next' /></button>
         <div className="FilterItemListComponent" >
             {
               data.map(
@@ -85,7 +87,7 @@ export default function FilterItemList(props){
               )
             }
         </div>
-        <button className="btn2" onClick={onclickbtn2}> {'>'} </button>
+        <button className="btn2" onClick={onclickbtn2}>  <img src={arrowRight} alt='Next' /> </button>
       </>
     )
 }

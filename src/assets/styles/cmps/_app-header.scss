@@ -12,8 +12,8 @@
   // grid-column: 1 / -1;
 
   &.sticky {
-    position: sticky;
-    top: 0;
+   position: sticky;
+    top: 0; 
   }
 
   &:has(.search-bars-open)::after {
@@ -107,3 +107,5 @@
     }
   }
 }
+
+

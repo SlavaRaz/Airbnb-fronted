@@ -3,7 +3,7 @@ import { bookService } from '../services/book.service.local';
 import { MyTripsHeader } from '../cmps/MyTripsHeader';
 import { TripsTable } from '../cmps/TripsTable';
 import { Loader } from '../cmps/Loader';
-import { PageFooter } from '../cmps/ProgressFooter'
+import { PageFooter } from '../cmps/PageFooter'
 
 
 

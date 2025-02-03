@@ -21,6 +21,14 @@
 }
 
 
+// @media (min-width:740px){
+//   .main-container{
+//     display: grid;
+//     grid-template-columns:40px minmax(660px, auto) 40px;
+
+//   }
+//   }
+
 @media (min-width:1128px){
     .main-container {
         grid-template-columns: 40px minmax(1048px, auto) 40px;

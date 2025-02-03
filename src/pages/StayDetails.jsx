@@ -7,6 +7,8 @@ import '../assets/styles/basics/_layout-details.scss';
 import { stayService } from '../services/stay/stay.service.local';
 import { Loader } from '../cmps/Loader'; 
 import { ReviewIndex } from './ReviewIndex.jsx';
+import { PageFooter } from '../cmps/PageFooter'
+
 
 export function StayDetails() {
   const { stayId } = useParams();
@@ -31,7 +33,8 @@ export function StayDetails() {
      <DetailsHeader />
       <StayGallery stay={stay} />
       <StayDescription stay={stay} />
-      <ReviewIndex stayId={stayId} />
+      <ReviewIndex stayId={stayId} stay={stay}/>
+        <PageFooter/>
     </section>
   )
 }

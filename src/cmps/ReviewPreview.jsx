@@ -19,18 +19,18 @@ export function ReviewPreview({ review }) {
     return (
         <article className="review-preview flex dirColumn gap10">
             <div className="review-header flex gap10 alCenter">
-                <img src={imgUrl || 'https://cdn-icons-png.flaticon.com/512/6858/6858485.png'} width="60px" height={60} alt={fullname} className="user-img"/>
+                <div className="review-img" ><img src={imgUrl || 'https://cdn-icons-png.flaticon.com/512/6858/6858485.png'} width="60px" height={60} alt={fullname} className="user-img"/></div>
                 <div>
                     <div className="review-by"><Link to={`/user/${_id}`}>{fullname}</Link></div>
-                    <div className="review-about">by: <Link to={`/user/${_id}`}>{fullname}</Link></div>
+                    <div className="review-about">3 years on TripNgo</div>
                 </div>
             </div>
             <p ref={pRef} className="review-txt overflowHidden hegith125" >"{review.txt}"</p>
             {
                 isOverflow? 
-                    <button onClick={showMoreHandler}> showMore </button>
+                    <button className='btn-show-more' onClick={showMoreHandler}> Show more </button>
                 :
-                    <></>
+                    <div></div>
             }
         </article>
     )

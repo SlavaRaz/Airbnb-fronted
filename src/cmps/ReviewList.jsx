@@ -34,11 +34,11 @@ export function ReviewList({ reviews, onRemoveReview }) {
     return (
         <section className="review-list-container">
             <ul className="review-list">
-                {reviews.map(review => (
+                {reviews.slice(0, 6).map(review => (
                     <li key={review._id} className="review-item">
                         <ReviewPreview review={review}/>
                         {userService.getLoggedinUser()?.isAdmin && (
-                            <button onClick={() => onRemoveReview(review._id)}>🗑 מחק</button>
+                            <button onClick={() => onRemoveReview(review._id)}></button>
                         )}
                     </li>
                 ))}

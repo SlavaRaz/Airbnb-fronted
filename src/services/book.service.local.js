@@ -99,6 +99,7 @@ function _createdDemoBooks() {
         infants: 1,
         pets: 0,
       },
+      
       stay: {
         _id: 's789',
         name: 'BEACHFRONT VILLA',

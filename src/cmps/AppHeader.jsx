@@ -1,9 +1,7 @@
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux'
-import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
-
 import { SearchBar } from './SearchBar.jsx'
 import { NavMenu } from './NavMenu.jsx'
 import { logout } from '../store/actions/user.actions'
@@ -24,15 +22,14 @@ export function AppHeader() {
 	return (
         <section>
             {isStayPage ? (
-                // Render with two divs if on /stay page
                 <div className="details-header-container">
-                    <div className={` app-header ${isStickyPage ? 'sticky' : ''}`}>
+                    <div className={`app-header ${isStickyPage ? 'sticky' : ''}`}>
                         <div className="header-logo">
                             <NavLink to="/" >
                                 <img src={logo} alt="Logo" />
                             </NavLink>
                             <NavLink to="/" >
-                                <h2 className="logo-text">airbnb</h2>
+                                <h2 className="logo-text">TripNGo</h2>
                             </NavLink>
                         </div>
                         <SearchBar />
@@ -40,14 +37,13 @@ export function AppHeader() {
                     </div>
                 </div>
             ) : (
-                // Render with one div for other pages
                 <div className={`full ${isStayPage ? 'main-container-details' : 'main-container'} app-header ${isStickyPage ? 'sticky' : ''}`}>
                     <div className="header-logo">
                         <NavLink to="/" >
                             <img src={logo} alt="Logo" />
                         </NavLink>
                         <NavLink to="/" >
-                            <h2 className="logo-text">airbnb</h2>
+                            <h2 className="logo-text">TripNGo</h2>
                         </NavLink>
                     </div>
                     <SearchBar />

@@ -25,33 +25,11 @@ export default function FilterItemList(props){
       {id:"20" , imgSrc:"https://res.cloudinary.com/dgzyxjapv/image/upload/v1669918322/stayby/labels/Cabins.png" , text:"Cabins"},
     ])
 
-    // let objStyle={
-    //     display: "flex",
-    //     alignItems: "center",
-    //     justifyContent: "center",
-    //     gap:"3px",
-    //     width: "90%",
-    //     backgroundCcolor: "rgba(0, 255, 255, 0.404)",
-    // }
+    
 
     let [min , setMin] = useState(0);
     let [maximum, setMaximum] = useState(12); 
     
-
-    // function onclickbtn1(){
-    //   if(min !=0){
-    //     setMin(min-1)
-    //     setMaximum( maximum -1)
-    //   }
-    // }
-    
-    // function onclickbtn2(){
-    //   if(min < data.length-10){
-    //     setMin(min+1)
-    //     setMaximum( maximum +1)
-    //   }
-    // }
-
     function onclickbtn1() {
       if (min > 0) {
         setMin(min - 1);
@@ -66,12 +44,6 @@ export default function FilterItemList(props){
       }
     }
     
-
-
-
-
-
-
     return(
       <>
         <button className="btn1" onClick={onclickbtn1}> {'<'} </button>
@@ -89,24 +61,4 @@ export default function FilterItemList(props){
       </>
     )
 }
-
-
-
-// const scrollLeftButton = document.querySelector('.FilterButtonComponent');
-// const scrollRightButton = document.querySelector('.FilterButtonComponent');
-// const carousel = document.querySelector('.FilterMenu');
-
-// scrollLeftButton.addEventListener('click', () => {
-//     carousel.scrollBy({
-//         left: -300, // מספר הפיקסלים להחלקה שמאלה
-//         behavior: 'smooth', // גלילה חלקה
-//     });
-// });
-
-// scrollRightButton.addEventListener('click', () => {
-//     carousel.scrollBy({
-//         left: 300, // מספר הפיקסלים להחלקה ימינה
-//         behavior: 'smooth', // גלילה חלקה
-//     });
-// });
 

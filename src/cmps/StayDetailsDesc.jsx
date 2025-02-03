@@ -24,16 +24,16 @@ export function StayDescription({ stay }) {
             <div className='type-title'>{`${stay.roomType} in ${stay.loc.city}, ${stay.loc.country}`}</div>
             <div className='capacity-details'>{`${stay.capacity} guests · ${stay.bedrooms} bedrooms · ${stay.bathrooms} baths`}</div>
           </div>
-          <div className='host flex'>
+          <div className='host flex'><div className='host-info'>
             <img
-              src={stay.host.thumbnailUrl}
+              src={stay.host.pictureUrl}
               alt='host'
               width='10'
               height='10'
             />
-            <div className='host-info'>
+            <div className='host-text'>
               <h4>{`Hosted by ${stay.host.fullname}`}</h4>
-              <div>'Superhost'</div>
+              <div className='hosting-length'>9 years hosting</div></div>
             </div>
           </div>
 
@@ -41,7 +41,7 @@ export function StayDescription({ stay }) {
           <section className='advantages-list flex'>
             <div className='advantage flex'>
               <div className='advantage-icon'>
-                <img src={locationIcon} alt={'location-icon'} />{' '}
+                <img className='location-icon' src={locationIcon} alt={'location-icon'} />{' '}
               </div>
               <div className='advantage-text flex'>
                 <span className='advantage-title'>Great location</span>
@@ -52,7 +52,7 @@ export function StayDescription({ stay }) {
             </div>
             <div className='advantage flex'>
               <div className='advantage-icon'>
-                <img src={checkInIcon} alt={'check-in-icon'} />{' '}
+                <img className='check-in-icon' src={checkInIcon} alt={'check-in-icon'} />{' '}
               </div>
               <div className='advantage-text flex'>
                 <span className='advantage-title'>Self check-in</span>
@@ -63,7 +63,7 @@ export function StayDescription({ stay }) {
             </div>
             <div className='advantage flex'>
               <div className='advantage-icon'>
-                <img src={cancelationIcon} alt={'cancelation-icon'} />{' '}
+                <img className='cancelation-icon' src={cancelationIcon} alt={'cancelation-icon'} />{' '}
               </div>
               <div className='advantage-text flex'>
                 <span className='advantage-title'>

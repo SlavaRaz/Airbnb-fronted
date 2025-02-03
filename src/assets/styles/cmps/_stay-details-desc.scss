@@ -5,7 +5,6 @@
   margin: auto;
   font-family: $font-caption;
   border-bottom: 1px solid #dedede;
-  margin-top: 18px;
 
   .details {
     width: 100%;
@@ -20,7 +19,7 @@
         font-family: $font-heading;
 
         line-height: 1.625rem;
-        font-size: 1em;
+        font-size: 1.375em;
         font-weight: 600;
         padding: 0px;
         margin: 0px;
@@ -34,15 +33,37 @@
 
     .host {
       font-family: $font-caption;
+      height: 90px;
       padding: 24px 0px;
       flex-direction: row;
       gap: 24px;
+
+      .host-info {
+        display: flex;
+        flex-direction: row;
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 1.25rem;
+        gap: 24px;
+
+        .host-text {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap:4px;
+
+          .hosting-length {
+            color: rgb(106, 106, 106);
+          }
+        }
+      }
     }
 
     .host img {
       height: 40px;
       width: 40px;
       border-radius: 50%;
+      position: relative;
     }
 
     .divider {
@@ -63,8 +84,26 @@
         gap: 24px;
 
         .advantage-icon {
+          flex-shrink: 0;
+          height: 40px;
           width: 40px;
+          display: flex;
           justify-content: center;
+
+          .location-icon{
+            height: 24px;
+            width: 24px;
+          }
+
+          .check-in-icon{
+            height: 22px;
+            width: 22px;
+          }
+
+          .cancelation-icon{
+            height: 20px;
+            width: 20px;
+          }
         }
 
         .advantage-text {
@@ -96,7 +135,6 @@
   .reserve-stay-form {
     position: relative;
     margin-bottom: 2rem;
-
 
     @include for-max-narrow-layout {
       display: none;

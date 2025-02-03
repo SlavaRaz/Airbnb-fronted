@@ -56,7 +56,7 @@ export function RootCmp() {
                     </Route>
                     <Route path="stay/:stayId" element={<StayDetails />} />
                     <Route path="mytrips" element={<MyTrips />} /> 
-                    <Route path="mylistings" element={<MyListings />} /> 
+                    <Route path="/hosting/mylistings" element={<MyListings />} /> 
                     <Route path="book/stay/:stayId" element={<BookPage />} />
                     <Route path="user/:id" element={<UserDetails />} />
                     <Route path="review" element={<ReviewIndex />} />

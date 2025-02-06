@@ -82,7 +82,7 @@ export function StayDescription({ stay }) {
 
           <Amenities stay={stay} />
 
-          <div className='stay-map'>
+          {/* <div className='stay-map'>
             <h1>Where you'll be</h1>
             <StayMap stay={stay} />
             <h3 className='stay-location-name'>
@@ -95,7 +95,7 @@ export function StayDescription({ stay }) {
               The property is located within a protected area known for its rich biodiversity and stunning natural beauty.
 
             </p>
-          </div>
+          </div> */}
 
         </div>
 

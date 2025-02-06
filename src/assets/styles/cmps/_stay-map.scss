@@ -1,5 +1,8 @@
 .stay-map {
-    padding-bottom: 18px;
+    padding: 48px 0px;
+    max-width: 1120px;
+    margin: auto;
+    margin-bottom: 32px;
 
     @include for-max-narrow-layout {
       padding-inline: em(24px, 16px);
@@ -9,7 +12,6 @@
       font-size: rem(22px);
       font-family: $font-caption;
       padding-bottom: 24px;
-      padding-top: 30px;
     }
 
     h3 {

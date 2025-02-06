@@ -47,13 +47,12 @@
 
 .book-content {
     flex-direction: row;
-    gap: 35px;
     margin-bottom: 96px;
     max-width: 1120px;
     margin: auto;
 
     .book-details {
-        min-width: 40%;
+        width: 50%;
         flex-direction: row;
 
         .rare-find {
@@ -127,11 +126,14 @@
 .book-card {
 
     padding: 24px;
+    width: 41.6667% !important;
+    margin-left: 8.33333% ;
     border: 1px solid $clr-border;
     border-radius: 1em;
     height: fit-content;
     min-height: 40%;
     padding-bottom: 40px !important;
+    margin-bottom: 100px;
 
 
     @include for-max-narrow-layout {

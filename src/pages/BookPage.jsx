@@ -13,6 +13,8 @@ import { stayService } from '../services/stay'
 import { bookService } from '../services/book.service.local'
 import { AppHeaderBook } from '../cmps/AppHeaderBook.jsx'
 import { LoginSignup } from '../cmps/Login-signup.jsx'
+import { PageFooter } from '../cmps/PageFooter.jsx'
+
 
 
 export function BookPage() {
@@ -48,6 +50,13 @@ export function BookPage() {
 
         const startDate = +params.get('checkIn')
         const endDate = +params.get('checkOut')
+
+        console.log(utilService.formattedDate(startDate));
+        console.log(utilService.formattedDate(endDate));
+
+
+        
+        
         const totalBookDays = utilService.totalDays(startDate, endDate)
         const status = 'pending'
 
@@ -277,6 +286,8 @@ export function BookPage() {
                     </section>
                 </main>
             </section>
+                  <PageFooter/>
+            
         </div>
     )
 }

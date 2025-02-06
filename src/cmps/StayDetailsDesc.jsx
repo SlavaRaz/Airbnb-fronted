@@ -1,13 +1,13 @@
 import { useParams } from 'react-router-dom'
 import { BookingForm } from './BookingForm'
 import { Amenities } from './amenities'
-import { StayMap } from './StayMap.jsx'
 import { useEffect, useRef, useState } from 'react'
 import useOnScreen from '../customHooks/useOnScreen'
 import { stayService } from '../services/stay/stay.service.local'
 import cancelationIcon from '../assets/img/highlights/calendar.svg'
 import locationIcon from '../assets/img/highlights/location.svg'
 import checkInIcon from '../assets/img/highlights/check in.svg'
+
 
 
 export function StayDescription({ stay }) {
@@ -82,20 +82,8 @@ export function StayDescription({ stay }) {
 
           <Amenities stay={stay} />
 
-          <div className='stay-map'>
-            <h1>Where you'll be</h1>
-            <StayMap stay={stay} />
-            <h3 className='stay-location-name'>
-              {stay.loc.country}, {stay.loc.city}
-            </h3>
-            <p>
-              Blue Ridge Mountains, Asheville, North Carolina, USA
-              Nestled in the heart of the picturesque Blue Ridge Mountains,
-              our retreat offers a serene escape surrounded by lush forests and breathtaking vistas.
-              The property is located within a protected area known for its rich biodiversity and stunning natural beauty.
+        
 
-            </p>
-          </div>
 
         </div>
 

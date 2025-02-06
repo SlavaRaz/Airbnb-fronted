@@ -1,251 +1,257 @@
 @import '../setup/ui';
 
 .booking-modal {
-    position: sticky;
-    top: 20px;
+  position: sticky;
+  top: 20px;
 }
 
 .booking-modal-form {
-    flex-direction: column;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 32px;
+  margin-left: 18.333333333333332%;
+  border: 1px solid $clr-border;
+  border-radius: 12px;
+  padding: 24px;
+  //   top: 128px;
+  box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+  max-width: 400px;
+
+  & > * {
+    width: unset;
+  }
+
+  .booking-form-header {
     justify-content: space-between;
-    gap: 24px;
-    margin-top: 32px;
-    margin-left: 18.333333333333332%;
-    border: 1px solid $clr-border;
-    border-radius: 12px;
-    padding: 24px;
-    //   top: 128px;
-    box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
-    max-width: 400px;
 
-    &>* {
-        width: unset;
+    .order-price {
+      font-weight: 600;
+      line-height: 1.25rem;
+      font-size: 1.25rem;
+      font-family: $font-caption;
     }
 
-    .booking-form-header {
-        justify-content: space-between;
+    .order-night {
+      font-size: 1rem;
+      font-family: $font-caption;
+      font-weight: 400;
+    }
+  }
 
-        .order-price {
-            font-weight: 600;
-            line-height: 1.25rem;
-            font-size: 1.25rem;
-            font-family: $font-caption;
+  .picker-container {
+    position: relative;
+    // margin-bottom: 15px;
+    border-radius: 8px;
+    margin-left: 24px !important;
+    min-width: 270px;
+    border: 1px solid $clr-border-dark;
+
+    .date-picker-header {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 16px;
+
+      h4 {
+        font-size: rem(22px);
+        font-family: $font-caption;
+      }
+
+      h5 {
+        font-size: rem(14px);
+        font-family: $font-caption;
+        color: $clr-text-secondary;
+      }
+    }
+
+    .date-picker-modal {
+      @extend .container;
+      position: absolute;
+      right: -32px;
+      top: -24px;
+      z-index: 2;
+      background-color: $clr-white;
+      padding: 24px 32px 16px;
+      width: 661px;
+      min-height: 460px;
+      border-radius: 16px; /* Optional: Add rounded corners if needed */
+      box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
+
+      .date-picker-modal-btns {
+        display: flex;
+        justify-content: flex-end;
+        gap: 14px;
+        margin-inline-end: 22px;
+      }
+
+      .reset-dates-btn {
+        text-decoration: underline;
+        font-family: $font-caption;
+        font-size: rem(14px);
+        color: $clr-text-primary;
+      }
+
+      .close-dates-btn button {
+        font-family: $font-caption;
+        font-size: rem(14px);
+        padding: 8px 16px;
+        margin-right: 0px;
+
+        &:hover {
+          background-color: $clr-black;
         }
-
-        .order-night {
-            font-size: 1rem;
-            font-family: $font-caption;
-            font-weight: 400;
-                    }
+      }
     }
 
-    .picker-container {
-        position: relative;
-        // margin-bottom: 15px;
+    //CALENDER SELECT
+    .rdrCalendarWrapper {
+      min-height: 319px;
+      margin-top: -12px;
+      margin-left: -30px;
+      width: 658px;
+      text-align: left;
+
+      .rdrMonthAndYearWrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        position: absolute;
+        right: 28px;
+        left: 25px;
+        text-align: center;
+        margin: auto 0px;
+      }
+
+      .rdrMonthAndYearPickers {
+        display: none;
+      }
+
+      .rdrMonthName {
+        text-align: center;
+        color: $clr-text-primary;
+        font-size: 1rem;
+        font-family: $font-caption;
+      }
+    }
+
+    .order-heading {
+      font-size: 0.625rem;
+      font-family: $font-caption;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    .order-sub-heading {
+      font-size: rem(14px);
+    }
+
+    .dates-selection {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+
+      &.active {
         border-radius: 8px;
-        border: 1px solid $clr-border-dark;
+        z-index: 3;
+        border: 2px solid $clr-black;
+      }
 
+      .check-out {
+        border-left: 1px solid $clr-border-dark;
+      }
 
-        .date-picker-header {
-            display: flex;
-            flex-direction: column;
-            padding-inline-start: 20px;
-            padding-top: 10px;
-
-            h4 {
-                font-size: rem(22px);
-                font-family: $font-caption;
-            }
-
-            h5 {
-                font-size: rem(14px);
-                font-family: $font-caption;
-                color: $clr-text-secondary;
-            }
-        }
-
-        .date-picker-modal {
-            @extend .container;
-            position: absolute;
-            right: -30px;
-            top: -22px;
-            z-index: 2;
-            background-color: $clr-white;
-
-            .date-picker-modal-btns {
-                display: flex;
-                justify-content: flex-end;
-                gap: 14px;
-                margin-inline-end: 22px;
-            }
-
-            .reset-dates-btn {
-                text-decoration: underline;
-                font-family: $font-caption;
-                font-size: rem(14px);
-                color: $clr-text-primary;
-            }
-
-            .close-dates-btn button {
-                font-family: $font-caption;
-                font-size: rem(14px);
-                padding: 8px 16px;
-                margin-right: 0px;
-
-                &:hover {
-                    background-color: $clr-black;
-                }
-            }
-
-        }
-
-        //CALENDER SELECT
-        .rdrCalendarWrapper {
-            padding-top: 20px;
-
-            .rdrMonthAndYearWrapper {
-                position: absolute;
-                right: 28px;
-                left: 25px;
-            }
-
-            .rdrMonthAndYearPickers {
-                display: none;
-            }
-
-            .rdrMonthName {
-                text-align: center;
-                color: $clr-text-primary;
-                font-size: 1rem;
-                font-family: $font-caption;
-            }
-
-        }
-
-
-        .order-heading {
-            font-size: 0.625rem;
-            font-family: $font-caption;
-            font-weight: 500;
-            text-transform: uppercase;
-        }
-
-        .order-sub-heading {
-            font-size: rem(14px);
-        }
-
-        .dates-selection {
-            display: flex;
-            justify-content: space-between;
-            position: relative;
-
-
-            &.active {
-                border-radius: 8px;
-                z-index: 3;
-                border: 2px solid $clr-black;
-            }
-
-            .check-out {
-                border-left: 1px solid $clr-border-dark;
-            }
-
-            .picker {
-                display: flex;
-                flex-direction: column;
-                gap: 0px;
-                padding: 7px 12px;
-                width: 50%;
-                font-size: 0.625em;
-
-            }
-        }
-
-        .guest-picker {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            padding: 7px 12px;
-            width: 100%;
-            border-top: 1px solid $clr-border-dark;
-            position: relative;
-
-            .drawer-arrow-icon {
-                position: absolute;
-                top: 30%;
-                right: 13px;
-            }
-
-            .guest-btn {
-                text-align: left;
-            }
-
-
-            .guest-select-container-small {
-                border-radius: 4px;
-                background: $clr-white;
-                box-shadow: rgb(0 0 0 / 15%) 0px 2px 6px, rgb(0 0 0 / 7%) 0px 0px 0px 1px;
-                box-sizing: border-box;
-                margin-bottom: 16px;
-                padding: 16px;
-                position: absolute;
-                text-align: left;
-                top: 55px;
-                z-index: 999;
-                left: 0px;
-                width: 100%;
-
-                .guest-select-list {
-                    max-width: 100%;
-                }
-
-                .guest-select-row {
-                    margin: 24px 0;
-                }
-
-                .guest-select-row:first-child {
-                    margin-top: 8px;
-                    margin-bottom: 24px;
-                }
-
-            }
-        }
-
-    }
-
-    .order-details {
-        // gap: 25px;
+      .picker {
+        display: flex;
         flex-direction: column;
-
-        .no-charge-msg {
-            text-align: center;
-            padding-top: 1rem;
-        }
-
-        .prices {
-            display: grid;
-            grid-template-columns: 1fr 0.01fr;
-            padding-bottom: 10px;
-            border-bottom: 1px solid $clr-border-dark;
-            // gap: 10px;
-            font-size: 0.9rem;
-
-            &>*:nth-child(odd) {
-                text-decoration: underline;
-                padding-bottom: 15px;
-            }
-        }
-
-        .total {
-            font-weight: 600;
-            color: $clr-svg-imgs;
-            font-family: $font-caption;
-        }
+        gap: 0px;
+        padding: 7px 12px;
+        width: 50%;
+        font-size: 0.625em;
+      }
     }
 
-   
-}
+    .guest-picker {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 7px 12px;
+      width: 100%;
+      border-top: 1px solid $clr-border-dark;
+      position: relative;
 
+      .drawer-arrow-icon {
+        position: absolute;
+        top: 30%;
+        right: 13px;
+      }
+
+      .guest-btn {
+        text-align: left;
+      }
+
+      .guest-select-container-small {
+        border-radius: 4px;
+        background: $clr-white;
+        box-shadow: rgb(0 0 0 / 15%) 0px 2px 6px,
+          rgb(0 0 0 / 7%) 0px 0px 0px 1px;
+        box-sizing: border-box;
+        margin-bottom: 16px;
+        padding: 16px;
+        position: absolute;
+        text-align: left;
+        top: 55px;
+        z-index: 999;
+        left: 0px;
+        width: 100%;
+
+        .guest-select-list {
+          max-width: 100%;
+        }
+
+        .guest-select-row {
+          margin: 24px 0;
+        }
+
+        .guest-select-row:first-child {
+          margin-top: 8px;
+          margin-bottom: 24px;
+        }
+      }
+    }
+  }
+
+  .order-details {
+    // gap: 25px;
+    flex-direction: column;
+
+    .no-charge-msg {
+      text-align: center;
+      padding-top: 1rem;
+    }
+
+    .prices {
+      display: grid;
+      grid-template-columns: 1fr 0.01fr;
+      padding-bottom: 10px;
+      border-bottom: 1px solid $clr-border-dark;
+      // gap: 10px;
+      font-size: 0.9rem;
+
+      & > *:nth-child(odd) {
+        text-decoration: underline;
+        padding-bottom: 15px;
+      }
+    }
+
+    .total {
+      font-weight: 600;
+      color: $clr-svg-imgs;
+      font-family: $font-caption;
+    }
+  }
+}
 
 // .order-confirmation-modal {
 //     // position: absolute;

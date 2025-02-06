@@ -5,7 +5,7 @@ import { AiFillHome } from "react-icons/ai"
 export function StayMap({ stay }) {
 
 
-    const { lat, lan: lng } = stay.loc
+    const { lan: lat, lat: lng } = stay.loc
     const [coordinates, setCoordinates] = useState({ lat, lng })
     const zoom = 11
 
@@ -18,8 +18,9 @@ export function StayMap({ stay }) {
     return (
         <div style={{ height: '480px', width: '100%' }}>
             <GoogleMapReact
-                bootstrapURLKeys={{ key: "AIzaSyAiqsqRM3mmEYYtnCoFFVckjmCk5LposZA" }}
-                center={coordinates}
+                bootstrapURLKeys={{ key: "AIzaSyAwcqt-Ily0skSFEmOiSDsWFFYDlemvDRs" , mapIds: ['9566e359f9db05cf'
+                ]}}
+                defaultCenter={coordinates}
                 defaultZoom={zoom}
                 onClick={onMapClick}
                 yesIWantToUseGoogleMapApiInternals

@@ -33,24 +33,21 @@ export function StayDetails() {
       <DetailsHeader />
       <StayGallery stay={stay} />
       <StayDescription stay={stay} />
-      <ReviewIndex stayId={stayId} stay={stay} />
-      
-      <div className='divider'></div>
+      <div className='reviews-and-map'>
+        <ReviewIndex stayId={stayId} stay={stay} />
+
+        <div className='divider-map'></div>
 
 
-      <div className='stay-map'>
-        <h1>Where you'll be</h1>
-        <StayMap stay={stay} />
-        <h3 className='stay-location-name'>
-          {stay.loc.country}, {stay.loc.city}
-        </h3>
-        <p>
-          Blue Ridge Mountains, Asheville, North Carolina, USA Nestled in the
-          heart of the picturesque Blue Ridge Mountains, our retreat offers a
-          serene escape surrounded by lush forests and breathtaking vistas. The
-          property is located within a protected area known for its rich
-          biodiversity and stunning natural beauty.
-        </p>
+        <div className='stay-map'>
+          <h1>Where you'll be</h1>
+          <h3 className='stay-location-name'>
+            {stay.loc.country}, {stay.loc.city}
+          </h3>
+          <div className='map-container'>
+            <StayMap stay={stay} />
+          </div>
+        </div>
       </div>
 
       <PageFooter />

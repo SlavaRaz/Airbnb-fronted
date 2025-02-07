@@ -281,3 +281,48 @@
     }
 
 }
+
+@media screen and (max-width: 450px) {
+  
+
+    .booking-content.mobile-layout {
+        display: flex;
+        flex-direction: column;
+        padding: 16px;
+    }
+
+    .stay-summary {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 16px;
+
+        .stay-img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 8px;
+        }
+
+        .stay-name {
+            font-size: 1.5rem;
+            margin-top: 8px;
+        }
+    }
+
+    .trip-details,
+    .price-details {
+        padding: 16px;
+        border-bottom: 1px solid $clr-border;
+    }
+
+    .confirm-button {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        padding: 16px;
+        background: white;
+        box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+}

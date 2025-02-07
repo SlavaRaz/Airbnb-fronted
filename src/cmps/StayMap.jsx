@@ -16,7 +16,8 @@ export function StayMap({ stay }) {
     }
 
     return (
-        <div style={{ height: '480px', width: '100%' }}>
+        <div  style={{ height: '480px', width: '100%', }}>
+
             <GoogleMapReact
                 bootstrapURLKeys={{ key: "AIzaSyAwcqt-Ily0skSFEmOiSDsWFFYDlemvDRs" , mapIds: ['9566e359f9db05cf'
                 ]}}
@@ -28,6 +29,8 @@ export function StayMap({ stay }) {
             >
                 <Popper lat={lat} lng={lng} onClick={() => { }} />
             </GoogleMapReact>
+
+
         </div>
     )
 }

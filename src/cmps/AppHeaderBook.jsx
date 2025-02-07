@@ -12,7 +12,7 @@ export function AppHeaderBook() {
                     <img src={logo} alt="Logo" />
                 </NavLink>
                 <NavLink to="/" >
-                    <h2 className="logo-text">airbnb</h2>
+                    <h2 className="logo-text">TripNGo</h2>
                 </NavLink>
             </div>
         </div>

@@ -104,3 +104,8 @@
       }
     }
   }
+
+  @media screen and (max-width: 743px) {
+    .details-header {
+display: none !important;}
+  }

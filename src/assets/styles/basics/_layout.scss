@@ -29,6 +29,14 @@
 //   }
 //   }
 
+@media (max-width:450px){
+    .main-container {
+        grid-template-columns: 1fr;
+        max-width: 414px;
+
+    }
+}
+
 @media (min-width:1128px){
     .main-container {
         grid-template-columns: 40px minmax(1048px, auto) 40px;

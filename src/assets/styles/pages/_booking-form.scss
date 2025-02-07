@@ -43,7 +43,6 @@
     position: relative;
     // margin-bottom: 15px;
     border-radius: 8px;
-    margin-left: 24px !important;
     min-width: 270px;
     border: 1px solid $clr-border-dark;
 
@@ -252,6 +251,17 @@
     }
   }
 }
+
+@media screen and (max-width: 450px) {
+  .picker-container{
+    margin: auto !important;
+  }
+
+  .date-picker-modal{
+    width: 366px !important;
+    margin: auto !important;
+  }
+ }
 
 // .order-confirmation-modal {
 //     // position: absolute;

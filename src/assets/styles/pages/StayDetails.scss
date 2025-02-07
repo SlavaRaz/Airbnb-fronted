@@ -1,2 +1,31 @@
 .custom-beat-loader > span {
-  background-color: hsl(349, 100%, 61%) !important;}
+  background-color: hsl(349, 100%, 61%) !important;
+}
+.reviews-and-map {
+  display: flex;
+  flex-direction: column;
+}
+
+.divider-amenities {
+  height: 0.5px;
+  background-color: rgb(216, 213, 213);
+  width: 366px;
+  margin: auto !important;
+  display: none;
+}
+@media screen and (max-width: 743px) {
+  .StayDetailsComponent {
+    max-width: 414px !important;
+  }
+
+  .reviews-and-map {
+    display: flex;
+    flex-direction: column-reverse;
+    padding-top: 32px !important;
+    padding-bottom: 24px !important;
+  }
+
+  .divider-amenities {
+    display: block !important;
+  }
+}

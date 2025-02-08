@@ -6,3 +6,8 @@
     transition: all 0.3s ease;
     grid-column: 1 / -1;
 }
+
+@media screen and (max-width: 450px) {
+.app-header-book{
+    display: none;}
+}

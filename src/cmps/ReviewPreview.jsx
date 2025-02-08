@@ -11,7 +11,7 @@ export function ReviewPreview({ review }) {
     let isClicked = false;
     function showMoreHandler(event){
         isClicked = !isClicked;
-        event.target.innerHTML = isClicked? "SHOW less" : "show More"
+        event.target.innerHTML = isClicked? "SHOW less" : "Show More"
         pRef.current.style.height = isClicked? "auto" : "125px"
     }
 
@@ -25,7 +25,7 @@ export function ReviewPreview({ review }) {
                     <div className="review-about">3 years on TripNgo</div>
                 </div>
             </div>
-            <p ref={pRef} className="review-txt overflowHidden hegith125" >"{review.txt}"</p>
+            <p ref={pRef} className="review-txt " >"{review.txt}"</p>
             {
                 isOverflow? 
                     <button className='btn-show-more' onClick={showMoreHandler}> Show more </button>

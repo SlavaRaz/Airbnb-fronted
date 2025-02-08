@@ -8,17 +8,24 @@
       padding-inline: em(24px, 16px);
     }
 
+    .map-container{
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 32px;
+    }
+
     h1 {
       font-size: rem(22px);
       font-family: $font-caption;
       padding-bottom: 24px;
+      font-weight: 500;
     }
 
     h3 {
       font-size: rem(16px);
       font-family: $font-caption;
       padding-bottom: 24px;
-      padding-top: 24px;
+      font-weight: 400;
     }
 
     .map-popper {
@@ -51,3 +58,24 @@
       }
     }
   }
+
+  @media screen and (max-width: 743px) {
+    .stay-map {
+      padding: 0 16px;
+    }
+  
+    .map-container {
+      height: 300px !important; // Reduce height
+      border-radius: 10px !important;
+      overflow: hidden;
+    }
+
+    .stay-map h1{
+      padding-bottom: 0px !important;
+    }
+    .stay-location-name{
+      padding-bottom: 10px !important;
+      font-weight: 500 !important;
+    }
+  }
+  

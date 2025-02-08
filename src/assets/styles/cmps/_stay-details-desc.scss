@@ -4,7 +4,6 @@
   max-width: 1120px;
   margin: auto;
   font-family: $font-caption;
-  border-bottom: 1px solid #dedede;
 
   .details {
     width: 100%;
@@ -71,6 +70,14 @@
       background-color: rgb(216, 213, 213);
       margin: 10px 0px;
       width: 100%;
+    }
+
+    .divider-amenities {
+      height: 0.5px;
+      background-color: rgb(216, 213, 213);
+      width: 366px;
+      margin: auto !important;
+      display: none;
     }
 
     .advantages-list {
@@ -143,9 +150,160 @@
   }
 }
 
-.stay-map {
-  max-width: 1120px; // להתאים לרוחב של האתר
-  width: 100%;
-  margin: auto; // למרכז את המפה
+.divider {
+  height: 0.5px;
+  background-color: rgb(216, 213, 213);
+    max-width: 1120px;
+    margin: auto;
 }
 
+.divider-map{
+  height: 0.5px;
+  background-color: rgb(216, 213, 213);
+  margin: 10px 0px;
+  max-width: 1120px;
+  margin: auto;
+}
+
+.stay-map {
+  max-width: 1120px; 
+  width: 100%;
+  margin: auto; 
+}
+
+@media screen and (max-width: 743px) {
+  .details-and-reserve {
+    display: flex;
+    flex-direction: column; // Stack elements
+    max-width: 100%; // Full width
+
+    .details {
+      width: 100%;
+      margin-bottom: 24px;
+    }
+
+    .reserve-stay-form {
+      display: block;
+      width: 100%;
+      padding: 0px 16px;
+      padding-top:32px !important ;
+      padding-bottom:24px !important ;
+
+          border-radius: 12px;
+    }
+  }
+
+  .booking-modal-form{
+    margin: 0px 0px !important;
+  }
+}
+
+@media screen and (max-width: 743px) {
+  .stay-description {
+    font-size: 1rem; // Adjust text size for readability
+    line-height: 1.5rem;
+    padding: 16px 0;
+  }
+}
+
+@media screen and (max-width: 743px) {
+  .advantages-list {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .advantage {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .advantage-icon img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .advantage-text {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+@media screen and (max-width: 743px) {
+  .type-title {
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+  }
+
+  .capacity-details {
+    font-size: 1rem;
+  }
+
+  .host {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+
+    img {
+      width: 36px;
+      height: 36px;
+    }
+
+    .host-text {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+@media screen and (max-width: 743px) {
+
+  .type-title{
+    font-size: 1em !important;
+  }
+
+  .details{
+    padding: 0px 24px !important;
+    margin: auto !important;
+
+  }
+
+  .type-and-capacity{
+    padding: 0px !important;
+  }
+
+  .type-title{
+    line-height: 1.25rem !important;
+    font-size: 1em !important;
+  }
+
+  .capacity-details{
+    font-size: 1.125rem !important;
+  }
+
+  .divider{
+    margin: 0px !important;
+  }
+  .divider-amenities{
+    display: block !important;
+  }
+
+  .advantages-list{
+    padding: 24px 0px !important;
+  }
+
+  .stay-description{
+    padding-top: 32px !important;
+    padding-bottom: 24px !important;
+  }
+
+  .stay-amenities{
+    padding-top: 32px !important;
+    padding-bottom: 24px !important;
+  }
+  .PageFooter {
+    flex-direction: column;
+    text-align: center;
+    padding: 16px;
+  }
+
+
+}

@@ -7,7 +7,9 @@ export function PageFooter() {
     <footer className='page-footer full main-container'>
         <div className='footer-container'>
           <div className='footer-left'>
-            <span>&copy; 2025 Coffeerights, Inc </span>
+          <div className='copyrights'>
+            <span>&copy; 2025 Slava, Shani, Odeya, Inc </span></div>
+            <div>
             <span className='dot'>·</span>
             <span>Terms</span>
             <span className='dot'>·</span>
@@ -15,7 +17,7 @@ export function PageFooter() {
             <span className='dot'>·</span>
             <span>Privacy</span>
             <span className='dot'>·</span>
-            <span>Your Privacy Choices</span>
+            <span>Your Privacy Choices</span></div>
           </div>
 
           <div className='footer-right'>

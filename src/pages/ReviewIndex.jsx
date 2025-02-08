@@ -67,7 +67,9 @@ export function ReviewIndex({ stayId, stay }) {
   }
 
   return (
+    <div className='reviews-container'>
     <div className='review-index'>
+    
       <div className='reviews-title'>
         <img src={StarIcon} alt='star' width='18' height='18' />
         <h2>{`${stay.rate} · 6 reviews`}</h2>
@@ -75,7 +77,7 @@ export function ReviewIndex({ stayId, stay }) {
 
 
       <ReviewList reviews={reviews} onRemoveReview={onRemoveReview} />
-    </div>
+    </div></div>
   )
 }
 

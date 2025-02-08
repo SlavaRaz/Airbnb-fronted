@@ -83,6 +83,8 @@ export function StayDescription({ stay }) {
         </div>
 
         <div className='reserve-stay-form'>
+    
+
           <BookingForm
             stay={stay}
             openTab={openTab}
@@ -90,7 +92,11 @@ export function StayDescription({ stay }) {
             reserveBtnRef={reserveBtnRef}
           />
         </div>
+        <div className='divider-amenities'></div>
+
       </div>
+      <div className='divider'></div>
+
     </article>
   )
 } 

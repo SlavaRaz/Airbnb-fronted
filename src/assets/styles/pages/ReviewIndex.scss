@@ -2,7 +2,7 @@
 
     max-width: 1120px;
     margin: auto;
-    padding: 48px 0px;
+    padding-top: 48px;
     h2 {
         margin: 0;
     }
@@ -14,4 +14,21 @@
         margin-bottom: 40px;
         gap: 4px;
     }
+}
+
+@media screen and (max-width: 450px) {
+    .reviews-container{
+        width: 100%;
+            background-color: rgb(249, 244, 238);
+
+    }
+.review-index{
+    max-width: 366px ;
+    padding-top: 32px !important;
+    padding-bottom: 24px !important;
+}
+
+.reviews-title{
+margin-bottom: 10px !important;}
+
 }

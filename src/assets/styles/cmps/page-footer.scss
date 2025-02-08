@@ -33,3 +33,16 @@
         }
     }
 }
+
+@media screen and (max-width: 743px) {
+.footer-left{
+    display: flex !important;
+    flex-direction: column !important;
+    max-width: 414px;
+    margin: auto;
+}
+
+ .footer-right{
+    display: none !important;
+ }
+  }

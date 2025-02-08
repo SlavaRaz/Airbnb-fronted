@@ -6,7 +6,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import StarIcon from '../assets/img/various/star.svg'
 import arrowLeft from '../assets/img/various/left-arrow.svg'
 import arrowRight from '../assets/img/various/right-arrow.svg'
-import { stayService } from '../services/stay/stay.service.local'
+import { stayService } from '../services/stay/'
 
 export function InfiniteScrollCmp(props) {
   const [stays, setStays] = useState([])
@@ -15,6 +15,12 @@ export function InfiniteScrollCmp(props) {
 
   const filterBy = {
     location: searchParams.get('location') || '',
+    checkIn: searchParams.get('checkIn')
+      ? new Date(+searchParams.get('checkIn'))
+      : '',
+    checkOut: searchParams.get('checkOut')
+      ? new Date(+searchParams.get('checkOut'))
+      : '',
     guests: {
       adults: +searchParams.get('adults') || 0,
       children: +searchParams.get('children') || 0,
@@ -22,11 +28,10 @@ export function InfiniteScrollCmp(props) {
       pets: +searchParams.get('pets') || 0,
     },
   }
-  
+
   useEffect(() => {
     const fetchStays = async () => {
       try {
-        console.log('filterBy:', filterBy)
         const fetchedStays = await stayService.query(filterBy)
         setStays(fetchedStays)
         setDisplayedStays(fetchedStays.slice(0, 36))

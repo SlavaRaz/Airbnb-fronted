@@ -3,7 +3,7 @@ import { BookingForm } from './BookingForm'
 import { Amenities } from './amenities'
 import { useEffect, useRef, useState } from 'react'
 import useOnScreen from '../customHooks/useOnScreen'
-import { stayService } from '../services/stay/stay.service.local'
+import { stayService } from '../services/stay/'
 import cancelationIcon from '../assets/img/highlights/calendar.svg'
 import locationIcon from '../assets/img/highlights/location.svg'
 import checkInIcon from '../assets/img/highlights/check in.svg'
@@ -13,8 +13,7 @@ import checkInIcon from '../assets/img/highlights/check in.svg'
 export function StayDescription({ stay }) {
   const [openTab, setOpenTab] = useState(false)
   const reserveBtnRef = useRef()
-  const reserveBtnVisible = useOnScreen(reserveBtnRef, '-34px')
-
+  // const reserveBtnVisible = useOnScreen(reserveBtnRef, '-34px')
 
   return (
     <article>
@@ -81,10 +80,6 @@ export function StayDescription({ stay }) {
           <div className='divider'></div>
 
           <Amenities stay={stay} />
-
-        
-
-
         </div>
 
         <div className='reserve-stay-form'>

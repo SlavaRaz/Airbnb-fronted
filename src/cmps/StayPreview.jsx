@@ -3,8 +3,15 @@ import StarIcon from '../assets/img/various/star.svg'
 import arrowLeft from '../assets/img/various/left-arrow.svg'
 import arrowRight from '../assets/img/various/right-arrow.svg'
 import { Link } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
+import { utilService } from '../services/util.service'
+
 
 export function StayPreview({ stay, filters }) {
+
+  const currLocation = useLocation()
+  const searchStr = utilService.setDefaultParams(currLocation.search)
+
   const renderArrowPrev = (onClickHandler, hasPrev) => {
     return hasPrev ? (
       <button
@@ -38,7 +45,7 @@ export function StayPreview({ stay, filters }) {
   }
 
   let display = 'block'
-  
+
   if (filters && stay.type !== filters) {
     display = 'none'
   }
@@ -49,8 +56,8 @@ export function StayPreview({ stay, filters }) {
       key={stay._id}
       className='stay-preview'
     >
-      
-      <Link to={`/stay/${stay._id}`} key={stay._id} className='stay-link'>
+
+      <Link to={`/stay/${stay._id}${searchStr}`} key={stay._id} className='stay-link'>
         <Carousel
           renderArrowPrev={renderArrowPrev}
           renderArrowNext={renderArrowNext}

@@ -3,9 +3,12 @@ import { useTable } from 'react-table'
 import redDot from '../assets/img/various/red-dot.svg'
 import greenDot from '../assets/img/various/green-dot.svg'
 import yellowDot from '../assets/img/various/yellow-dot.svg'
+import { utilService } from '../services/util.service.js'
+
 
 export function MyListingsTable({ trips, onAccept, onReject }) {
   const data = React.useMemo(() => trips.slice().reverse(), [trips]);
+
 
   const columns = React.useMemo(
     () => [
@@ -32,8 +35,8 @@ export function MyListingsTable({ trips, onAccept, onReject }) {
           </div>
         ),
       },
-      { Header: 'Check-in', accessor: 'startDate' },
-      { Header: 'Check-out', accessor: 'endDate' },
+      { Header: 'Check-in', accessor: 'startDate',Cell: ({ value }) => utilService.formattedDate(value) },
+      { Header: 'Check-out', accessor: 'endDate',Cell: ({ value }) => utilService.formattedDate(value) },
       {
         Header: 'Stay',
         accessor: 'stay.name',

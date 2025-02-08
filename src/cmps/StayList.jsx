@@ -3,15 +3,21 @@ import { useSearchParams } from 'react-router-dom'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { StayPreview } from '../cmps/StayPreview'
-import { stayService } from '../services/stay/stay.service.local'
+import { stayService } from '../services/stay/'
 
-export function StayList({filters}) {
+export function StayList({ filters }) {
   const [stays, setStays] = useState([])
   const [displayedStays, setDisplayedStays] = useState([])
   const [searchParams, setSearchParams] = useSearchParams()
 
   const filterBy = {
     location: searchParams.get('location') || '',
+    checkIn: searchParams.get('checkIn')
+      ? new Date(+searchParams.get('checkIn'))
+      : '',
+    checkOut: searchParams.get('checkOut')
+      ? new Date(+searchParams.get('checkOut'))
+      : '',
     guests: {
       adults: +searchParams.get('adults') || 0,
       children: +searchParams.get('children') || 0,
@@ -19,11 +25,10 @@ export function StayList({filters}) {
       pets: +searchParams.get('pets') || 0,
     },
   }
-  
+
   useEffect(() => {
     const fetchStays = async () => {
       try {
-        console.log('filterBy:', filterBy)
         const fetchedStays = await stayService.query(filterBy)
         setStays(fetchedStays)
         setDisplayedStays(fetchedStays.slice(0, 36))
@@ -44,12 +49,10 @@ export function StayList({filters}) {
     }, 1000)
   }
 
-  console.log(stays[0]);
-
 
   return (
     <InfiniteScroll
-    className='main-stays'
+      className='main-stays'
       dataLength={displayedStays.length}
       next={fetchMoreStays}
       hasMore={displayedStays.length < stays.length}
@@ -58,7 +61,7 @@ export function StayList({filters}) {
       <section>
         <ul className='stay-list'>
           {displayedStays.map((stay) => (
-            <StayPreview key={stay._id} stay={stay} filters= {filters}/>
+            <StayPreview key={stay._id} stay={stay} filters={filters} />
           ))}
         </ul>
       </section>

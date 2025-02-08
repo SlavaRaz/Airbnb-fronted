@@ -4,7 +4,6 @@ import { storageService } from '../services/async-storage.service'
 export function SearchPreview({ staySearchParams, handlePreviewClick }) {
 
     const { location, checkIn, checkOut, guests } = staySearchParams
-    console.log('staySearchParams:', staySearchParams)
 
     const locationContent = location || 'Anywhere'
     const dateContent =

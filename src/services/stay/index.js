@@ -19,7 +19,7 @@ function getDefaultFilter() {
     return {
         name: '',
         location: '',
-        checkIn: '',            
+        checkIn: '',
         checkOut: '',
         guests: 0,
     }

@@ -15,7 +15,8 @@ export const utilService = {
   formattedDate,
   ShortFormattedDate,
   totalDays,
-  generateRandomDate
+  generateRandomDate,
+  setDefaultParams
 
 }
 
@@ -129,5 +130,19 @@ function generateRandomDate(startDate, minDays, maxDays) {
   const resultDate = new Date(startDate)
   resultDate.setDate(resultDate.getDate() + randomDays)
   return resultDate
+}
+
+function setDefaultParams(searchStr){
+  if (!searchStr.includes('checkIn')){
+    searchStr += '&checkIn=' + getTimeStampXDaysFromNow(7)
+  } 
+  if (!searchStr.includes('checkOut')){
+    searchStr += '&checkOut=' + getTimeStampXDaysFromNow(14)
+  }
+  const firstChar=searchStr.charAt(0)
+  if (firstChar === '&') {
+    searchStr= '?' + searchStr.slice(1)
+  }
+  return searchStr
 }
 

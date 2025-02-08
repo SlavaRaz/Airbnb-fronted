@@ -21,15 +21,13 @@ import staysDataJson from '../../data/stays.json'
 import StarIcon from '../assets/img/various/star.svg'
 
 export function ReviewIndex({ stayId, stay }) {
+  const dispatch = useDispatch()
   const loggedInUser = useSelector((storeState) => storeState.userModule.user)
   // const reviews = useSelector(storeState => storeState.reviewModule.reviews)
-  let [reviews, setReviews] = useState([])
-
-  const dispatch = useDispatch()
-
+  const [reviews, setReviews] = useState([])
+  
   useEffect(() => {
-    let currentStay = staysDataJson.find((obj) => obj._id == stayId)
-    setReviews(currentStay['reviews'])
+    if (stayId) loadStay()
     //loadReviews()
     loadUsers()
 
@@ -47,7 +45,17 @@ export function ReviewIndex({ stayId, stay }) {
       socketService.off(SOCKET_EVENT_REVIEW_ADDED)
       socketService.off(SOCKET_EVENT_REVIEW_REMOVED)
     }
-  }, [])
+  }, [stayId])
+
+  async function loadStay() {
+    try {
+      const stay = await stayService.getById(stayId)
+      setReviews(stay['reviews'])
+    } catch (err) {
+      console.log('Cannot load stay details', err)
+      navigate('/')
+    }
+  }
 
   async function onRemoveReview(reviewId) {
     try {
@@ -65,7 +73,7 @@ export function ReviewIndex({ stayId, stay }) {
         <h2>{`${stay.rate} · 6 reviews`}</h2>
       </div>
 
-	  
+
       <ReviewList reviews={reviews} onRemoveReview={onRemoveReview} />
     </div>
   )

@@ -7,10 +7,10 @@ import rareDiamond from '../assets/img/various/rare-diamond.svg'
 import { BtnSquareColor } from '../cmps/ui/buttons/btn-square-color.jsx'
 import { FaStar } from 'react-icons/fa'
 
-import { utilService } from '../services/util.service'
+import { utilService } from '../services/util.service.js'
 import { loadStay } from '../store/actions/stay.actions'
 import { stayService } from '../services/stay'
-import { bookService } from '../services/book.service.local'
+import { bookService } from '../services/book/'
 import { AppHeaderBook } from '../cmps/AppHeaderBook.jsx'
 import { LoginSignup } from '../cmps/Login-signup.jsx'
 import { PageFooter } from '../cmps/PageFooter.jsx'
@@ -34,10 +34,8 @@ export function BookPage() {
     async function loadStay() {
         try {
             const stay = await stayService.getById(stayId)
-            console.log(stay)
             setStay(stay)
             const bookingRequest = handleBookingRequest(stay)
-            console.log(bookingRequest)
             setStayToBook(bookingRequest)
         } catch (err) {
             console.log('Cannot load stay details', err)
@@ -48,27 +46,24 @@ export function BookPage() {
     function handleBookingRequest(stay) {
         const SERVICE_FEE = 11.2
 
-        const startDate = +params.get('checkIn')
-        const endDate = +params.get('checkOut')
+        const startDate = +params.get('checkIn') || Date.now()
+        const endDate = +params.get('checkOut') || Date.now() + 1000 * 60 * 60 * 24
+        console.log(utilService.formattedDate(startDate))
+        console.log(utilService.formattedDate(endDate))
 
-        console.log(utilService.formattedDate(startDate));
-        console.log(utilService.formattedDate(endDate));
-
-
-        
-        
-        const totalBookDays = utilService.totalDays(startDate, endDate)
+        const totalBookDays = +utilService.totalDays(startDate, endDate)
         const status = 'pending'
 
         return {
-            startDate: utilService.formattedDate(+params.get('checkIn')),
-            endDate: utilService.formattedDate(+params.get('checkOut')),
+            startDate,
+            endDate,
             totalBookDays,
-            stay: { name: stay.name, imgUrl: stay.imgUrls[0], country: stay.loc.country, city: stay.loc.city},
+            stay: { _id: stay._id, name: stay.name, imgUrl: stay.imgUrls[0], country: stay.loc.country, city: stay.loc.city },
             user: {
+                // user:user._id,
                 fullname: user.fullname,
                 imgUrl: user.imgUrl,
-              },
+            },
             guests: {
                 adults: +params.get('adults') || 1,
                 children: +params.get('children') || 0,
@@ -85,16 +80,13 @@ export function BookPage() {
     }
 
     async function saveBookingRequest() {
-        console.log(stayToBook)
-        console.log(user);
-        
         try {
             await bookService.save(stayToBook)
             // showSuccessMsg('Book Saved!')
             setIsBooked(true)
             navigate('/mytrips')
         } catch (err) {
-            showErrorMsg('Cannot save book')
+            // showErrorMsg('Cannot save book')
         }
     }
 
@@ -120,7 +112,6 @@ export function BookPage() {
         navigate('/trip')
     }
 
-    console.log('stay', stay)
     console.log('stayToBook', stayToBook)
     return (
         <div>
@@ -286,8 +277,8 @@ export function BookPage() {
                     </section>
                 </main>
             </section>
-                  <PageFooter/>
-            
+            <PageFooter />
+
         </div>
     )
 }

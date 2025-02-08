@@ -34,8 +34,8 @@ export function SearchBar() {
 
     const [staySearchParams, setStaySearchParams] = useState({
         location: searchParams.get('location') || '',
-        checkIn: searchParams.get('checkIn') || '',
-        checkOut: searchParams.get('checkOut') || '',
+        checkIn: searchParams.get('checkIn') ? new Date(+searchParams.get('checkIn')) : '',
+        checkOut: searchParams.get('checkOut') ? new Date(+searchParams.get('checkOut')) : '',
         guests: {
             adults: +searchParams.get('adults') || 0,
             children: +searchParams.get('children') || 0,

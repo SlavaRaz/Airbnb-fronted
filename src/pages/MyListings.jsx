@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { bookService } from '../services/book.service.local';
+import { bookService } from '../services/book/';
 import { MyListingsTable } from '../cmps/MyListingsTable';
 import { Loader } from '../cmps/Loader';
 import { MyListingsHeader } from '../cmps/MyListingsHeader';

@@ -22,7 +22,6 @@ export function StaySearchForm({ staySearchParams, handleToggle, selectedTab, se
 
     function onSetField(field, value) {
         setFields((prevFields) => ({ ...prevFields, [field]: value }))
-        // Update the selected tab to guide the user to the next step
         const nextTab = field === "location" ? "checkIn" : field === "checkIn" ? "checkOut" : "guests"
         setSelectedTab(nextTab)
         handleSearchParamChange(field, value)
@@ -40,27 +39,24 @@ export function StaySearchForm({ staySearchParams, handleToggle, selectedTab, se
 
         const searchObject = {
             location: fields.location,
-            // checkIn: (fields.checkIn) ? fields.checkIn.getTime() : utilService.getTimeStampXDaysFromNow(7),
-            // checkOut: (fields.checkOut) ? fields.checkOut.getTime() : utilService.getTimeStampXDaysFromNow(14),
+            checkIn: (fields.checkIn) ? fields.checkIn.getTime() : utilService.getTimeStampXDaysFromNow(7),
+            checkOut: (fields.checkOut) ? fields.checkOut.getTime() : utilService.getTimeStampXDaysFromNow(14),
             adults: fields.guests.adults,
             children: fields.guests.children,
             infants: fields.guests.infants,
             pets: fields.guests.pets,
         }
-
         const guests = {
             adults: searchObject.adults || 0,
             children: searchObject.children || 0,
             infants: searchObject.infants || 0,
             pets: searchObject.pets || 0,
         }
-
+        
         const filterBy = {
             location: searchObject.location,
             guests,
         }
-
-        console.log('searchObject:', searchObject)
         const searchParams = utilService.objectToSearchParams(searchObject)
         navigate(`/?${searchParams}`)
         loadStays(filterBy)
@@ -146,14 +142,14 @@ export function StaySearchForm({ staySearchParams, handleToggle, selectedTab, se
                         </div>
                         <div style={{ display: "contents" }} onClick={handleSubmit}>
                             {validTabs.includes(selectedTab) ?
-                                    <button className="search-btn-open">
-                                        <section className="search-icon">
-                                            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false"><g fill="none"><path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path></g></svg>
-                                        </section>
-                                        <div>
-                                            Search
-                                        </div>
-                                    </button>
+                                <button className="search-btn-open">
+                                    <section className="search-icon">
+                                        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false"><g fill="none"><path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path></g></svg>
+                                    </section>
+                                    <div>
+                                        Search
+                                    </div>
+                                </button>
                                 : <button className="search-btn">
                                     <section className="search-icon">
                                         <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false"><g fill="none"><path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path></g></svg>
